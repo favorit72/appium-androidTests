@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke Test Suite" parallel="true">
+    <test name="Smoke Tests">
+        <classes>
+            <class name="com.rubetek.tests.FeatureATest">
+                <methods>
+                    <include name="testA1"/>
+                </methods>
+            </class>
+            <!-- <class name="com.rubetek.tests.StartTestt">
+                <methods>
+                    <include name="Login"/>
+                </methods>
+            </class> -->
+            <class name="com.rubetek.tests.FeatureBTest">
+                <methods>
+                    <include name="testB1"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
