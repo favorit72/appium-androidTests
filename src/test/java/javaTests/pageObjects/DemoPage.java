@@ -14,12 +14,9 @@ public class DemoPage {
     @AndroidFindBy(id = "com.rubetek.client:id/btn_demo")
     public MobileElement demoMode;
 
-    @Step("asd")
+    @Step("Нажимаем на кнопку Демо-режим")
     public void clickDemoButton() {
         demoMode.click();
-//        System.out.println("Start Demo Test");
-//        System.out.println("Start Demo Test");
-//        System.out.println("Start Demo Test");
     }
 
     public DemoPage(AppiumDriver<WebElement> driver) {

@@ -3,7 +3,6 @@ package javaTests.steps;
 import org.openqa.selenium.WebElement;
 
 import io.appium.java_client.AppiumDriver;
-
 import io.qameta.allure.Step;
 import javaTests.pageObjects.LoginPage;
 
@@ -15,49 +14,52 @@ public class LoginSteps {
         loginPage = new LoginPage(driver);
     }
 
-    @Step("нажимаем начать пользоваться")
+    @Step("Нажимаем начать пользоваться")
     public void clickStartUsing() {
         loginPage.startUsing.click();
     }
 
-    @Step("вводим корректный логин")
+    @Step("Вводим корректный логин")
     public void insertCorrectPhoneNumber(String number) {
         loginPage.phoneField.sendKeys(number);
     }
 
-    @Step("нажимаем кнопку далее")
+    @Step("Нажимаем кнопку далее")
     public void clickNextButton() {
         loginPage.nextButton.click();
     }
 
-    @Step("вводим корректный пароль")
+    @Step("Вводим корректный пароль")
     public void insertCorrectPassword(String password) {
         loginPage.passwordField.sendKeys(password);
     }
 
-    @Step("кнопка доступна")
+    @Step("Кнопка доступна")
     public boolean enableAuthorizeButton() {
         return loginPage.nextButton.isEnabled();
     }
 
+    @Step("Очищаем поле логина")
     public void clearPhoneField() {
         loginPage.phoneField.clear();
     }
 
+    @Step("Очищаем поле пароля")
     public void clearPasswordField() {
         loginPage.passwordField.clear();
     }
 
+    @Step("Нажимем забыли пароль")
     public void clickForgotThePassword() {
         loginPage.forgotThePassword.click();
     }
 
-    @Step("вводим смс-код")
+    @Step("Вводим смс-код")
     public void insertSmsCode(String code) {
         loginPage.smsCodeField.sendKeys(code);
     }
 
-    @Step("вводим новый пароль")
+    @Step("Вводим новый пароль")
     public void insertNewPassword(String password) {
         loginPage.newPassword.sendKeys(password);
     }

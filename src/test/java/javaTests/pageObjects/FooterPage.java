@@ -35,14 +35,17 @@ public class FooterPage {
         scenario.click();
     }
 
+    @Step("Нажимаем на вкладку событий")
     public void clickEvents() {
         events.click();
     }
 
+    @Step("Нажимаем на вкладку статистики")
     public void clickStatistics() {
         statistics.click();
     }
 
+    @Step("Нажимаем на вкладку камер")
     public void clickCameras() {
         cameras.click();
     }
