@@ -7,14 +7,13 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class LoginPage extends DriverWait {
-    /**
-     * локаторы экранов авторизации
-     */
     public LoginPage(AndroidDriver androidDriver) {
         super(androidDriver);
     }
 
-    //Кнопки
+    /**
+     * Кнопки
+     */
     @AndroidFindBy(id = "com.rubetek.client:id/signIn")
     public MobileElement startUsing;
     @AndroidFindBy(id = "com.rubetek.client:id/authorizeButton")
@@ -22,7 +21,9 @@ public class LoginPage extends DriverWait {
     @AndroidFindBy(id = "com.rubetek.client:id/tvForgottenPassword")
     public MobileElement forgotThePassword;
 
-    //Поля
+    /**
+     * поля
+     */
     @AndroidFindBy(id = "com.rubetek.client:id/etPhone")
     public MobileElement phoneField;
     @AndroidFindBy(id = "com.rubetek.client:id/etPassword")
@@ -30,7 +31,9 @@ public class LoginPage extends DriverWait {
     @AndroidFindBy(id = "com.rubetek.client:id/etCode")
     public MobileElement smsCodeField;
 
-    //тексты на экране
+    /**
+     * тексты на экране
+     */
     @AndroidFindBy(id = "com.rubetek.client:id/tvPhoneTitle")
     public MobileElement loginTitle;
     @AndroidFindBy(id = "android:id/text")
@@ -41,5 +44,7 @@ public class LoginPage extends DriverWait {
     public MobileElement smsCodeTitle;
     @AndroidFindBy(id = "com.rubetek.client:id/codeSubtext")
     public MobileElement subTextSmsCode;
+    @AndroidFindBy(id = "com.rubetek.client:id/tvPasswordTitle")
+    public MobileElement newPasswordTitle;
 }
 

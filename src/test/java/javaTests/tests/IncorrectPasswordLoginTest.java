@@ -9,7 +9,7 @@ import utils.BaseTest;
 import utils.Listener.Listener;
 
 @Listeners(Listener.class)
-public class LoginTest extends BaseTest {
+public class IncorrectPasswordLoginTest extends BaseTest {
     private LoginSteps login;
     // private WebDriverWait wait = new WebDriverWait(driver(), 10);
 
@@ -19,21 +19,20 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void Login() {
+    public void IncorrectPasswordLogin() {
         System.out.println("Start Login Test");
         login.clickStartUsingBtn();
-        login.checkTextLoginTitle();
+        login.enableAuthorizeBtn();
+        login.insertCorrectPhoneNumber("9999");
+        login.enableAuthorizeBtn();
+        login.clearPhoneField();
         login.insertCorrectPhoneNumber("9606456230");
         login.clickNextBtn();
+        login.insertCorrectPassword("123");
+        login.enableAuthorizeBtn();
+        login.clearPasswordField();
         login.insertCorrectPassword("jktu123");
         login.clickNextBtn();
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("android.widget.ImageView")));
+//      wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("android.widget.ImageView")));
     }
 }
-//    boolean isEnabled = login.enableAuthorizeButton();
-//
-//        if (isEnabled) {
-//                System.out.println("Кнопка доступна");
-//                } else {
-//                System.out.println("Кнопка не доступна");
-//                }

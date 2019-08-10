@@ -1,6 +1,5 @@
 package javaTests.tests;
 
-
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -33,11 +32,13 @@ public class ForgotThePasswordTest extends BaseTest {
         driver().openNotifications();
         String smsCode = login.getSmsCode();
         driver().pressKey(new KeyEvent(AndroidKey.BACK));
-        login.insertSmsCode("1111");
         login.checkTextSmsCodeTitle();
+        login.insertSmsCode("1111");
+        login.checkTextIncorrectSmsCode();
         login.clearSmsCodeField();
         login.insertSmsCode(smsCode);
         login.clickNextBtn();
+        login.checkTextNewPasswordTitle();
         login.insertNewPassword("jktu1234");
         login.clickNextBtn();
     }

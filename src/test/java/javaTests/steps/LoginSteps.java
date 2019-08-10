@@ -14,7 +14,9 @@ public class LoginSteps {
         loginPage = new LoginPage(androidDriver);
     }
 
-    //клики
+    /**
+     * клики
+     */
     @Step("Нажимаем начать пользоваться")
     public void clickStartUsingBtn() {
         loginPage.startUsing.click();
@@ -30,7 +32,9 @@ public class LoginSteps {
         loginPage.forgotThePassword.click();
     }
 
-    //действия над полями
+    /**
+     * действия над полями
+     */
     @Step("Вводим корректный логин")
     public void insertCorrectPhoneNumber(String number) {
         loginPage.phoneField.sendKeys(number);
@@ -66,16 +70,20 @@ public class LoginSteps {
         loginPage.passwordField.sendKeys(password);
     }
 
-    //проверки
+    /**
+     * проверки
+     */
     @Step("Проверяем заголовок экрана логин")
     public void checkTextLoginTitle() {
         String loginTitleText = loginPage.loginTitle.getText();
         Assert.assertEquals(loginTitleText, "Введите номер телефона");
     }
 
-    @Step("Кнопка доступна")
+    @Step("Кнопка  недоступна")
     public boolean enableAuthorizeBtn() {
-        return loginPage.nextButton.isEnabled();
+        boolean enable = loginPage.nextButton.isEnabled();
+        Assert.assertTrue(enable);
+        return enable;
     }
 
     @Step("Проверяем текст ошибки неправильного смс кода в снекбаре")
@@ -96,7 +104,8 @@ public class LoginSteps {
         Assert.assertEquals(textTitleSmsCode, "Введите код из смс");
     }
 
-    @Step("Проверяем подзаголовок поля ввода смс")
+    //В тексте использованы разные пробелы
+    @Step("Проверяем подпись поля ввода смс")
     public void checkSubTextSmsCode() {
         String subTextSmsCode = loginPage.subTextSmsCode.getText()
                 .replaceAll(" ", "")
@@ -106,7 +115,15 @@ public class LoginSteps {
                 .replaceAll(" ", ""));
     }
 
-    //прочие действия
+    @Step("Проверяем заголовок экрана нового пароля")
+    public void checkTextNewPasswordTitle() {
+        String textTitleNewPassword = loginPage.newPasswordTitle.getText();
+        Assert.assertEquals(textTitleNewPassword, "Придумайте пароль");
+    }
+
+    /**
+     * прочие действия
+     */
     @Step("Дергаем смс-код")
     public String getSmsCode() {
         String smsCode = loginPage.smsTextCode.getText();
