@@ -1,19 +1,22 @@
-//package javaTests.steps;
-//
-//import com.rubetek.tests.pageObjects.DemoPage;
-//import com.rubetek.tests.tests.BaseTest;
-//
-//import org.openqa.selenium.WebElement;
-//
-//import io.appium.java_client.AppiumDriver;
-//import io.qameta.allure.Step;
-//
-//public class DemoSteps extends BaseTest {
-//
-//    DemoPage demo = new DemoPage(driver);
-//
-//    @Step("Нажимаем начать использовать")
-//    public void clickDemoButton() {
-//        demo.demoMode.click();
-//    }
-//}
+package javaTests.steps;
+
+
+import org.openqa.selenium.WebElement;
+
+import io.appium.java_client.AppiumDriver;
+import io.qameta.allure.Step;
+import javaTests.pageObjects.DemoPage;
+
+public class DemoSteps {
+
+    private final DemoPage demoPage;
+
+    public DemoSteps(AppiumDriver<WebElement> driver) {
+        demoPage = new DemoPage(driver);
+    }
+
+    @Step("Нажимаем демо-режим")
+    public void clickDemoButton() {
+        demoPage.demoMode.click();
+    }
+}

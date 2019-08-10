@@ -2,13 +2,15 @@
 
 <suite name="Regression Test Suite">
     <test name="Regression Tests">
+        <parameter name="DEVICE_NAME" value="Phone:Samsung_A3" />
+        <parameter name="ID" value="8e659299" />
         <classes>
-            <!--<class name="com.rubetek.tests.tests.LogoutTest" />-->
-            <class name="com.rubetek.tests.tests.DemoHouseTest" />
-            <!--<class name="com.rubetek.tests.tests.LoginTest" />-->
-            <!--<class name="com.rubetek.tests.tests.IncorrectPasswordTest" />-->
-            <!--<class name="com.rubetek.tests.tests.ForgotThePasswordTest" />-->
-            <!--<class name="com.rubetek.tests.FeatureBTest">-->
+            <!--            <class name="javaTests.tests.IncorrectPasswordTest.DemoHouseTest" />-->
+            <!--            <class name="javaTests.tests.LoginTest" />-->
+            <!--            <class name="javaTests.tests.LogoutTest" />-->
+            <!--            <class name="javaTests.tests.IncorrectPasswordTest" />-->
+            <class name="javaTests.tests.ForgotThePasswordTest" />
+            <!--<class name="javaTests.tests.FeatureBTest">-->
             <!--<methods>-->
             <!--<exclude name="testB3"/>-->
             <!--</methods>-->
