@@ -14,7 +14,13 @@ public class LoginSteps {
         loginPage = new LoginPage(androidDriver);
     }
 
-    //клики
+    public void carMakerTap() {
+        loginPage.waitForElementToClick(loginPage.startUsing);
+    }
+
+    /**
+     * клики
+     */
     @Step("Нажимаем начать пользоваться")
     public void clickStartUsingBtn() {
         loginPage.startUsing.click();
@@ -30,14 +36,27 @@ public class LoginSteps {
         loginPage.forgotThePassword.click();
     }
 
-    //действия над полями
-    @Step("Вводим корректный логин")
-    public void insertCorrectPhoneNumber(String number) {
+    /**
+     * действия над полями
+     */
+    @Step("Вводим правильный логин")
+    public void insertCorrectLogin(String number) {
         loginPage.phoneField.sendKeys(number);
     }
 
-    @Step("Вводим корректный пароль")
+    @Step("Вводим неправильный логин")
+    public void insertInCorrectLogin(String number) {
+        loginPage.phoneField.sendKeys(number);
+    }
+
+
+    @Step("Вводим правильный пароль")
     public void insertCorrectPassword(String password) {
+        loginPage.passwordField.sendKeys(password);
+    }
+
+    @Step("Вводим неправильный пароль")
+    public void insertInCorrectPassword(String password) {
         loginPage.passwordField.sendKeys(password);
     }
 
@@ -66,38 +85,50 @@ public class LoginSteps {
         loginPage.passwordField.sendKeys(password);
     }
 
-    //проверки
+    /**
+     * проверки кнопок на доступность
+     */
+    @Step("Кнопка далее недоступна")
+    public void authorizeBtnIsNotEnable() {
+        boolean visibility = loginPage.nextButton.isEnabled();
+        Assert.assertFalse(visibility);
+    }
+
+    @Step("Кнопка далее доступна")
+    public void authorizeBtnIsEnable() {
+        boolean visibility = loginPage.nextButton.isEnabled();
+        Assert.assertTrue(visibility);
+    }
+    /**
+     * проверки текстов
+     */
     @Step("Проверяем заголовок экрана логин")
-    public void checkTextLoginTitle() {
+    public void checkLoginTitleText() {
         String loginTitleText = loginPage.loginTitle.getText();
         Assert.assertEquals(loginTitleText, "Введите номер телефона");
     }
 
-    @Step("Кнопка доступна")
-    public boolean enableAuthorizeBtn() {
-        return loginPage.nextButton.isEnabled();
-    }
-
     @Step("Проверяем текст ошибки неправильного смс кода в снекбаре")
-    public void checkTextIncorrectSmsCode() {
+    public void checkIncorrectSmsCodeText() {
         String textIncorrectSmsCode = loginPage.smsCodeTitle.getText();
         Assert.assertEquals(textIncorrectSmsCode, "Неверный код подтверждения");
     }
 
     @Step("Проверяем текст кнопки забыли пароль")
-    public void checkTextForgotThePasswordBtn() {
+    public void checkForgotThePasswordBtnText() {
         String forgotTextBtn = loginPage.forgotThePassword.getText();
         Assert.assertEquals(forgotTextBtn, "Забыли пароль?");
     }
 
     @Step("Проверяем текст заголовока экрана введите смс-код")
-    public void checkTextSmsCodeTitle() {
+    public void checkSmsCodeTitleText() {
         String textTitleSmsCode = loginPage.smsCodeTitle.getText();
         Assert.assertEquals(textTitleSmsCode, "Введите код из смс");
     }
 
-    @Step("Проверяем подзаголовок поля ввода смс")
-    public void checkSubTextSmsCode() {
+    //В тексте использованы разные пробелы
+    @Step("Проверяем подпись поля ввода смс")
+    public void checkSubSmsCodeText() {
         String subTextSmsCode = loginPage.subTextSmsCode.getText()
                 .replaceAll(" ", "")
                 .replaceAll(" ", "");
@@ -106,7 +137,27 @@ public class LoginSteps {
                 .replaceAll(" ", ""));
     }
 
-    //прочие действия
+    @Step("Проверяем заголовок экрана нового пароля")
+    public void checkNewPasswordTitleText() {
+        String textTitleNewPassword = loginPage.newPasswordTitle.getText();
+        Assert.assertEquals(textTitleNewPassword, "Придумайте пароль");
+    }
+
+    @Step("Проверяем подпись к полю ввода телефона")
+    public void checkSubLoginText() {
+        String subTextLogin = loginPage.subTextLogin.getText();
+        Assert.assertEquals(subTextLogin, "для регистрации или входа");
+    }
+
+    @Step("Ошибка неверный пароль в снекбаре")
+    public void checkSnackbarTextError() {
+        String textErrorSnackbar = loginPage.snackbar.getText();
+        Assert.assertEquals(textErrorSnackbar, "Неверный пароль");
+    }
+
+    /**
+     * прочие действия
+     */
     @Step("Дергаем смс-код")
     public String getSmsCode() {
         String smsCode = loginPage.smsTextCode.getText();

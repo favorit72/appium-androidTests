@@ -13,9 +13,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Attachment;
 
 
-public class Screenshot {
+class Screenshot {
 
-    public void captureScreenshot(AndroidDriver androidDriver, String nameDevice) {
+    void captureScreenshot(AndroidDriver androidDriver, String nameDevice) {
 
         String file = new SimpleDateFormat("yyyy:MM:dd_HH:mm:ss").format(Calendar.getInstance().getTime()) + "_" + nameDevice + ".png";
 
