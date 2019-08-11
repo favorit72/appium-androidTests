@@ -47,6 +47,6 @@ public class LoginPage extends DriverWait {
     @AndroidFindBy(id = "com.rubetek.client:id/codeSubtext")
     public MobileElement subTextSmsCode;
     @AndroidFindBy(id = "com.rubetek.client:id/tvPasswordTitle")
-    public MobileElement newPasswordTitle;
+    public MobileElement insertPasswordTitle;
 }
 

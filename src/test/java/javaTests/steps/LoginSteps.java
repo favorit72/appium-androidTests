@@ -140,7 +140,7 @@ public class LoginSteps {
 
     @Step("Проверяем заголовок экрана нового пароля")
     public void checkNewPasswordTitleText() {
-        String textTitleNewPassword = loginPage.newPasswordTitle.getText();
+        String textTitleNewPassword = loginPage.insertPasswordTitle.getText();
         Assert.assertEquals(textTitleNewPassword, "Придумайте пароль");
     }
 
@@ -156,14 +156,18 @@ public class LoginSteps {
         Assert.assertEquals(textErrorSnackbar, "Неверный пароль");
     }
 
+    @Step("Проверяем заголовок при вводе пароля")
+    public void checkPasswordTextTitle() {
+        String textTitlePasswordLogin = loginPage.snackbar.getText();
+        Assert.assertEquals(textTitlePasswordLogin, "Неверный пароль");
+    }
+
     /**
      * прочие действия
      */
     @Step("Дергаем смс-код")
     public String getSmsCode() {
         String smsCode = loginPage.smsTextCode.getText();
-//        smsCode = smsCode.replaceAll("\\D", "");
-//        smsCode = "sms:" + smsCode;
         return smsCode.replaceAll("\\D", "");
     }
 }

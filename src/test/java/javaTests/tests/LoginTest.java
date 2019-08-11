@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 import javaTests.steps.LoginSteps;
 import utils.BaseTest;
 import utils.Listener.Listener;
+import utils.data.Strings;
 
 @Listeners(Listener.class)
 public class LoginTest extends BaseTest {
     private LoginSteps login;
-    // private WebDriverWait wait = new WebDriverWait(driver(), 10);
 
     @BeforeClass
     public void beforeClass() {
@@ -23,19 +23,13 @@ public class LoginTest extends BaseTest {
         System.out.println("Start Login Test");
         login.clickStartUsingBtn();
         login.authorizeBtnIsNotEnable();
-        login.checkSubLoginText();
-        login.checkLoginTitleText();
-        login.insertCorrectLogin("9606456230");
+        login.insertCorrectLogin(Strings.CORRECT_LOGIN);
+        login.authorizeBtnIsEnable();
         login.clickNextBtn();
-        login.insertCorrectPassword("jktu123");
+        login.authorizeBtnIsNotEnable();
+        login.insertCorrectPassword(Strings.CORRECT_PASSWORD);
         login.clickNextBtn();
+        //TODO сделать проверку в концке теста
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("android.widget.ImageView")));
     }
 }
-//    boolean isEnabled = login.enableAuthorizeButton();
-//
-//        if (isEnabled) {
-//                System.out.println("Кнопка доступна");
-//                } else {
-//                System.out.println("Кнопка не доступна");
-//                }
