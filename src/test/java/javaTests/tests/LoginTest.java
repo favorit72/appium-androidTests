@@ -28,6 +28,7 @@ public class LoginTest extends BaseTest {
         login.clickNextBtn();
         login.authorizeBtnIsNotEnable();
         login.insertCorrectPassword(Strings.CORRECT_PASSWORD);
+        login.authorizeBtnIsEnable();
         login.clickNextBtn();
         //TODO сделать проверку в концке теста
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("android.widget.ImageView")));

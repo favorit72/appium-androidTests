@@ -35,6 +35,7 @@ public class IncorrectPasswordLoginTest extends BaseTest {
         login.authorizeBtnIsNotEnable();
         login.clearPasswordField();
         login.insertInCorrectPassword(Strings.INCORRECT_PASSWORD);
+        login.authorizeBtnIsEnable();
         login.clickNextBtn();
         login.checkSnackbarTextError();
         //TODO : сделать в конце теста проверку на появление элемента
