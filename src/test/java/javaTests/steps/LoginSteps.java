@@ -99,6 +99,7 @@ public class LoginSteps {
         boolean visibility = loginPage.nextButton.isEnabled();
         Assert.assertTrue(visibility);
     }
+
     /**
      * проверки текстов
      */
