@@ -3,20 +3,33 @@
 //import org.openqa.selenium.By;
 //import org.openqa.selenium.support.ui.ExpectedConditions;
 //import org.openqa.selenium.support.ui.WebDriverWait;
+//import org.testng.annotations.BeforeClass;
+//import org.testng.annotations.Listeners;
 //import org.testng.annotations.Test;
 //
 //import javaTests.pageObjects.AppSettingsPage;
 //import javaTests.pageObjects.MenuOptions;
 //import javaTests.pageObjects.UserAccountPage;
+//import javaTests.steps.LoginSteps;
 //import utils.BaseTest;
+//import utils.Listener.Listener;
 //
+//
+//@Listeners(Listener.class)
 //public class LogoutTest extends BaseTest {
+//    private MenuOptions menu;
 //
-//    @Test()
+//    @BeforeClass
+//    public void beforeClass() {
+//        menu = new MenuOptions(driver());
+//        appSettingsPage = new AppSettingsPage(driver());
+//        userAccountPage = UserAccountPage(driver());
+//    }
 //
-//    public void logout() {
+//    @Test
+//    public void Logout() {
 //        System.out.println("Start Logout Test");
-//        MenuOptions menu = new MenuOptions(driver);
+//        MenuOptions menu = new MenuOptions();
 //        AppSettingsPage appSettingsPage = new AppSettingsPage(driver);
 //        UserAccountPage userAccountPage = new UserAccountPage(driver);
 //        WebDriverWait wait = new WebDriverWait(driver, 10);

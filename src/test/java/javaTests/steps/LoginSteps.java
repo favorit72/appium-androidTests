@@ -14,9 +14,9 @@ public class LoginSteps {
         loginPage = new LoginPage(androidDriver);
     }
 
-    public void carMakerTap() {
-        loginPage.waitForElementToClick(loginPage.startUsing);
-    }
+//    public void x() {
+//        loginPage.waitForElementToClick(loginPage.startUsing);
+//    }
 
     /**
      * клики
