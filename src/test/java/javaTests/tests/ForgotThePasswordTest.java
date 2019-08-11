@@ -9,6 +9,7 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import javaTests.steps.LoginSteps;
 import utils.BaseTest;
 import utils.Listener.Listener;
+import utils.data.Strings;
 
 @Listeners(Listener.class)
 public class ForgotThePasswordTest extends BaseTest {
@@ -23,7 +24,10 @@ public class ForgotThePasswordTest extends BaseTest {
     public void ForgotThePassword() throws InterruptedException {
         System.out.println("Start forgot the password Test");
         login.clickStartUsingBtn();
-        login.insertCorrectLogin("9606456230");
+        login.checkLoginTitleText();
+        login.checkSubLoginText();
+        login.authorizeBtnIsNotEnable();
+        login.insertCorrectLogin(Strings.CORRECT_LOGIN);
         login.clickNextBtn();
         login.checkForgotThePasswordBtnText();
         login.clickForgotThePasswordBtn();
@@ -33,13 +37,16 @@ public class ForgotThePasswordTest extends BaseTest {
         String smsCode = login.getSmsCode();
         driver().pressKey(new KeyEvent(AndroidKey.BACK));
         login.checkSmsCodeTitleText();
-        login.insertSmsCode("1111");
-        login.checkIncorrectSmsCodeText();
+        login.insertSmsCode(Strings.NOT_FULL_SMSCODE);
+        login.authorizeBtnIsNotEnable();
+        login.insertSmsCode(Strings.INCORRECT_SMSCODE);
+        login.checkWrongSmsCodeSnackBarText();
         login.clearSmsCodeField();
         login.insertSmsCode(smsCode);
         login.clickNextBtn();
         login.checkNewPasswordTitleText();
-        login.insertNewPassword("jktu1234");
+        login.insertNewPassword(Strings.CORRECT_PASSWORD);
         login.clickNextBtn();
+        //todo сделать вконце проверку
     }
 }

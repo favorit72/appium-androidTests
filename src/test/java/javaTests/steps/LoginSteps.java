@@ -110,8 +110,8 @@ public class LoginSteps {
     }
 
     @Step("Проверяем текст ошибки неправильного смс кода в снекбаре")
-    public void checkIncorrectSmsCodeText() {
-        String textIncorrectSmsCode = loginPage.smsCodeTitle.getText();
+    public void checkWrongSmsCodeSnackBarText() {
+        String textIncorrectSmsCode = loginPage.snackbar.getText();
         Assert.assertEquals(textIncorrectSmsCode, "Неверный код подтверждения");
     }
 
@@ -158,8 +158,8 @@ public class LoginSteps {
 
     @Step("Проверяем заголовок при вводе пароля")
     public void checkPasswordTextTitle() {
-        String textTitlePasswordLogin = loginPage.snackbar.getText();
-        Assert.assertEquals(textTitlePasswordLogin, "Неверный пароль");
+        String textTitlePasswordLogin = loginPage.insertPasswordTitle.getText();
+        Assert.assertEquals(textTitlePasswordLogin, "Введите пароль");
     }
 
     /**
