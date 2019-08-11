@@ -37,6 +37,7 @@ public class IncorrectPasswordLoginTest extends BaseTest {
         login.insertInCorrectPassword(Strings.INCORRECT_PASSWORD);
         login.clickNextBtn();
         login.checkSnackbarTextError();
+        //TODO : сделать в конце теста проверку на появление элемента
 //      wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("android.widget.ImageView")));
     }
 }
