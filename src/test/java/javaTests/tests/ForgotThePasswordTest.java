@@ -23,22 +23,22 @@ public class ForgotThePasswordTest extends BaseTest {
     public void ForgotThePassword() throws InterruptedException {
         System.out.println("Start forgot the password Test");
         login.clickStartUsingBtn();
-        login.insertCorrectPhoneNumber("9606456230");
+        login.insertCorrectLogin("9606456230");
         login.clickNextBtn();
-        login.checkTextForgotThePasswordBtn();
+        login.checkForgotThePasswordBtnText();
         login.clickForgotThePasswordBtn();
-        login.checkSubTextSmsCode();
+        login.checkSubSmsCodeText();
         Thread.sleep(8000);
         driver().openNotifications();
         String smsCode = login.getSmsCode();
         driver().pressKey(new KeyEvent(AndroidKey.BACK));
-        login.checkTextSmsCodeTitle();
+        login.checkSmsCodeTitleText();
         login.insertSmsCode("1111");
-        login.checkTextIncorrectSmsCode();
+        login.checkIncorrectSmsCodeText();
         login.clearSmsCodeField();
         login.insertSmsCode(smsCode);
         login.clickNextBtn();
-        login.checkTextNewPasswordTitle();
+        login.checkNewPasswordTitleText();
         login.insertNewPassword("jktu1234");
         login.clickNextBtn();
     }

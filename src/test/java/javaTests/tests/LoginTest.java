@@ -22,8 +22,10 @@ public class LoginTest extends BaseTest {
     public void Login() {
         System.out.println("Start Login Test");
         login.clickStartUsingBtn();
-        login.checkTextLoginTitle();
-        login.insertCorrectPhoneNumber("9606456230");
+        login.authorizeBtnIsNotEnable();
+        login.checkSubLoginText();
+        login.checkLoginTitleText();
+        login.insertCorrectLogin("9606456230");
         login.clickNextBtn();
         login.insertCorrectPassword("jktu123");
         login.clickNextBtn();

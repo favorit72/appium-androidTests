@@ -16,19 +16,19 @@ public class DriverWait extends Constructor {
         super(androidDriver);
     }
 
-    protected MobileElement waitForElementToClick(MobileElement element) {
+    public MobileElement waitForElementToClick(MobileElement element) {
         return (MobileElement) setupWait(10).until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    protected MobileElement waitForElementIsDisplayed(MobileElement element) {
+    public MobileElement waitForElementIsDisplayed(MobileElement element) {
         return (MobileElement) setupWait(10).until(ExpectedConditions.visibilityOf(element));
     }
 
-    protected List<WebElement> waitForListElements(List<WebElement> elementList) {
+    public List<WebElement> waitForListElements(List<WebElement> elementList) {
         return setupWait(10).until(ExpectedConditions.visibilityOfAllElements(elementList));
     }
 
-    protected MobileElement waitForElementDisplayedFlexibleTime(MobileElement element, int secondsForWait) {
+    public MobileElement waitForElementDisplayedFlexibleTime(MobileElement element, int secondsForWait) {
         return (MobileElement) setupWait(secondsForWait).until(ExpectedConditions.visibilityOf(element));
     }
 

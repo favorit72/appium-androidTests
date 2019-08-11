@@ -36,6 +36,8 @@ public class LoginPage extends DriverWait {
      */
     @AndroidFindBy(id = "com.rubetek.client:id/tvPhoneTitle")
     public MobileElement loginTitle;
+    @AndroidFindBy(id = "com.rubetek.client:id/phoneSubtext")
+    public MobileElement subTextLogin;
     @AndroidFindBy(id = "android:id/text")
     public MobileElement smsTextCode;
     @AndroidFindBy(id = "com.rubetek.client:id/snackbar_text")

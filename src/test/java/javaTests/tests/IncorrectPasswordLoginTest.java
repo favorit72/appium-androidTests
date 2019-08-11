@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import javaTests.steps.LoginSteps;
 import utils.BaseTest;
 import utils.Listener.Listener;
+import utils.data.Strings;
 
 @Listeners(Listener.class)
 public class IncorrectPasswordLoginTest extends BaseTest {
@@ -20,19 +21,22 @@ public class IncorrectPasswordLoginTest extends BaseTest {
 
     @Test
     public void IncorrectPasswordLogin() {
-        System.out.println("Start Login Test");
+        System.out.println("Start Incorrect login/password Test");
         login.clickStartUsingBtn();
-        login.enableAuthorizeBtn();
-        login.insertCorrectPhoneNumber("9999");
-        login.enableAuthorizeBtn();
+        login.authorizeBtnIsNotEnable();
+        login.insertInCorrectLogin(Strings.INCORRECT_LOGIN);
+        login.authorizeBtnIsNotEnable();
         login.clearPhoneField();
-        login.insertCorrectPhoneNumber("9606456230");
+        login.insertCorrectLogin(Strings.CORRECT_LOGIN);
+        login.authorizeBtnIsEnable();
         login.clickNextBtn();
-        login.insertCorrectPassword("123");
-        login.enableAuthorizeBtn();
+        login.authorizeBtnIsNotEnable();
+        login.insertInCorrectPassword(Strings.NOT_FULL_PASSWORD);
+        login.authorizeBtnIsNotEnable();
         login.clearPasswordField();
-        login.insertCorrectPassword("jktu123");
+        login.insertInCorrectPassword(Strings.INCORRECT_PASSWORD);
         login.clickNextBtn();
+        login.checkSnackbarTextError();
 //      wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("android.widget.ImageView")));
     }
 }
