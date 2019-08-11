@@ -1,38 +1,45 @@
 package javaTests.pageObjects;
 
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
-import io.appium.java_client.AppiumDriver;
+import helpers.DriverWait;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class LoginPage {
-
-    public LoginPage(AppiumDriver<WebElement> driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+public class LoginPage extends DriverWait {
+    /**
+     * локаторы экранов авторизации
+     */
+    public LoginPage(AndroidDriver androidDriver) {
+        super(androidDriver);
     }
 
+    //Кнопки
     @AndroidFindBy(id = "com.rubetek.client:id/signIn")
     public MobileElement startUsing;
-    @AndroidFindBy(id = "com.rubetek.client:id/etPhone")
-    public MobileElement phoneField;
     @AndroidFindBy(id = "com.rubetek.client:id/authorizeButton")
     public MobileElement nextButton;
-    @AndroidFindBy(id = "com.rubetek.client:id/etPassword")
-    public MobileElement passwordField;
     @AndroidFindBy(id = "com.rubetek.client:id/tvForgottenPassword")
     public MobileElement forgotThePassword;
+
+    //Поля
+    @AndroidFindBy(id = "com.rubetek.client:id/etPhone")
+    public MobileElement phoneField;
+    @AndroidFindBy(id = "com.rubetek.client:id/etPassword")
+    public MobileElement passwordField;
     @AndroidFindBy(id = "com.rubetek.client:id/etCode")
     public MobileElement smsCodeField;
-    @AndroidFindBy(id = "com.rubetek.client:id/etPassword")
-    public MobileElement newPassword;
-    @AndroidFindBy(id = "com.rubetek.client:id/codeSubtext")
-    public MobileElement subTextError;
-    @AndroidFindBy(id = "android:id/text")
-    public MobileElement smsText;
 
+    //тексты на экране
+    @AndroidFindBy(id = "com.rubetek.client:id/tvPhoneTitle")
+    public MobileElement loginTitle;
+    @AndroidFindBy(id = "android:id/text")
+    public MobileElement smsTextCode;
+    @AndroidFindBy(id = "com.rubetek.client:id/snackbar_text")
+    public MobileElement snackbar;
+    @AndroidFindBy(id = "com.rubetek.client:id/checkCodeDesc")
+    public MobileElement smsCodeTitle;
+    @AndroidFindBy(id = "com.rubetek.client:id/codeSubtext")
+    public MobileElement subTextSmsCode;
 }
 

@@ -1,8 +1,8 @@
 package javaTests.steps;
 
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.LoginPage;
 
@@ -10,33 +10,35 @@ public class LoginSteps {
 
     private final LoginPage loginPage;
 
-    public LoginSteps(AppiumDriver<WebElement> driver) {
-        loginPage = new LoginPage(driver);
+    public LoginSteps(AndroidDriver androidDriver) {
+        loginPage = new LoginPage(androidDriver);
     }
 
+    //клики
     @Step("Нажимаем начать пользоваться")
-    public void clickStartUsing() {
+    public void clickStartUsingBtn() {
         loginPage.startUsing.click();
     }
 
+    @Step("Нажимаем кнопку далее")
+    public void clickNextBtn() {
+        loginPage.nextButton.click();
+    }
+
+    @Step("Нажимаем забыли пароль")
+    public void clickForgotThePasswordBtn() {
+        loginPage.forgotThePassword.click();
+    }
+
+    //действия над полями
     @Step("Вводим корректный логин")
     public void insertCorrectPhoneNumber(String number) {
         loginPage.phoneField.sendKeys(number);
     }
 
-    @Step("Нажимаем кнопку далее")
-    public void clickNextButton() {
-        loginPage.nextButton.click();
-    }
-
     @Step("Вводим корректный пароль")
     public void insertCorrectPassword(String password) {
         loginPage.passwordField.sendKeys(password);
-    }
-
-    @Step("Кнопка доступна")
-    public boolean enableAuthorizeButton() {
-        return loginPage.nextButton.isEnabled();
     }
 
     @Step("Очищаем поле логина")
@@ -49,29 +51,65 @@ public class LoginSteps {
         loginPage.passwordField.clear();
     }
 
-    @Step("Нажимем забыли пароль")
-    public void clickForgotThePassword() {
-        loginPage.forgotThePassword.click();
+    @Step("Очищаем поле смс-код")
+    public void clearSmsCodeField() {
+        loginPage.smsCodeField.clear();
     }
 
     @Step("Вводим смс-код")
-    public void insertSmsCode(String code) {
-        loginPage.smsCodeField.sendKeys(code);
+    public void insertSmsCode(String smsCode) {
+        loginPage.smsCodeField.sendKeys(smsCode);
     }
 
     @Step("Вводим новый пароль")
     public void insertNewPassword(String password) {
-        loginPage.newPassword.sendKeys(password);
+        loginPage.passwordField.sendKeys(password);
     }
 
-    @Step("Проверяем текст ошибки неправильного смс кода")
-    public String errSmsField() {
-        return loginPage.subTextError.getText();
+    //проверки
+    @Step("Проверяем заголовок экрана логин")
+    public void checkTextLoginTitle() {
+        String loginTitleText = loginPage.loginTitle.getText();
+        Assert.assertEquals(loginTitleText, "Введите номер телефона");
     }
 
+    @Step("Кнопка доступна")
+    public boolean enableAuthorizeBtn() {
+        return loginPage.nextButton.isEnabled();
+    }
+
+    @Step("Проверяем текст ошибки неправильного смс кода в снекбаре")
+    public void checkTextIncorrectSmsCode() {
+        String textIncorrectSmsCode = loginPage.smsCodeTitle.getText();
+        Assert.assertEquals(textIncorrectSmsCode, "Неверный код подтверждения");
+    }
+
+    @Step("Проверяем текст кнопки забыли пароль")
+    public void checkTextForgotThePasswordBtn() {
+        String forgotTextBtn = loginPage.forgotThePassword.getText();
+        Assert.assertEquals(forgotTextBtn, "Забыли пароль?");
+    }
+
+    @Step("Проверяем текст заголовока экрана введите смс-код")
+    public void checkTextSmsCodeTitle() {
+        String textTitleSmsCode = loginPage.smsCodeTitle.getText();
+        Assert.assertEquals(textTitleSmsCode, "Введите код из смс");
+    }
+
+    @Step("Проверяем подзаголовок поля ввода смс")
+    public void checkSubTextSmsCode() {
+        String subTextSmsCode = loginPage.subTextSmsCode.getText()
+                .replaceAll(" ", "")
+                .replaceAll(" ", "");
+        Assert.assertEquals(subTextSmsCode, "Мы отправили сообщение с кодом подтверждения на номер +7 ( 960 ) 645 62 30"
+                .replaceAll(" ", "")
+                .replaceAll(" ", ""));
+    }
+
+    //прочие действия
     @Step("Дергаем смс-код")
     public String getSmsCode() {
-        String smsCode = loginPage.smsText.getText();
+        String smsCode = loginPage.smsTextCode.getText();
 //        smsCode = smsCode.replaceAll("\\D", "");
 //        smsCode = "sms:" + smsCode;
         return smsCode.replaceAll("\\D", "");
