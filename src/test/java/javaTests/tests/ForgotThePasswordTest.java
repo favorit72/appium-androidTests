@@ -27,7 +27,7 @@ public class ForgotThePasswordTest extends BaseTest {
         login.checkLoginTitleText();
         login.checkSubLoginText();
         login.authorizeBtnIsNotEnable();
-        login.insertCorrectLogin(Strings.CORRECT_LOGIN);
+        login.insertCorrectPhone(Strings.CORRECT_LOGIN);
         login.clickNextBtn();
         login.checkForgotThePasswordBtnText();
         login.clickForgotThePasswordBtn();

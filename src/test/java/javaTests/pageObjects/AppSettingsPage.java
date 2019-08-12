@@ -1,19 +1,16 @@
 package javaTests.pageObjects;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
-import io.appium.java_client.AppiumDriver;
+import helpers.DriverWait;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
 
 
-public class AppSettingsPage {
+public class AppSettingsPage extends DriverWait {
 
-    public AppSettingsPage(AppiumDriver<WebElement> driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    public AppSettingsPage(AndroidDriver androidDriver) {
+        super(androidDriver);
     }
 
     @AndroidFindBy(id = "com.rubetek.client:id/phone_num")

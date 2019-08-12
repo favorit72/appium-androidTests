@@ -26,11 +26,10 @@ public class LoginTest extends BaseTest {
         login.checkLoginTitleText();
         login.checkSubLoginText();
         login.authorizeBtnIsNotEnable();
-        login.insertCorrectLogin(Strings.CORRECT_LOGIN);
+        login.insertCorrectPhone(Strings.CORRECT_LOGIN);
         login.authorizeBtnIsEnable();
         login.clickNextBtn();
         login.checkForgotThePasswordBtnText();
-        login.clickNextBtn();
         login.authorizeBtnIsNotEnable();
         login.checkPasswordTextTitle();
         login.insertCorrectPassword(Strings.CORRECT_PASSWORD);
