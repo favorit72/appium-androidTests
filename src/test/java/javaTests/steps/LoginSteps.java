@@ -14,9 +14,9 @@ public class LoginSteps {
         loginPage = new LoginPage(androidDriver);
     }
 
-    public void carMakerTap() {
-        loginPage.waitForElementToClick(loginPage.startUsing);
-    }
+//    public void x() {
+//        loginPage.waitForElementToClick(loginPage.startUsing);
+//    }
 
     /**
      * клики
@@ -110,8 +110,8 @@ public class LoginSteps {
     }
 
     @Step("Проверяем текст ошибки неправильного смс кода в снекбаре")
-    public void checkIncorrectSmsCodeText() {
-        String textIncorrectSmsCode = loginPage.smsCodeTitle.getText();
+    public void checkWrongSmsCodeSnackBarText() {
+        String textIncorrectSmsCode = loginPage.snackbar.getText();
         Assert.assertEquals(textIncorrectSmsCode, "Неверный код подтверждения");
     }
 
@@ -140,7 +140,7 @@ public class LoginSteps {
 
     @Step("Проверяем заголовок экрана нового пароля")
     public void checkNewPasswordTitleText() {
-        String textTitleNewPassword = loginPage.newPasswordTitle.getText();
+        String textTitleNewPassword = loginPage.insertPasswordTitle.getText();
         Assert.assertEquals(textTitleNewPassword, "Придумайте пароль");
     }
 
@@ -156,14 +156,18 @@ public class LoginSteps {
         Assert.assertEquals(textErrorSnackbar, "Неверный пароль");
     }
 
+    @Step("Проверяем заголовок при вводе пароля")
+    public void checkPasswordTextTitle() {
+        String textTitlePasswordLogin = loginPage.insertPasswordTitle.getText();
+        Assert.assertEquals(textTitlePasswordLogin, "Введите пароль");
+    }
+
     /**
      * прочие действия
      */
     @Step("Дергаем смс-код")
     public String getSmsCode() {
         String smsCode = loginPage.smsTextCode.getText();
-//        smsCode = smsCode.replaceAll("\\D", "");
-//        smsCode = "sms:" + smsCode;
         return smsCode.replaceAll("\\D", "");
     }
 }

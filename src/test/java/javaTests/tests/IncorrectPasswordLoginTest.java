@@ -9,6 +9,7 @@ import utils.BaseTest;
 import utils.Listener.Listener;
 import utils.data.Strings;
 
+
 @Listeners(Listener.class)
 public class IncorrectPasswordLoginTest extends BaseTest {
     private LoginSteps login;
@@ -23,6 +24,8 @@ public class IncorrectPasswordLoginTest extends BaseTest {
     public void IncorrectPasswordLogin() {
         System.out.println("Start Incorrect login/password Test");
         login.clickStartUsingBtn();
+        login.checkLoginTitleText();
+        login.checkSubLoginText();
         login.authorizeBtnIsNotEnable();
         login.insertInCorrectLogin(Strings.INCORRECT_LOGIN);
         login.authorizeBtnIsNotEnable();
@@ -32,12 +35,17 @@ public class IncorrectPasswordLoginTest extends BaseTest {
         login.clickNextBtn();
         login.authorizeBtnIsNotEnable();
         login.insertInCorrectPassword(Strings.NOT_FULL_PASSWORD);
+        login.checkPasswordTextTitle();
+        login.checkForgotThePasswordBtnText();
         login.authorizeBtnIsNotEnable();
         login.clearPasswordField();
         login.insertInCorrectPassword(Strings.INCORRECT_PASSWORD);
-        login.clickNextBtn();
         login.checkSnackbarTextError();
+        login.authorizeBtnIsEnable();
+        login.clickNextBtn();
+
         //TODO : сделать в конце теста проверку на появление элемента
+        //login.clickNextBtn();
 //      wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("android.widget.ImageView")));
     }
 }
