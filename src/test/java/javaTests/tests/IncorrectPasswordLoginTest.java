@@ -27,10 +27,10 @@ public class IncorrectPasswordLoginTest extends BaseTest {
         login.checkLoginTitleText();
         login.checkSubLoginText();
         login.authorizeBtnIsNotEnable();
-        login.insertInCorrectLogin(Strings.INCORRECT_LOGIN);
+        login.insertInCorrectPhone(Strings.INCORRECT_LOGIN);
         login.authorizeBtnIsNotEnable();
         login.clearPhoneField();
-        login.insertCorrectLogin(Strings.CORRECT_LOGIN);
+        login.insertCorrectPhone(Strings.CORRECT_LOGIN);
         login.authorizeBtnIsEnable();
         login.clickNextBtn();
         login.authorizeBtnIsNotEnable();
@@ -39,10 +39,11 @@ public class IncorrectPasswordLoginTest extends BaseTest {
         login.checkForgotThePasswordBtnText();
         login.authorizeBtnIsNotEnable();
         login.clearPasswordField();
-        login.insertInCorrectPassword(Strings.INCORRECT_PASSWORD);
-        login.checkSnackbarTextError();
+        login.insertInCorrectPassword(Strings.INCORRECT_FULL_PASSWORD);
         login.authorizeBtnIsEnable();
         login.clickNextBtn();
+        login.checkSnackbarTextError();
+        login.authorizeBtnIsEnable();
 
         //TODO : сделать в конце теста проверку на появление элемента
         //login.clickNextBtn();

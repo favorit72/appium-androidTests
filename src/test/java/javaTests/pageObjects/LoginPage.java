@@ -15,11 +15,11 @@ public class LoginPage extends DriverWait {
      * Кнопки
      */
     @AndroidFindBy(id = "com.rubetek.client:id/signIn")
-    public MobileElement startUsing;
+    public MobileElement startUsingBtn;
     @AndroidFindBy(id = "com.rubetek.client:id/authorizeButton")
     public MobileElement nextButton;
     @AndroidFindBy(id = "com.rubetek.client:id/tvForgottenPassword")
-    public MobileElement forgotThePassword;
+    public MobileElement forgotThePasswordBtn;
 
     /**
      * поля
