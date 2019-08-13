@@ -23,7 +23,9 @@ public class ForgotThePasswordTest extends BaseTest {
     @Test
     public void ForgotThePassword() throws InterruptedException {
         System.out.println("Start forgot the password Test");
+        login.checkDemoBtnText();
         login.clickStartUsingBtn();
+        login.checkPhonePrefixText();
         login.checkLoginTitleText();
         login.checkSubLoginText();
         login.authorizeBtnIsNotEnable();
@@ -43,8 +45,8 @@ public class ForgotThePasswordTest extends BaseTest {
         login.checkWrongSmsCodeSnackBarText();
         login.clearSmsCodeField();
         login.insertSmsCode(smsCode);
-        login.clickNextBtn();
         login.checkNewPasswordTitleText();
+        login.authorizeBtnIsNotEnable();
         login.insertNewPassword(Strings.CORRECT_PASSWORD);
         login.clickNextBtn();
         //todo сделать вконце проверку

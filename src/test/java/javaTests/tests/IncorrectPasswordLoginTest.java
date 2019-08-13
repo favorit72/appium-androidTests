@@ -23,7 +23,9 @@ public class IncorrectPasswordLoginTest extends BaseTest {
     @Test
     public void IncorrectPasswordLogin() {
         System.out.println("Start Incorrect login/password Test");
+        login.checkDemoBtnText();
         login.clickStartUsingBtn();
+        login.checkPhonePrefixText();
         login.checkLoginTitleText();
         login.checkSubLoginText();
         login.authorizeBtnIsNotEnable();

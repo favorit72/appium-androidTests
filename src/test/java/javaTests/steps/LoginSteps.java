@@ -160,6 +160,18 @@ public class LoginSteps {
         Assert.assertEquals(textTitlePasswordLogin, "Введите пароль");
     }
 
+    @Step("Проверяем дефолтный префикс")
+    public void checkPhonePrefixText() {
+        String textPhonePrefix = loginPage.waitForElementIsDisplayed(loginPage.phonePrefix).getText();
+        Assert.assertEquals(textPhonePrefix, "+7");
+    }
+
+    @Step("Проверяем текст кнопки демо-режима")
+    public void checkDemoBtnText() {
+        String textDemoBtn = loginPage.waitForElementIsDisplayed(loginPage.demoMode).getText();
+        Assert.assertEquals(textDemoBtn, "Демо режим");
+    }
+
     /**
      * прочие действия
      */
