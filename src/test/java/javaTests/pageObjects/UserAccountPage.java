@@ -8,10 +8,9 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-//import io.qameta.allure.Step;
 import io.qameta.allure.Step;
 
-
+//Экран "Учетная запись"
 public class UserAccountPage {
 
     public UserAccountPage(AppiumDriver<WebElement> driver) {
@@ -25,17 +24,17 @@ public class UserAccountPage {
     @AndroidFindBy(id = "com.rubetek.client:id/resetPaassword")
     private MobileElement resetPassword;
 
-    @Step("нажимаем кнопку выйти")
+    @Step("Нажимаем кнопку выйти")
     public void clickLogOut() {
         logOut.click();
     }
 
-    @Step("подтверждаем выход из учетки")
+    @Step("Подтверждаем выход из учетки")
     public void clickConfirmLogout() {
         confirmLogout.click();
     }
 
-    @Step("нажимаем сброс пароля")
+    @Step("Нажимаем сброс пароля")
     public void clickResetPassword() {
         resetPassword.click();
     }
