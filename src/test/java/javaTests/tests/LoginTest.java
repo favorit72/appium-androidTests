@@ -22,7 +22,9 @@ public class LoginTest extends BaseTest {
     @Test
     public void Login() {
         System.out.println("Start Login Test");
+        login.checkDemoBtnText();
         login.clickStartUsingBtn();
+        login.checkPhonePrefixText();
         login.checkLoginTitleText();
         login.checkSubLoginText();
         login.authorizeBtnIsNotEnable();
