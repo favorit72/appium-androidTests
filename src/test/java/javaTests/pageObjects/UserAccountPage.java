@@ -1,42 +1,21 @@
 package javaTests.pageObjects;
 
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
-import io.appium.java_client.AppiumDriver;
+import helpers.DriverWait;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.qameta.allure.Step;
 
 //Экран "Учетная запись"
-public class UserAccountPage {
+public class UserAccountPage extends DriverWait {
 
-    public UserAccountPage(AppiumDriver<WebElement> driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    public UserAccountPage(AndroidDriver androidDriver) {
+        super(androidDriver);
     }
 
     @AndroidFindBy(id = "com.rubetek.client:id/logOut")
-    private MobileElement logOut;
+    private MobileElement logOutBtn;
     @AndroidFindBy(id = "android:id/button1")
-    private MobileElement confirmLogout;
+    private MobileElement confirmLogoutBth;
     @AndroidFindBy(id = "com.rubetek.client:id/resetPaassword")
-    private MobileElement resetPassword;
-
-    @Step("Нажимаем кнопку выйти")
-    public void clickLogOut() {
-        logOut.click();
-    }
-
-    @Step("Подтверждаем выход из учетки")
-    public void clickConfirmLogout() {
-        confirmLogout.click();
-    }
-
-    @Step("Нажимаем сброс пароля")
-    public void clickResetPassword() {
-        resetPassword.click();
-    }
-
+    private MobileElement resetPasswordBth;
 }

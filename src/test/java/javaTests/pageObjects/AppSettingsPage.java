@@ -13,4 +13,6 @@ public class AppSettingsPage extends DriverWait {
 
     @AndroidFindBy(id = "com.rubetek.client:id/phone_num")
     public MobileElement userAccount;
+    @AndroidFindBy(id = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[1]")
+    public MobileElement accountText;
 }

@@ -12,9 +12,15 @@ public class AppSettingsSteps {
         appSettings = new AppSettingsPage(androidDriver);
     }
 
+    /**
+     * клики
+     **/
     @Step("Нажимаем Учетная запись")
     public void clickUserAccount() {
         appSettings.waitForElementToClick(appSettings.userAccount).click();
     }
+
+//    @Step("Проверяем текст учетная запись")
+//    public void
 
 }

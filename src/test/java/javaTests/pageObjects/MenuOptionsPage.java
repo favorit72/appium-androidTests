@@ -12,9 +12,9 @@ public class MenuOptionsPage extends DriverWait {
     }
 
     @AndroidFindBy(className = "android.widget.ImageView")
-    public MobileElement options;
+    public MobileElement optionsBtn;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView")
-    public MobileElement houseSettings;
+    public MobileElement houseSettingsBtn;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.TextView")
-    public MobileElement appSettings;
+    public MobileElement appSettingsBtn;
 }
