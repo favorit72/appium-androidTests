@@ -102,25 +102,25 @@ public class LoginSteps {
     /**
      * проверки текстов
      */
-    @Step("Проверяем заголовок экрана логин")
+    @Step("Текст 'Введите номер телефона' в заголовке присутствует")
     public void checkLoginTitleText() {
         String loginTitleText = loginPage.waitForElementIsDisplayed(loginPage.loginTitle).getText();
         Assert.assertEquals(loginTitleText, "Введите номер телефона");
     }
 
-    @Step("Проверяем текст ошибки неправильного смс кода в снекбаре")
+    @Step("Ошибка 'Неверный код подтверждения' в снекбаре присутствует")
     public void checkWrongSmsCodeSnackBarText() {
         String textIncorrectSmsCode = loginPage.waitForElementIsDisplayed(loginPage.snackbar).getText();
         Assert.assertEquals(textIncorrectSmsCode, "Неверный код подтверждения");
     }
 
-    @Step("Проверяем текст кнопки забыли пароль")
+    @Step("Текст кнопки 'Забыли пароль' присутствует")
     public void checkForgotThePasswordBtnText() {
         String forgotTextBtn = loginPage.waitForElementIsDisplayed(loginPage.forgotThePasswordBtn).getText();
         Assert.assertEquals(forgotTextBtn, "Забыли пароль?");
     }
 
-    @Step("Проверяем текст заголовока экрана введите смс-код")
+    @Step("Текст 'Введите код из смс' присутствует в заголовке")
     public void checkSmsCodeTitleText() {
         String textTitleSmsCode = loginPage.waitForElementIsDisplayed(loginPage.smsCodeTitle).getText();
         Assert.assertEquals(textTitleSmsCode, "Введите код из смс");
@@ -137,37 +137,37 @@ public class LoginSteps {
                 .replaceAll(" ", ""));
     }
 
-    @Step("Проверяем заголовок экрана нового пароля")
+    @Step("Текст 'Придумайте пароль' в заголовок присутвует")
     public void checkNewPasswordTitleText() {
         String textTitleNewPassword = loginPage.waitForElementIsDisplayed(loginPage.insertPasswordTitle).getText();
         Assert.assertEquals(textTitleNewPassword, "Придумайте пароль");
     }
 
-    @Step("Проверяем подпись к полю ввода телефона")
+    @Step("Текст 'для регистрации или входа' в подписи присутствует")
     public void checkSubLoginText() {
         String subTextLogin = loginPage.waitForElementIsDisplayed(loginPage.subTextLogin).getText();
         Assert.assertEquals(subTextLogin, "для регистрации или входа");
     }
 
-    @Step("Ошибка неверный пароль в снекбаре")
+    @Step("Текст 'Неверный пароль' присутствует в снекбаре")
     public void checkSnackbarTextError() {
         String textErrorSnackbar = loginPage.waitForElementIsDisplayed(loginPage.snackbar).getText();
         Assert.assertEquals(textErrorSnackbar, "Неверный пароль");
     }
 
-    @Step("Проверяем заголовок при вводе пароля")
+    @Step("Текст 'Введите пароль' присутствует в заголовке")
     public void checkPasswordTextTitle() {
         String textTitlePasswordLogin = loginPage.waitForElementIsDisplayed(loginPage.insertPasswordTitle).getText();
         Assert.assertEquals(textTitlePasswordLogin, "Введите пароль");
     }
 
-    @Step("Проверяем дефолтный префикс")
+    @Step("Префкс '+7' присутствует")
     public void checkPhonePrefixText() {
         String textPhonePrefix = loginPage.waitForElementIsDisplayed(loginPage.phonePrefix).getText();
         Assert.assertEquals(textPhonePrefix, "+7");
     }
 
-    @Step("Проверяем текст кнопки демо-режима")
+    @Step("Текст кнопки 'Демо режим' присутствует ")
     public void checkDemoBtnText() {
         String textDemoBtn = loginPage.waitForElementIsDisplayed(loginPage.demoMode).getText();
         Assert.assertEquals(textDemoBtn, "Демо режим");
