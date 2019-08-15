@@ -161,7 +161,7 @@ public class LoginSteps {
         Assert.assertEquals(textTitlePasswordLogin, "Введите пароль");
     }
 
-    @Step("Префкс '+7' присутствует")
+    @Step("Префикс '+7' присутствует")
     public void checkPhonePrefixText() {
         String textPhonePrefix = loginPage.waitForElementIsDisplayed(loginPage.phonePrefix).getText();
         Assert.assertEquals(textPhonePrefix, "+7");
