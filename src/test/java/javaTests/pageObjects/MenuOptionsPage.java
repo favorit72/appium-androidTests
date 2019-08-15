@@ -11,10 +11,13 @@ public class MenuOptionsPage extends DriverWait {
         super(androidDriver);
     }
 
-    @AndroidFindBy(className = "android.widget.ImageView")
+    //Кнопка опций
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Ещё']")
     public MobileElement optionsBtn;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView")
+    //Настройки дома
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Настройки дома']")
     public MobileElement houseSettingsBtn;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.TextView")
+    //Настройки приложения
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Настройки приложения']")
     public MobileElement appSettingsBtn;
 }

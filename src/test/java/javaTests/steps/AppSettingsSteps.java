@@ -1,5 +1,7 @@
 package javaTests.steps;
 
+import org.testng.Assert;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.AppSettingsPage;
@@ -15,12 +17,17 @@ public class AppSettingsSteps {
     /**
      * клики
      **/
-    @Step("Нажимаем Учетная запись")
+    @Step("Нажимаем 'Учетная запись'")
     public void clickUserAccount() {
         appSettings.waitForElementToClick(appSettings.userAccount).click();
     }
 
-//    @Step("Проверяем текст учетная запись")
-//    public void
-
+    /**
+     * Проверка текстов
+     **/
+    @Step("Текст 'учетная запись' присутствует")
+    public void checkAccountText() {
+        String accountText = (appSettings.accountText).getText();
+        Assert.assertEquals(accountText, "Учетная запись");
+    }
 }
