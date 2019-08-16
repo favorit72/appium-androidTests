@@ -12,9 +12,7 @@ public class LoginPage extends DriverWait {
         super(androidDriver);
     }
 
-    /**
-     * Кнопки
-     */
+    //КНОПКИ:
     //Начать пользоваться
     @AndroidFindBy(id = "com.rubetek.client:id/signIn")
     public MobileElement startUsingBtn;
@@ -27,9 +25,7 @@ public class LoginPage extends DriverWait {
     @AndroidFindBy(id = "com.rubetek.client:id/tvForgottenPassword")
     public MobileElement forgotThePasswordBtn;
 
-    /**
-     * поля
-     */
+    //ПОЛЯ:
     //Поле ввода телефона
     @AndroidFindBy(id = "com.rubetek.client:id/etPhone")
     public MobileElement phoneField;
@@ -42,9 +38,7 @@ public class LoginPage extends DriverWait {
     @AndroidFindBy(id = "com.rubetek.client:id/etCode")
     public MobileElement smsCodeField;
 
-    /**
-     * тексты на экране
-     */
+    //ТЕКСТЫ НА ЭКРАНЕ:
     //заголовок экрана логин
     @AndroidFindBy(id = "com.rubetek.client:id/tvPhoneTitle")
     public MobileElement loginTitle;

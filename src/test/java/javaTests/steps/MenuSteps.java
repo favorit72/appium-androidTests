@@ -14,9 +14,7 @@ public class MenuSteps {
         menu = new MenuOptionsPage(androidDriver);
     }
 
-    /**
-     * Клики
-     */
+    //КЛИКИ:
     @Step("Нажимаем опции")
     public void clickOptionsBtn() {
         menu.waitForElementToClick(menu.optionsBtn).click();
@@ -32,16 +30,14 @@ public class MenuSteps {
         menu.waitForElementToClick(menu.houseSettingsBtn).click();
     }
 
-    /**
-     * проверки текстов
-     */
-    @Step("Проверяем текст меню настройки приложения")
+    //ПРОВЕРКИ ТЕКСТОВ:
+    @Step("Текст 'настройки приложения' присутствует в меню")
     public void checkAppSettingsText() {
         String appSettingsText = menu.waitForElementIsDisplayed(menu.appSettingsBtn).getText();
         Assert.assertEquals(appSettingsText, "Настройки приложения");
     }
 
-    @Step("Проверяем текст меню настройки дома")
+    @Step("Текст 'настройки дома' присутствует в меню")
     public void checkHouseSettingsText() {
         String houseSettingsText = menu.waitForElementIsDisplayed(menu.houseSettingsBtn).getText();
         Assert.assertEquals(houseSettingsText, "Настройки дома");

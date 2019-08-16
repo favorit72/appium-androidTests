@@ -15,9 +15,7 @@ public class LoginSteps {
         loginPage = new LoginPage(androidDriver);
     }
 
-    /**
-     * клики
-     */
+    //КЛИКИ:
     @Step("Нажимаем начать пользоваться")
     public void clickStartUsingBtn() {
         loginPage.waitForElementToClick(loginPage.startUsingBtn).click();
@@ -33,9 +31,7 @@ public class LoginSteps {
         loginPage.waitForElementToClick(loginPage.forgotThePasswordBtn).click();
     }
 
-    /**
-     * действия над полями
-     */
+    //ДЕЙСТВИЯ НАД ПОЛЯМИ:
     @Step("Вводим правильный логин")
     public void insertCorrectPhone(String number) {
         loginPage.waitForElementIsDisplayed(loginPage.phoneField).sendKeys(number);
@@ -84,9 +80,7 @@ public class LoginSteps {
         loginPage.waitForElementIsDisplayed(loginPage.smsCodeField).sendKeys(smsCode);
     }
 
-    /**
-     * проверки кнопок на доступность
-     */
+    //ПРОВЕРКИ КНОПОК НА ДОСТУПНОСТЬ:
     @Step("Кнопка далее недоступна")
     public void authorizeBtnIsNotEnable() {
         boolean visibility = loginPage.waitForElementIsDisplayed(loginPage.nextButton).isEnabled();
@@ -99,9 +93,7 @@ public class LoginSteps {
         Assert.assertTrue(visibility);
     }
 
-    /**
-     * проверки текстов
-     */
+    //ПРОВЕРКИ ТЕКСТОВ:
     @Step("Текст 'Введите номер телефона' в заголовке присутствует")
     public void checkLoginTitleText() {
         String loginTitleText = loginPage.waitForElementIsDisplayed(loginPage.loginTitle).getText();
@@ -173,9 +165,7 @@ public class LoginSteps {
         Assert.assertEquals(textDemoBtn, "Демо режим");
     }
 
-    /**
-     * прочие действия
-     */
+    //ПРОЧИЕ ДЕЙСТВИЯ:
     @Step("Дергаем смс-код")
     public String getSmsCode() {
         String smsCode = loginPage.waitForElementIsDisplayed(loginPage.smsTextCode).getText();

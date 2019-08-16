@@ -12,13 +12,29 @@ public class UserAccountPage extends DriverWait {
         super(androidDriver);
     }
 
+    //КЛИКИ:
     //кнопка выйти
     @AndroidFindBy(id = "com.rubetek.client:id/logOut")
     public MobileElement logOutBtn;
     //подтвердить выход 'да'
     @AndroidFindBy(id = "android:id/button1")
     public MobileElement confirmLogoutBth;
+    //отмены выхода 'нет'
+    @AndroidFindBy(id = "android:id/button2")
+    public MobileElement cancelLogoutBtn;
     //сменить пароль
-    @AndroidFindBy(id = "com.rubetek.client:id/resetPaassword")
+    @AndroidFindBy(id = "com.rubetek.client:id/resetPassword")
     public MobileElement resetPasswordBth;
+
+    //ПРОВЕРКИ ТЕКСТОВ:
+    //заголовок
+    @AndroidFindBy(id = "com.rubetek.client:id/toolbar_title")
+    public MobileElement userAccountTitle;
+    //заголовок алерта выхода из учетки
+    @AndroidFindBy(id = "com.rubetek.client:id/alertTitle")
+    public MobileElement alertLogoutTitle;
+    //сообщение алерта выхода с учетки
+    @AndroidFindBy(id = "android:id/message")
+    public MobileElement messageAlertLogout;
+
 }
