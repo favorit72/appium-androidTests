@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
+import javaTests.pageObjects.MenuOptionsPage;
 import javaTests.steps.LoginSteps;
 import utils.BaseTest;
 import utils.Listener.Listener;
@@ -14,10 +15,12 @@ import utils.data.Strings;
 @Listeners(Listener.class)
 public class ForgotThePasswordTest extends BaseTest {
     private LoginSteps login;
+    private MenuOptionsPage menu;
 
     @BeforeClass
     public void beforeClass() {
         login = new LoginSteps(driver());
+        menu = new MenuOptionsPage(driver());
     }
 
     @Test
@@ -49,6 +52,6 @@ public class ForgotThePasswordTest extends BaseTest {
         login.authorizeBtnIsNotEnable();
         login.insertNewPassword(Strings.CORRECT_PASSWORD);
         login.clickNextBtn();
-        //todo сделать вконце проверку
+        menu.waitForElementIsDisplayed(menu.optionsBtn);
     }
 }
