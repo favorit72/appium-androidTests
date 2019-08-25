@@ -1,22 +1,19 @@
 package javaTests.steps;
 
-
-import org.openqa.selenium.WebElement;
-
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.DemoPage;
 
 public class DemoSteps {
 
-    private final DemoPage demoPage;
+    private final DemoPage demo;
 
-    public DemoSteps(AppiumDriver<WebElement> driver) {
-        demoPage = new DemoPage(driver);
+    public DemoSteps(AndroidDriver androidDriver) {
+        demo = new DemoPage(androidDriver);
     }
 
     @Step("Нажимаем демо-режим")
     public void clickDemoButton() {
-        demoPage.demoMode.click();
+        demo.waitForElementToClick(demo.demoMode).click();
     }
 }
