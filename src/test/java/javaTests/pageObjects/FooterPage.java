@@ -1,54 +1,26 @@
 package javaTests.pageObjects;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
-import io.appium.java_client.AppiumDriver;
+import helpers.DriverWait;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.qameta.allure.Step;
 
-public class FooterPage {
-    public FooterPage(AppiumDriver<WebElement> driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+public class FooterPage extends DriverWait {
+    public FooterPage(AndroidDriver androidDriver) {
+        super(androidDriver);
     }
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout[1]/android.widget.ImageView")
-    private MobileElement deviceList;
+    public MobileElement deviceList;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.ImageView")
-    private MobileElement scenario;
+    public MobileElement scenario;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout[3]/android.widget.ImageView")
-    private MobileElement events;
+    public MobileElement events;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout[4]/android.widget.ImageView")
-    private MobileElement statistics;
+    public MobileElement statistics;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout[5]/android.widget.ImageView")
-    private MobileElement cameras;
+    public MobileElement cameras;
 
-    @Step("Нажимаем на вкладку список устройств")
-    public void clickDeviceList() {
-        deviceList.click();
-    }
-
-    @Step("Нажимаем на вкладку сценарии")
-    public void clickScenario() {
-        scenario.click();
-    }
-
-    @Step("Нажимаем на вкладку событий")
-    public void clickEvents() {
-        events.click();
-    }
-
-    @Step("Нажимаем на вкладку статистики")
-    public void clickStatistics() {
-        statistics.click();
-    }
-
-    @Step("Нажимаем на вкладку камер")
-    public void clickCameras() {
-        cameras.click();
-    }
 }
 
 
