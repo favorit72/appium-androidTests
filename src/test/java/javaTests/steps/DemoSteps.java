@@ -6,14 +6,14 @@ import javaTests.pageObjects.DemoPage;
 
 public class DemoSteps {
 
-    private final DemoPage demo;
+    private final DemoPage demoPage;
 
     public DemoSteps(AndroidDriver androidDriver) {
-        demo = new DemoPage(androidDriver);
+        demoPage = new DemoPage(androidDriver);
     }
 
     @Step("Нажимаем демо-режим")
     public void clickDemoButton() {
-        demo.waitForElementToClick(demo.demoMode).click();
+        demoPage.waitForElementToClick(demoPage.demoModeBtn).click();
     }
 }

@@ -10,7 +10,7 @@ public class DemoPage extends DriverWait {
         super(androidDriver);
     }
     @AndroidFindBy(id = "com.rubetek.client:id/btn_demo")
-    public MobileElement demoMode;
+    public MobileElement demoModeBtn;
 
 
 }
