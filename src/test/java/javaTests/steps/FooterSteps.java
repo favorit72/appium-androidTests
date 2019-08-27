@@ -17,23 +17,28 @@ public class FooterSteps {
     }
 
     @Step("Нажимаем на вкладку сценарии")
-    public void clickScenario() {
-        footerPage.waitForElementToClick(footerPage.scenario).click();
+    public void clickScenarios() {
+        footerPage.waitForElementToClick(footerPage.scenarioList).click();
     }
 
     @Step("Нажимаем на вкладку событий")
     public void clickEvents() {
-        footerPage.waitForElementToClick(footerPage.events).click();
+        footerPage.waitForElementToClick(footerPage.eventCounter).click();
     }
 
     @Step("Нажимаем на вкладку статистики")
     public void clickStatistics() {
-        footerPage.waitForElementToClick(footerPage.statistics).click();
+        footerPage.waitForElementToClick(footerPage.scenarioList).click();
     }
 
     @Step("Нажимаем на вкладку камер")
     public void clickCameras() {
-        footerPage.waitForElementToClick(footerPage.cameras).click();
+        footerPage.waitForElementToClick(footerPage.cameraList).click();
+    }
+
+    @Step("Счетчик событий")
+    public void eventCounter() {
+        footerPage.waitForElementIsDisplayed(footerPage.eventCounter);
     }
 
 }
