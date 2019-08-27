@@ -27,6 +27,7 @@ public class ForgotThePasswordTest extends BaseTest {
     public void ForgotThePassword() throws InterruptedException {
         System.out.println("Start forgot the password Test");
         login.checkDemoBtnText();
+        login.startUsingBtnIsEnable();
         login.clickStartUsingBtn();
         login.checkPhonePrefixText();
         login.checkLoginTitleText();

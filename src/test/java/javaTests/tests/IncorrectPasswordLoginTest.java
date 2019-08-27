@@ -24,6 +24,7 @@ public class IncorrectPasswordLoginTest extends BaseTest {
     public void IncorrectPasswordLogin() {
         System.out.println("Start Incorrect login/password Test");
         login.checkDemoBtnText();
+        login.startUsingBtnIsEnable();
         login.clickStartUsingBtn();
         login.checkPhonePrefixText();
         login.checkLoginTitleText();
@@ -46,9 +47,5 @@ public class IncorrectPasswordLoginTest extends BaseTest {
         login.clickNextBtn();
         login.checkSnackbarTextError();
         login.authorizeBtnIsEnable();
-
-        //TODO : сделать в конце теста проверку на появление элемента
-        //login.clickNextBtn();
-//      wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("android.widget.ImageView")));
     }
 }

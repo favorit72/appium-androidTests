@@ -93,6 +93,12 @@ public class LoginSteps {
         Assert.assertTrue(visibility);
     }
 
+    @Step("Кнопка 'начать пользовать' доступна")
+    public void startUsingBtnIsEnable() {
+        boolean visibility = loginPage.waitForElementIsDisplayed(loginPage.startUsingBtn).isEnabled();
+        Assert.assertTrue(visibility);
+    }
+
     //ПРОВЕРКИ ТЕКСТОВ:
     @Step("Текст 'Введите номер телефона' в заголовке присутствует")
     public void checkLoginTitleText() {

@@ -27,6 +27,7 @@ public class LoginTest extends BaseTest {
     public void Login() {
         System.out.println("Start Login Test");
         login.checkDemoBtnText();
+        login.startUsingBtnIsEnable();
         login.clickStartUsingBtn();
         login.checkPhonePrefixText();
         login.checkLoginTitleText();
