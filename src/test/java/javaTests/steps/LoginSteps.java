@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.LoginPage;
 
-//Все действия с экранами логина
 public class LoginSteps {
 
     private final LoginPage loginPage;
@@ -15,7 +14,7 @@ public class LoginSteps {
         loginPage = new LoginPage(androidDriver);
     }
 
-    //КЛИКИ:
+    //CLICK:
     @Step("Нажимаем начать пользоваться")
     public void clickStartUsingBtn() {
         loginPage.waitForElementToClick(loginPage.startUsingBtn).click();
@@ -31,7 +30,7 @@ public class LoginSteps {
         loginPage.waitForElementToClick(loginPage.forgotThePasswordBtn).click();
     }
 
-    //ДЕЙСТВИЯ НАД ПОЛЯМИ:
+    //ACTIONS WITH FIELDS:
     @Step("Вводим правильный логин")
     public void insertCorrectPhone(String number) {
         loginPage.waitForElementIsDisplayed(loginPage.phoneField).sendKeys(number);
@@ -99,7 +98,7 @@ public class LoginSteps {
         Assert.assertTrue(visibility);
     }
 
-    //ПРОВЕРКИ ТЕКСТОВ:
+    //CHECK TEXTS:
     @Step("Текст 'Введите номер телефона' в заголовке присутствует")
     public void checkLoginTitleText() {
         String loginTitleText = loginPage.waitForElementIsDisplayed(loginPage.loginTitle).getText();
@@ -171,7 +170,7 @@ public class LoginSteps {
         Assert.assertEquals(textDemoBtn, "Демо режим");
     }
 
-    //ПРОЧИЕ ДЕЙСТВИЯ:
+    //OTHER ACTIONS:
     @Step("Дергаем смс-код")
     public String getSmsCode() {
         String smsCode = loginPage.waitForElementIsDisplayed(loginPage.smsTextCode).getText();
