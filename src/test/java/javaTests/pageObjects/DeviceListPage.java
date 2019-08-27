@@ -15,8 +15,10 @@ public class DeviceListPage extends DriverWait {
     @AndroidFindBy(id = "com.rubetek.client:id/demo_close")
     public MobileElement demoModeCloseBtn;
     @AndroidFindBy(id = "com.rubetek.client:id/security")
-    public MobileElement securityHouseBtn;
+    public MobileElement securityModeBtn;
     //TEXTS:
     @AndroidFindBy(id = "com.rubetek.client:id/demo_header")
     public MobileElement currentHouseName;
+    @AndroidFindBy(id = "com.rubetek.client:id/name")
+    public MobileElement securityStatus;
 }
