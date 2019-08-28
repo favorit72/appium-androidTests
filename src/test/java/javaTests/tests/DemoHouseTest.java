@@ -35,8 +35,9 @@ public class DemoHouseTest extends BaseTest {
         login.startUsingBtnIsEnable();
         demo.clickDemoButton();
         demo.checkDemoHouseName();
+        demo.checkCloseDemoBtnText();
         deviceList.checkSecurityModeText();
-        deviceList.clickSecurityModeBtn();
+        // deviceList.clickSecurityModeBtn();
 
 
 

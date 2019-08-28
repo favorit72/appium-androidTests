@@ -14,9 +14,13 @@ public class DeviceListSteps {
         deviceListPage = new DeviceListPage(androidDriver);
     }
 
-    @Step("Меняем статус охраны")
-    public void clickSecurityModeBtn() {
-        deviceListPage.waitForElementToClick(deviceListPage.securityModeBtn).click();
+    @Step("Ставим дом на охрану")
+    public void securityModeOn() {
+        String securityStatus;
+        securityStatus = deviceListPage.waitForElementToClick(deviceListPage.securityStatus).getText();
+        if ("Дом снят с охраны".equals(securityStatus)) {
+            deviceListPage.waitForElementToClick(deviceListPage.securityModeBtn).click();
+        }
     }
 
     @Step("Состояние охраны дома")

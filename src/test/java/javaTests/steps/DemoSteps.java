@@ -17,6 +17,7 @@ public class DemoSteps {
         deviceListPage = new DeviceListPage(androidDriver);
     }
 
+    //CLICKS:
     @Step("Нажимаем демо-режим")
     public void clickDemoButton() {
         demoPage.waitForElementToClick(demoPage.demoModeBtn).click();
@@ -27,10 +28,20 @@ public class DemoSteps {
         demoPage.waitForElementToClick(demoPage.closeDemoHouseBtn).click();
     }
 
+    //CHECK TEXT:
     @Step("Название демо-дома 'Мой дом'")
     public void checkDemoHouseName() {
         String houseNameText;
         houseNameText = deviceListPage.waitForElementToClick(deviceListPage.currentHouseName).getText();
         Assert.assertEquals(houseNameText, "Мой дом");
     }
+
+    @Step("Текст 'Демо' присутствует на кнопке закрытия")
+    public void checkCloseDemoBtnText() {
+        String closeDemoBtnText;
+        closeDemoBtnText = demoPage.waitForElementToClick(demoPage.closeDemoHouseBtn).getText();
+        Assert.assertEquals(closeDemoBtnText, "Демо");
+    }
+
+
 }
