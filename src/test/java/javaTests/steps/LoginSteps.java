@@ -173,8 +173,12 @@ public class LoginSteps {
     //OTHER ACTIONS:
     @Step("Дергаем смс-код")
     public String getSmsCode() {
-        String smsCode = loginPage.waitForElementIsDisplayed(loginPage.smsTextCode).getText();
-        return smsCode.replaceAll("\\D", "");
+        String smsCode, smsCodeText;
+        smsCodeText = loginPage.waitForElementIsDisplayed(loginPage.smsTextCode).getText();
+        smsCode = smsCodeText.substring(smsCodeText.length() - 4);
+        return smsCode;
     }
+
+
 }
 
