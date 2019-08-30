@@ -25,7 +25,6 @@ public class DemoHouseTest extends BaseTest {
         login = new LoginSteps(driver());
         deviceList = new DeviceListSteps(driver());
         footer = new FooterSteps(driver());
-
     }
 
     @Test
@@ -36,7 +35,10 @@ public class DemoHouseTest extends BaseTest {
         demo.clickDemoButton();
         demo.checkDemoHouseName();
         demo.checkCloseDemoBtnText();
-        deviceList.checkSecurityModeText();
+        deviceList.checkSecurityStatusOff();
+        deviceList.securityModeOn();
+        deviceList.checkSecurityStatusOn();
+        //deviceList.checkSecurityStatusText();
         // deviceList.clickSecurityModeBtn();
 
 

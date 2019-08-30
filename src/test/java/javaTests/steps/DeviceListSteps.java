@@ -14,19 +14,33 @@ public class DeviceListSteps {
         deviceListPage = new DeviceListPage(androidDriver);
     }
 
+    //CLICK:
     @Step("Ставим дом на охрану")
     public void securityModeOn() {
-        String securityStatus;
-        securityStatus = deviceListPage.waitForElementToClick(deviceListPage.securityStatus).getText();
+        String securityStatus = deviceListPage.waitForElementIsDisplayed(deviceListPage.securityStatus).getText();
         if ("Дом снят с охраны".equals(securityStatus)) {
             deviceListPage.waitForElementToClick(deviceListPage.securityModeBtn).click();
         }
     }
 
-    @Step("Состояние охраны дома")
-    public void checkSecurityModeText() {
-        String securityStatus;
-        securityStatus = deviceListPage.waitForElementToClick(deviceListPage.securityStatus).getText();
+    @Step("Снимаем дом с охраны")
+    public void securityModeOff() {
+        String securityStatus = deviceListPage.waitForElementIsDisplayed(deviceListPage.securityStatus).getText();
+        if ("Дом поставлен на охрану".equals(securityStatus)) {
+            deviceListPage.waitForElementToClick(deviceListPage.securityModeBtn).click();
+        }
+    }
+
+    //CHECK TEXT:
+    @Step("Дом не на охране")
+    public void checkSecurityStatusOff() {
+        String securityStatus = deviceListPage.waitForElementIsDisplayed(deviceListPage.securityStatus).getText();
         Assert.assertEquals(securityStatus, "Дом снят с охраны");
+    }
+
+    @Step("Дом на охране")
+    public void checkSecurityStatusOn() {
+        String securityStatus = deviceListPage.waitForElementIsDisplayed(deviceListPage.securityStatus).getText();
+        Assert.assertEquals(securityStatus, "Дом поставлен на охрану");
     }
 }
