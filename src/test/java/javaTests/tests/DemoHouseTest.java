@@ -1,5 +1,6 @@
 package javaTests.tests;
 
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -30,6 +31,7 @@ public class DemoHouseTest extends BaseTest {
     @Test
     public void demoHouse() {
         System.out.println("Start Demo Test");
+        deviceList.pressMenu(driver());
         login.checkDemoBtnText();
         login.startUsingBtnIsEnable();
         demo.clickDemoButton();
