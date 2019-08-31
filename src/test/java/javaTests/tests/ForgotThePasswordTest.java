@@ -4,10 +4,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import javaTests.pageObjects.MenuOptionsPage;
 import javaTests.steps.LoginSteps;
+import utils.BaseAction;
 import utils.BaseTest;
 import utils.Listener.Listener;
 import utils.data.Strings;
@@ -16,11 +15,13 @@ import utils.data.Strings;
 public class ForgotThePasswordTest extends BaseTest {
     private LoginSteps login;
     private MenuOptionsPage menu;
+    private BaseAction baseAction;
 
     @BeforeClass
     public void beforeClass() {
         login = new LoginSteps(driver());
         menu = new MenuOptionsPage(driver());
+        baseAction = new BaseAction(driver());
     }
 
     @Test
@@ -39,9 +40,9 @@ public class ForgotThePasswordTest extends BaseTest {
         login.clickForgotThePasswordBtn();
         login.checkSubSmsCodeText();
         Thread.sleep(8000);
-        driver().openNotifications();
+        baseAction.openNotification();
         String smsCode = login.getSmsCode();
-        driver().pressKey(new KeyEvent(AndroidKey.BACK));
+        baseAction.pressBack();
         login.checkSmsCodeTitleText();
         login.insertSmsCode(Strings.NOT_FULL_SMSCODE);
         login.authorizeBtnIsNotEnable();

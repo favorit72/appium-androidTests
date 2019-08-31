@@ -9,6 +9,7 @@ import javaTests.steps.DemoSteps;
 import javaTests.steps.DeviceListSteps;
 import javaTests.steps.FooterSteps;
 import javaTests.steps.LoginSteps;
+import utils.BaseAction;
 import utils.BaseTest;
 import utils.Listener.Listener;
 
@@ -19,6 +20,7 @@ public class DemoHouseTest extends BaseTest {
     private LoginSteps login;
     private FooterSteps footer;
     private DeviceListSteps deviceList;
+    private BaseAction baseActions;
 
     @BeforeClass
     public void beforeClass() {
@@ -26,12 +28,12 @@ public class DemoHouseTest extends BaseTest {
         login = new LoginSteps(driver());
         deviceList = new DeviceListSteps(driver());
         footer = new FooterSteps(driver());
+        baseActions = new BaseAction(driver());
     }
 
     @Test
     public void demoHouse() {
         System.out.println("Start Demo Test");
-        deviceList.pressMenu(driver());
         login.checkDemoBtnText();
         login.startUsingBtnIsEnable();
         demo.clickDemoButton();
