@@ -23,12 +23,12 @@ public class FooterSteps {
 
     @Step("Нажимаем на вкладку событий")
     public void clickEvents() {
-        footerPage.waitForElementToClick(footerPage.eventCounter).click();
+        footerPage.waitForElementToClick(footerPage.eventsList).click();
     }
 
     @Step("Нажимаем на вкладку статистики")
     public void clickStatistics() {
-        footerPage.waitForElementToClick(footerPage.scenarioList).click();
+        footerPage.waitForElementToClick(footerPage.statisticList).click();
     }
 
     @Step("Нажимаем на вкладку камер")
@@ -40,5 +40,4 @@ public class FooterSteps {
     public void eventCounter() {
         footerPage.waitForElementIsDisplayed(footerPage.eventCounter);
     }
-
 }
