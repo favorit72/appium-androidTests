@@ -6,29 +6,29 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import javaTests.steps.DemoSteps;
-import javaTests.steps.DeviceListSteps;
 import javaTests.steps.FooterSteps;
+import javaTests.steps.HouseSteps;
 import javaTests.steps.LoginSteps;
-import utils.BaseAction;
+import javaTests.steps.SecuritySteps;
 import utils.BaseTest;
 import utils.Listener.Listener;
 
 @Listeners(Listener.class)
 public class DemoHouseTest extends BaseTest {
 
-    private DemoSteps demo;
+    private SecuritySteps security;
     private LoginSteps login;
     private FooterSteps footer;
-    private DeviceListSteps deviceList;
-    private BaseAction baseActions;
+    private DemoSteps demo;
+    private HouseSteps house;
 
     @BeforeClass
     public void beforeClass() {
-        demo = new DemoSteps(driver());
+        house = new HouseSteps(driver());
         login = new LoginSteps(driver());
-        deviceList = new DeviceListSteps(driver());
+        demo = new DemoSteps(driver());
         footer = new FooterSteps(driver());
-        baseActions = new BaseAction(driver());
+        security = new SecuritySteps(driver());
     }
 
     @Test
@@ -37,15 +37,19 @@ public class DemoHouseTest extends BaseTest {
         login.checkDemoBtnText();
         login.startUsingBtnIsEnable();
         demo.clickDemoButton();
-        demo.checkDemoHouseName();
+        house.checkDemoHouseName();
         demo.checkCloseDemoBtnText();
-        deviceList.checkSecurityStatusOff();
-        deviceList.securityModeOn();
-        deviceList.checkSecurityStatusOn();
-        //deviceList.checkSecurityStatusText();
-        // deviceList.clickSecurityModeBtn();
-
-
-
+        security.checkSecurityStatusOff();
+        security.securityModeOn();
+        //security.checkSecurityStatusOn();
+        security.securityModeOff();
+        //security.checkSecurityStatusOff();
+        footer.clickScenarios();
+        footer.clickEvents();
+        footer.clickStatistics();
+        footer.clickCameras();
+        footer.clickDeviceList();
+        footer.clickDeviceList();
+        //TODO  разобраться с отображением статуса охраны дома после постановки на охрану
     }
 }
