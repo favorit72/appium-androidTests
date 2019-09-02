@@ -5,17 +5,19 @@ import org.testng.Assert;
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.LoginPage;
+import utils.BaseAction;
 
-//Все действия с экранами логина
 public class LoginSteps {
 
     private final LoginPage loginPage;
+    private BaseAction baseAction;
 
     public LoginSteps(AndroidDriver androidDriver) {
         loginPage = new LoginPage(androidDriver);
+        baseAction = new BaseAction(androidDriver);
     }
 
-    //КЛИКИ:
+    //CLICK:
     @Step("Нажимаем начать пользоваться")
     public void clickStartUsingBtn() {
         loginPage.waitForElementToClick(loginPage.startUsingBtn).click();
@@ -31,7 +33,7 @@ public class LoginSteps {
         loginPage.waitForElementToClick(loginPage.forgotThePasswordBtn).click();
     }
 
-    //ДЕЙСТВИЯ НАД ПОЛЯМИ:
+    //ACTIONS WITH FIELDS:
     @Step("Вводим правильный логин")
     public void insertCorrectPhone(String number) {
         loginPage.waitForElementIsDisplayed(loginPage.phoneField).sendKeys(number);
@@ -44,7 +46,7 @@ public class LoginSteps {
 
     @Step("Очищаем поле логина")
     public void clearPhoneField() {
-        loginPage.waitForElementIsDisplayed(loginPage.phoneField).clear();
+        baseAction.clearField();
     }
 
 
@@ -93,7 +95,13 @@ public class LoginSteps {
         Assert.assertTrue(visibility);
     }
 
-    //ПРОВЕРКИ ТЕКСТОВ:
+    @Step("Кнопка 'начать пользовать' доступна")
+    public void startUsingBtnIsEnable() {
+        boolean visibility = loginPage.waitForElementIsDisplayed(loginPage.startUsingBtn).isEnabled();
+        Assert.assertTrue(visibility);
+    }
+
+    //CHECK TEXTS:
     @Step("Текст 'Введите номер телефона' в заголовке присутствует")
     public void checkLoginTitleText() {
         String loginTitleText = loginPage.waitForElementIsDisplayed(loginPage.loginTitle).getText();
@@ -165,11 +173,15 @@ public class LoginSteps {
         Assert.assertEquals(textDemoBtn, "Демо режим");
     }
 
-    //ПРОЧИЕ ДЕЙСТВИЯ:
+    //OTHER ACTIONS:
     @Step("Дергаем смс-код")
     public String getSmsCode() {
-        String smsCode = loginPage.waitForElementIsDisplayed(loginPage.smsTextCode).getText();
-        return smsCode.replaceAll("\\D", "");
+        String smsCode, smsCodeText;
+        smsCodeText = loginPage.waitForElementIsDisplayed(loginPage.smsTextCode).getText();
+        smsCode = smsCodeText.substring(smsCodeText.length() - 4);
+        return smsCode;
     }
+
+
 }
 
