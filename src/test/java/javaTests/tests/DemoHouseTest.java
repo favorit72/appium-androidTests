@@ -15,6 +15,9 @@ import utils.Listener.Listener;
 
 @Listeners(Listener.class)
 public class DemoHouseTest extends BaseTest {
+    /**
+     * Аппиум не видит измения текста элемента статуса охраны
+     */
 
     private SecuritySteps security;
     private LoginSteps login;
@@ -41,15 +44,12 @@ public class DemoHouseTest extends BaseTest {
         demo.checkCloseDemoBtnText();
         security.checkSecurityStatusOff();
         security.securityModeOn();
-        //security.checkSecurityStatusOn();
-        security.securityModeOff();
-        //security.checkSecurityStatusOff();
         footer.clickScenarios();
         footer.clickEvents();
         footer.clickStatistics();
         footer.clickCameras();
         footer.clickDeviceList();
         footer.clickDeviceList();
-        //TODO  разобраться с отображением статуса охраны дома после постановки на охрану
+        //TODO зачаток демо теста
     }
 }
