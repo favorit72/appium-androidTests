@@ -24,4 +24,8 @@ public class BaseAction {
     public void hideKeyBoard() {
         driver.hideKeyboard();
     }
+
+    public void clearField() {
+        driver.pressKey(new KeyEvent(AndroidKey.CLEAR));
+    }
 }

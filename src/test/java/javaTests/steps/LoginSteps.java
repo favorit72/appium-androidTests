@@ -5,13 +5,16 @@ import org.testng.Assert;
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.LoginPage;
+import utils.BaseAction;
 
 public class LoginSteps {
 
     private final LoginPage loginPage;
+    private BaseAction baseAction;
 
     public LoginSteps(AndroidDriver androidDriver) {
         loginPage = new LoginPage(androidDriver);
+        baseAction = new BaseAction(androidDriver);
     }
 
     //CLICK:
@@ -43,7 +46,7 @@ public class LoginSteps {
 
     @Step("Очищаем поле логина")
     public void clearPhoneField() {
-        loginPage.waitForElementIsDisplayed(loginPage.phoneField).clear();
+        baseAction.clearField();
     }
 
 
