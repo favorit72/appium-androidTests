@@ -20,8 +20,20 @@ public class DriverWait extends Constructor {
         return (MobileElement) setupWait(10).until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public Boolean waitForElementChangeText(MobileElement element, String expectedText) {
+        return setupWait(10).until(ExpectedConditions.textToBePresentInElement(element, expectedText));
+    }
+
     public MobileElement waitForElementIsDisplayed(MobileElement element) {
         return (MobileElement) setupWait(10).until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public MobileElement longWaitForElementIsDisplayed(MobileElement element) {
+        return (MobileElement) setupWait(10000).until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public MobileElement longWaitForElementToClick(MobileElement element) {
+        return (MobileElement) setupWait(10000).until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public List<WebElement> waitForListElements(List<WebElement> elementList) {
