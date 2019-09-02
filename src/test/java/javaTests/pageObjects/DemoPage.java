@@ -1,20 +1,17 @@
 package javaTests.pageObjects;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
-import io.appium.java_client.AppiumDriver;
+import helpers.DriverWait;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class DemoPage {
-
-    @AndroidFindBy(id = "com.rubetek.client:id/btn_demo")
-    public MobileElement demoMode;
-
-    public DemoPage(AppiumDriver<WebElement> driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+public class DemoPage extends DriverWait {
+    public DemoPage(AndroidDriver androidDriver) {
+        super(androidDriver);
     }
 
+    @AndroidFindBy(id = "com.rubetek.client:id/btn_demo")
+    public MobileElement demoModeBtn;
+    @AndroidFindBy(id = "com.rubetek.client:id/demo_close")
+    public MobileElement closeDemoHouseBtn;
 }

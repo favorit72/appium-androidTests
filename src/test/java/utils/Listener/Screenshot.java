@@ -17,7 +17,7 @@ class Screenshot {
 
     void captureScreenshot(AndroidDriver androidDriver, String nameDevice) {
 
-        String file = new SimpleDateFormat("yyyy:MM:dd_HH:mm:ss").format(Calendar.getInstance().getTime()) + "_" + nameDevice + ".png";
+        String file = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(Calendar.getInstance().getTime()) + "_" + nameDevice + ".png";
 
         System.out.println("::: Got an exception ::: " + " ::: Will save screenshot into file: " + file);
 
