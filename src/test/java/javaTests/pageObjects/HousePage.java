@@ -10,6 +10,5 @@ public class HousePage extends DriverWait {
         super(androidDriver);
     }
 
-    @AndroidFindBy(id = "com.rubetek.client:id/demo_header")
-    public MobileElement currentHouseName;
+
 }

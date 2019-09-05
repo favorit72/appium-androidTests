@@ -20,6 +20,6 @@ public class CreateNewHouseTest extends BaseTest {
     @Test
     public void createNewHouseTest() {
         spinner.clickSpinner();
-        spinner.clickCreateHouse();
+        spinner.clickCreateHouseBtn();
     }
 }

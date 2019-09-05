@@ -18,8 +18,8 @@ public class SpinnerSteps {
     }
 
     @Step("Нажимаем создать дом")
-    public void clickCreateHouse() {
-        spinnerPage.waitForElementToClick(spinnerPage.createHouse).click();
+    public void clickCreateHouseBtn() {
+        spinnerPage.waitForElementToClick(spinnerPage.createHouseBtn).click();
     }
 
 }
