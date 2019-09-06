@@ -43,4 +43,10 @@ public class SpinnerSteps {
         Assert.assertEquals(text, "Войти по приглашению");
     }
 
+    @Step("Текущий дом - WIFI")
+    public void checkCurrentHouseText() {
+        String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.currentHouseName).getText();
+        Assert.assertEquals(text, "Wi-fi Test_Name");
+    }
+
 }

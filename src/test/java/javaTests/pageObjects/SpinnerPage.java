@@ -12,9 +12,9 @@ public class SpinnerPage extends DriverWait {
 
     @AndroidFindBy(id = "com.rubetek.client:id/spinner")
     public MobileElement spinner;
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout")
     public MobileElement createHouseBtn;
-    @AndroidFindBy(id = "android.widget.LinearLayout[2]")
+    @AndroidFindBy(id = "com.rubetek.client:id/tvProjectName")
     public MobileElement currentHouseName;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Войти по приглашению']")
     public MobileElement enterByInviteBtn;
