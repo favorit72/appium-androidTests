@@ -18,5 +18,9 @@ public class SpinnerPage extends DriverWait {
     public MobileElement currentHouseName;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Войти по приглашению']")
     public MobileElement enterByInviteBtn;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='ЦУ Test_Name']")
+    public MobileElement houseNameCC;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Wi-fi Test_Name']")
+    public MobileElement houseNameWIFI;
 
 }

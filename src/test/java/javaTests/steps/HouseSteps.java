@@ -1,9 +1,10 @@
 package javaTests.steps;
 
+import org.testng.Assert;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.HousePage;
-import org.testng.Assert;
 
 public class HouseSteps {
 
@@ -45,7 +46,7 @@ public class HouseSteps {
     }
 
     //Actions with field:
-    @Step("Вводим название дома Wi-fi")
+    @Step("Вводим название дома")
     public void insertNameNewHouse(String houseName) {
         housePage.waitForElementToClick(housePage.newHouseNameField).sendKeys(houseName);
     }

@@ -44,9 +44,26 @@ public class SpinnerSteps {
     }
 
     @Step("Текущий дом - WIFI")
-    public void checkCurrentHouseText() {
+    public void checkCurrentHouseWiFi() {
         String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.currentHouseName).getText();
         Assert.assertEquals(text, "Wi-fi Test_Name");
     }
 
+    @Step("Текущий дом - ЦУ")
+    public void checkCurrentHouseCC() {
+        String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.currentHouseName).getText();
+        Assert.assertEquals(text, "ЦУ Test_Name");
+    }
+
+    @Step("Дом ЦУ присутствует в списке")
+    public void chechHouseListCC() {
+        String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.houseNameCC).getText();
+        Assert.assertEquals(text, "ЦУ Test_Name");
+    }
+
+    @Step("Дом Wi-Fi присутствует в списке")
+    public void checkHouseListWiFi() {
+        String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.houseNameWIFI).getText();
+        Assert.assertEquals(text, "Wi-fi Test_Name");
+    }
 }
