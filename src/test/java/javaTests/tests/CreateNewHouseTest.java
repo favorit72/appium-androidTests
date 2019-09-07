@@ -1,11 +1,12 @@
 package javaTests.tests;
 
-import javaTests.steps.FooterSteps;
-import javaTests.steps.HouseSteps;
-import javaTests.steps.SpinnerSteps;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import javaTests.steps.FooterSteps;
+import javaTests.steps.HouseSteps;
+import javaTests.steps.SpinnerSteps;
 import utils.BaseAction;
 import utils.BaseTest;
 import utils.Listener.Listener;
@@ -47,6 +48,7 @@ public class CreateNewHouseTest extends BaseTest {
         house.clickEnterByInviteBtn();
         baseAction.pressBack();
         house.insertNameNewHouse(Strings.HOUSE_NAME_WIFI);
+        baseAction.hideKeyBoard();
         house.clickCreateHouseBtn();
         house.checkCreateNewHouseTitle();
         house.checkGotoAddDevicesBtnText();
