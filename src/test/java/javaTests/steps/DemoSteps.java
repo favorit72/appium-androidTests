@@ -1,5 +1,6 @@
 package javaTests.steps;
 
+import javaTests.pageObjects.SpinnerPage;
 import org.testng.Assert;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -9,9 +10,11 @@ import javaTests.pageObjects.DemoPage;
 public class DemoSteps {
 
     private final DemoPage demoPage;
+    private final SpinnerPage spinnerPage;
 
     public DemoSteps(AndroidDriver androidDriver) {
         demoPage = new DemoPage(androidDriver);
+        spinnerPage = new SpinnerPage(androidDriver);
     }
 
     //CLICKS:
@@ -31,5 +34,12 @@ public class DemoSteps {
         String closeDemoBtnText;
         closeDemoBtnText = demoPage.waitForElementToClick(demoPage.closeDemoHouseBtn).getText();
         Assert.assertEquals(closeDemoBtnText, "Демо");
+    }
+
+    @Step("Название демо-дома 'Мой дом'")
+    public void checkDemoHouseNameText() {
+        String houseNameText;
+        houseNameText = demoPage.waitForElementToClick(demoPage.demoHouseName).getText();
+        Assert.assertEquals(houseNameText, "Мой дом");
     }
 }
