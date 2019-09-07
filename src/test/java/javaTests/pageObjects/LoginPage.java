@@ -11,51 +11,39 @@ public class LoginPage extends DriverWait {
         super(androidDriver);
     }
 
-    //BUTTONS:
+    //Button:
     @AndroidFindBy(id = "com.rubetek.client:id/signIn")
     public MobileElement startUsingBtn;
-
     @AndroidFindBy(id = "com.rubetek.client:id/authorizeButton")
     public MobileElement nextButton;
-
     @AndroidFindBy(id = "com.rubetek.client:id/tvForgottenPassword")
     public MobileElement forgotThePasswordBtn;
 
-    //FIELDS:
+    //Field:
     @AndroidFindBy(id = "com.rubetek.client:id/etPhone")
     public MobileElement phoneField;
-
     @AndroidFindBy(id = "com.rubetek.client:id/etPassword")
     public MobileElement passwordField;
-
     @AndroidFindBy(id = "com.rubetek.client:id/etCode")
     public MobileElement smsCodeField;
 
-    //TEXTS ON SCREENS:
+    //Text:
     @AndroidFindBy(id = "com.rubetek.client:id/tvPhoneTitle")
     public MobileElement loginTitle;
-
     @AndroidFindBy(id = "com.rubetek.client:id/phoneSubtext")
     public MobileElement subTextLogin;
-
     @AndroidFindBy(id = "android:id/text")
     public MobileElement smsTextCode;
-
     @AndroidFindBy(id = "com.rubetek.client:id/snackbar_text")
     public MobileElement snackbar;
-
     @AndroidFindBy(id = "com.rubetek.client:id/checkCodeDesc")
     public MobileElement smsCodeTitle;
-
     @AndroidFindBy(id = "com.rubetek.client:id/codeSubtext")
     public MobileElement subTextSmsCode;
-
     @AndroidFindBy(id = "com.rubetek.client:id/tvPasswordTitle")
     public MobileElement insertPasswordTitle;
-
     @AndroidFindBy(id = "com.rubetek.client:id/countryCode")
     public MobileElement phonePrefix;
-
     @AndroidFindBy(id = "com.rubetek.client:id/btn_demo")
     public MobileElement demoMode;
 }
