@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import javaTests.steps.DemoSteps;
 import javaTests.steps.FooterSteps;
-import javaTests.steps.HouseSteps;
 import javaTests.steps.LoginSteps;
 import javaTests.steps.SecuritySteps;
 import utils.BaseTest;
@@ -23,11 +22,9 @@ public class DemoHouseTest extends BaseTest {
     private LoginSteps login;
     private FooterSteps footer;
     private DemoSteps demo;
-    private HouseSteps house;
 
     @BeforeClass
     public void beforeClass() {
-        house = new HouseSteps(driver());
         login = new LoginSteps(driver());
         demo = new DemoSteps(driver());
         footer = new FooterSteps(driver());
@@ -40,7 +37,7 @@ public class DemoHouseTest extends BaseTest {
         login.checkDemoBtnText();
         login.startUsingBtnIsEnable();
         demo.clickDemoButton();
-        house.checkDemoHouseName();
+        demo.checkDemoHouseNameText();
         demo.checkCloseDemoBtnText();
         security.checkSecurityStatusOff();
         security.securityModeOn();
