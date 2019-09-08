@@ -39,8 +39,8 @@ public class BaseTest {
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, PHONE);
         capabilities.setCapability(MobileCapabilityType.UDID, id);
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-        capabilities.setCapability(AndroidMobileCapabilityType.UNICODE_KEYBOARD, true);
-        capabilities.setCapability(AndroidMobileCapabilityType.RESET_KEYBOARD, true);
+//        capabilities.setCapability(AndroidMobileCapabilityType.UNICODE_KEYBOARD, true);
+//        capabilities.setCapability(AndroidMobileCapabilityType.RESET_KEYBOARD, true);
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, COMMAND_TIMEOUT);
 
         androidDriver = (new AndroidDriver(new URL(APPIUM_SERVER_URL), capabilities));
