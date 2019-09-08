@@ -10,5 +10,5 @@ public class Strings {
     public final static String INCORRECT_SMSCODE = "1111";
     public final static String NOT_FULL_SMSCODE = "11";
     public final static String HOUSE_NAME_WIFI = "Wi-fi Test_Name";
-    public final static String HOUSE_NAME_CC = "ЦУ Test_Name";
+    public final static String HOUSE_NAME_CC = "CC Test_Name";
 }

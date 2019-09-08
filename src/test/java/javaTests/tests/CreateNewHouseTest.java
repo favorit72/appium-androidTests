@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import javaTests.steps.AddDeviceSteps;
 import javaTests.steps.FooterSteps;
 import javaTests.steps.HouseSteps;
 import javaTests.steps.SpinnerSteps;
@@ -18,6 +19,7 @@ public class CreateNewHouseTest extends BaseTest {
     private HouseSteps house;
     private BaseAction baseAction;
     private FooterSteps footer;
+    private AddDeviceSteps addDevice;
 
     @BeforeClass
     public void beforeClass() {
@@ -25,6 +27,7 @@ public class CreateNewHouseTest extends BaseTest {
         house = new HouseSteps(driver());
         baseAction = new BaseAction(driver());
         footer = new FooterSteps(driver());
+        addDevice = new AddDeviceSteps(driver());
     }
 
     @Test
@@ -68,6 +71,14 @@ public class CreateNewHouseTest extends BaseTest {
         footer.clickCameras();
         footer.clickDeviceList();
         spinner.checkCurrentHouseWiFi();
+        addDevice.clickAddDeviceBtn();
+        addDevice.checkAddDeviceTitleText();
+        addDevice.checkControlTitleExpandableList();
+        addDevice.checkCameraTitleExpandableList();
+        addDevice.checkPowerSupplyTitleExpandableList();
+        addDevice.checkLightingTitleExpandableList();
+        addDevice.checkClimateTitleExpandableList();
+        baseAction.pressBack();
 
         System.out.println("Create new house for CC");
         spinner.clickSpinner();
@@ -97,12 +108,19 @@ public class CreateNewHouseTest extends BaseTest {
         house.clickHelpBtn();
         Thread.sleep(2000);
         baseAction.pressBack();
-        house.clickContinueBtn();
+        house.clickGoToAddDevicesBtn();
+        addDevice.checkAddDeviceTitleText();
+        addDevice.checkControlTitleExpandableList();
+        addDevice.checkCameraTitleExpandableList();
+        addDevice.checkPowerSupplyTitleExpandableList();
+        addDevice.checkLightingTitleExpandableList();
+        addDevice.checkClimateTitleExpandableList();
+        baseAction.pressBack();
         spinner.checkCurrentHouseCC();
         house.checkNotAvailableDevicesText();
         spinner.clickSpinner();
         spinner.checkHouseListWiFi();
-        spinner.chechHouseListCC();
+        spinner.checkHouseListCC();
 
     }
 }
