@@ -13,13 +13,13 @@ import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Attachment;
 
 
-class Screenshot {
+public class Screenshot {
 
-    void captureScreenshot(AndroidDriver androidDriver, String nameDevice) {
+    public void captureScreenshot(AndroidDriver androidDriver, String nameDevice) {
 
         String file = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(Calendar.getInstance().getTime()) + "_" + nameDevice + ".png";
 
-        System.out.println("::: Got an exception ::: " + " ::: Will save screenshot into file: " + file);
+        System.out.println("::: Got an exception ::: " + " Will save screenshot into file: " + file);
 
         byte[] screenshot = androidDriver.getScreenshotAs(OutputType.BYTES);
         try {
