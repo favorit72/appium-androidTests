@@ -20,28 +20,26 @@ public class LoginTest extends BaseTest {
     public void beforeClass() {
         login = new LoginSteps(driver());
         menu = new MenuOptionsPage(driver());
-
     }
 
     @Test
     public void Login() {
+
         System.out.println("Start Login Test");
-        login.checkDemoBtnText();
-        login.startUsingBtnIsEnable();
+        login.checkStartScreen();
         login.clickStartUsingBtn();
-        login.checkPhonePrefixText();
-        login.checkLoginTitleText();
-        login.checkSubLoginText();
+        login.checkInputLoginScreen();
         login.authorizeBtnIsNotEnable();
-        login.insertCorrectPhone(Strings.CORRECT_LOGIN);
+        login.inputCorrectPhone(Strings.CORRECT_LOGIN);
+        login.checkPrivacyPolicy();
         login.authorizeBtnIsEnable();
         login.clickNextBtn();
-        login.checkForgotThePasswordBtnText();
+        login.checkInputPasswordScreen();
         login.authorizeBtnIsNotEnable();
-        login.checkPasswordTextTitle();
-        login.insertCorrectPassword(Strings.CORRECT_PASSWORD);
+        login.inputCorrectPassword(Strings.CORRECT_PASSWORD);
         login.authorizeBtnIsEnable();
         login.clickNextBtn();
         menu.waitForElementIsDisplayed(menu.optionsBtn);
+
     }
 }

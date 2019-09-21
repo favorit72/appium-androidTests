@@ -13,7 +13,6 @@ import utils.data.Strings;
 @Listeners(Listener.class)
 public class IncorrectPasswordLoginTest extends BaseTest {
     private LoginSteps login;
-    // private WebDriverWait wait = new WebDriverWait(driver(), 10);
 
     @BeforeClass
     public void beforeClass() {
@@ -22,30 +21,27 @@ public class IncorrectPasswordLoginTest extends BaseTest {
 
     @Test
     public void IncorrectPasswordLogin() {
+
         System.out.println("Start Incorrect login/password Test");
-        login.checkDemoBtnText();
-        login.startUsingBtnIsEnable();
+        login.checkStartScreen();
         login.clickStartUsingBtn();
-        login.checkPhonePrefixText();
-        login.checkLoginTitleText();
-        login.checkSubLoginText();
+        login.checkInputLoginScreen();
         login.authorizeBtnIsNotEnable();
-        login.insertInCorrectPhone(Strings.INCORRECT_LOGIN);
+        login.inputCorrectPhone(Strings.INCORRECT_LOGIN);
         login.authorizeBtnIsNotEnable();
         login.clearPhoneField();
-        login.insertCorrectPhone(Strings.CORRECT_LOGIN);
+        login.inputCorrectPhone(Strings.CORRECT_LOGIN);
         login.authorizeBtnIsEnable();
         login.clickNextBtn();
         login.authorizeBtnIsNotEnable();
-        login.insertInCorrectPassword(Strings.NOT_FULL_PASSWORD);
-        login.checkPasswordTextTitle();
-        login.checkForgotThePasswordBtnText();
+        login.inputCorrectPassword(Strings.NOT_FULL_PASSWORD);
         login.authorizeBtnIsNotEnable();
         login.clearPasswordField();
-        login.insertInCorrectPassword(Strings.INCORRECT_FULL_PASSWORD);
+        login.inputInCorrectPassword(Strings.INCORRECT_FULL_PASSWORD);
         login.authorizeBtnIsEnable();
         login.clickNextBtn();
         login.checkSnackbarTextError();
         login.authorizeBtnIsEnable();
+
     }
 }

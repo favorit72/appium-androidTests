@@ -29,27 +29,22 @@ public class LogoutTest extends BaseTest {
 
     @Test
     public void Logout() {
+
         System.out.println("Start Logout Test");
         menu.clickOptionsBtn();
-        menu.checkAppSettingsText();
-        menu.checkHouseSettingsText();
+        menu.checkMenuElements();
         menu.clickAppSettingsBtn();
-        appSettings.checkAccountText();
-        appSettings.checkAccountPhoneText();
-        appSettings.checkAppVersionTitleText();
-        appSettings.checkAdditionSettingsTitleText();
-        appSettings.checkDarkThemeText();
-        appSettings.checkVoiceSettingsText();
+        appSettings.checkAppSettingsScreen();
         appSettings.clickUserAccount();
-        userAccount.checkAppSettingsTitleText();
-        userAccount.checkResetPasswordBtnText();
-        userAccount.checkLogoutBtnText();
+        userAccount.checkUserAccountScreen();
         userAccount.clickLogOutBtn();
-        userAccount.checkAlertLogoutTitleText();
-        userAccount.checkMessageAlertText();
-        userAccount.checkConfirmLogoutBtnText();
-        userAccount.checkCancelLogoutBtnText();
+        userAccount.checkLogoutAlert();
+        userAccount.clickCancelLogout();
+        userAccount.checkUserAccountScreen();
+        userAccount.clickLogOutBtn();
+        userAccount.checkLogoutAlert();
         userAccount.clickConfirmLogout();
         login.waitForElementIsDisplayed(login.demoMode);
+
     }
 }

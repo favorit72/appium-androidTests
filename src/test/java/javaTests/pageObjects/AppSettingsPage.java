@@ -10,9 +10,11 @@ public class AppSettingsPage extends DriverWait {
         super(androidDriver);
     }
 
+    @AndroidFindBy(id = "com.rubetek.client:id/toolbar_title")
+    public MobileElement appSettingsTitle;
     @AndroidFindBy(id = "com.rubetek.client:id/phone_num")
     public MobileElement userAccountPhone;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Учетная запись']")
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[1]")
     public MobileElement accountText;
     @AndroidFindBy(id = "com.rubetek.client:id/textView3")
     public MobileElement appVersionTitle;
@@ -20,7 +22,10 @@ public class AppSettingsPage extends DriverWait {
     public MobileElement additionSettingsTitle;
     @AndroidFindBy(id = "com.rubetek.client:id/tvThemeName")
     public MobileElement themeText;
-
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Автообновление устройств')]")
+    public MobileElement autoUpdateText;
+    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Перейти вверх\"]")
+    public MobileElement backBtn;
     //Switch:
     @AndroidFindBy(id = "com.rubetek.client:id/switchTheme")
     public MobileElement themeSwitch;
@@ -30,4 +35,5 @@ public class AppSettingsPage extends DriverWait {
     public MobileElement autoUpdateSwitch;
     @AndroidFindBy(id = "com.rubetek.client:id/newDesignSwitch")
     public MobileElement tileInterfacesSwitch;
+
 }

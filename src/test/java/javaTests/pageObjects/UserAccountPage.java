@@ -20,7 +20,8 @@ public class UserAccountPage extends DriverWait {
     public MobileElement cancelLogoutBtn;
     @AndroidFindBy(id = "com.rubetek.client:id/resetPassword")
     public MobileElement resetPasswordBth;
-
+    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Перейти вверх\"]")
+    public MobileElement backBtn;
     //Text:
     @AndroidFindBy(id = "com.rubetek.client:id/toolbar_title")
     public MobileElement userAccountTitle;
