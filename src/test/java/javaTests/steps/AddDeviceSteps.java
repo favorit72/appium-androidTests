@@ -45,13 +45,13 @@ public class AddDeviceSteps {
 
     //Check text:
     @Step("Текст кнопки 'вижу' присуствует на кнопке")
-    private void checkViewBtnText() {
+    void checkViewBtnText() {
         String textBtn = addDevicePage.waitForElementIsDisplayed(addDevicePage.viewBtn).getText();
         Assert.assertEquals(textBtn, "Вижу");
     }
 
     @Step("Заголовок 'Подключение' присуствует на экране смартконфига устройств")
-    private void checkPrepareDeviceSmartConfigTitle() {
+    void checkPrepareDeviceSmartConfigTitle() {
         String title = addDevicePage.waitForElementIsDisplayed(addDevicePage.addDeviceAllScreenTitle).getText();
         Assert.assertEquals(title, "Подключение");
     }
@@ -103,7 +103,7 @@ public class AddDeviceSteps {
     }
 
     @Step("Кнопка назад присутствует")
-    private void checkBackBtn() {
+    void checkBackBtn() {
         addDevicePage.waitForElementToClick(addDevicePage.backBtn).isDisplayed();
         addDevicePage.backBtn.isEnabled();
     }
@@ -115,7 +115,7 @@ public class AddDeviceSteps {
     }
 
     @Step("Кнопка 'Вижу' доступна")
-    private void checkViewBtnIsEnable() throws InterruptedException {
+    void checkViewBtnIsEnable() throws InterruptedException {
         Thread.sleep(3000);
         boolean enable = addDevicePage.waitForElementIsDisplayed(addDevicePage.viewBtn).isEnabled();
         Assert.assertTrue(enable);
@@ -128,7 +128,7 @@ public class AddDeviceSteps {
     }
 
     @Step("Лодер присутствует в течении смартконфига")
-    private void smartConfigLoaderIsEnabled() {
+    void smartConfigLoaderIsEnabled() {
         boolean enable = addDevicePage.longWaitForElementIsDisplayed(addDevicePage.progressLoader).isEnabled();
         Assert.assertTrue(enable);
     }

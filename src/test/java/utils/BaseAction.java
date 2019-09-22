@@ -33,4 +33,30 @@ public class BaseAction {
     public void clearField() {
         driver.pressKey(new KeyEvent(AndroidKey.CLEAR));
     }
+
+    @Step("Скролим экран до элемента")
+    public boolean scrollToElementById(String elemId) {
+        try {
+            driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
+                    ".scrollIntoView(new UiSelector().resourceId(" + "\"" + elemId + "\"" + ").instance(0))");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Scroll to element failed");
+            return false;
+        }
+    }
+
+    @Step("Скролим экран до элемента")
+    public boolean scrollToElementByText(String text) {
+        try {
+            driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" +
+                    ".scrollIntoView(new UiSelector().text(" + "\"" + text + "\"" + ").instance(0))");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Scroll to element failed");
+            return false;
+        }
+    }
 }
