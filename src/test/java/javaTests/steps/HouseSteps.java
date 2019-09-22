@@ -5,13 +5,21 @@ import org.testng.Assert;
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.HousePage;
+import javaTests.pageObjects.SpinnerPage;
+import utils.data.Strings;
 
 public class HouseSteps {
 
     private final HousePage housePage;
+    private final SpinnerPage spinnerPage;
+    private final SpinnerSteps spinner;
+    private final FooterSteps footer;
 
     public HouseSteps(AndroidDriver androidDriver) {
         housePage = new HousePage(androidDriver);
+        spinnerPage = new SpinnerPage(androidDriver);
+        spinner = new SpinnerSteps(androidDriver);
+        footer = new FooterSteps(androidDriver);
     }
 
     //Click:
@@ -47,7 +55,7 @@ public class HouseSteps {
 
     //Actions with field:
     @Step("Вводим название дома")
-    public void insertNameNewHouse(String houseName) {
+    public void inputNewHouseName(String houseName) {
         housePage.waitForElementToClick(housePage.newHouseNameField).sendKeys(houseName);
     }
 
@@ -112,10 +120,18 @@ public class HouseSteps {
         Assert.assertEquals(text, "Дом - это место в котором будут храниться все ваши устройства: Центр управления, датчики, камеры, домофоны и многое другое");
     }
 
-    @Step("Текст 'устройств пока нет' присутствует в пустом доме")
-    public void checkNotAvailableDevicesText() {
-        String text = housePage.waitForElementIsDisplayed(housePage.notAvailableDevices).getText();
-        Assert.assertEquals(text, "Устройств пока нет");
+    //Other action:
+    @Step("Выбираем дом WIFI")
+    public void chooseWifiHouse() {
+        footer.clickDeviceList();
+        String currentHouse = spinnerPage.waitForElementToClick(spinnerPage.currentHouseName).getText();
+        if (currentHouse.equals(Strings.HOUSE_NAME_WIFI)) {
+            System.out.println("Уже находимся в доме WIFI");
+        } else {
+            spinner.clickSpinner();
+            spinner.checkHouseListWiFi();
+            spinner.clickWifiHouseSpinner();
+            System.out.println("Сменили дом");
+        }
     }
-
 }

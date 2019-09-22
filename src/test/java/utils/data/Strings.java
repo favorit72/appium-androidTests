@@ -11,4 +11,9 @@ public class Strings {
     public final static String NOT_FULL_SMSCODE = "11";
     public final static String HOUSE_NAME_WIFI = "Wi-fi Test_Name";
     public final static String HOUSE_NAME_CC = "CC Test_Name";
+    public final static String WIFI_PASSWORD = "qakRgCMr";
+
+    //Default device_name
+    public final static String DEFAULT_DEVICE_NAME_SOCKET = "Wi-Fi розетка";
+    public final static String NAME_ROOM_WIFI = "Wi-fi";
 }

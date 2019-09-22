@@ -5,6 +5,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import javaTests.steps.AddDeviceSteps;
+import javaTests.steps.DeviceListSteps;
 import javaTests.steps.FooterSteps;
 import javaTests.steps.HouseSteps;
 import javaTests.steps.SpinnerSteps;
@@ -20,6 +21,7 @@ public class CreateNewHouseTest extends BaseTest {
     private BaseAction baseAction;
     private FooterSteps footer;
     private AddDeviceSteps addDevice;
+    private DeviceListSteps deviceList;
 
     @BeforeClass
     public void beforeClass() {
@@ -28,6 +30,7 @@ public class CreateNewHouseTest extends BaseTest {
         baseAction = new BaseAction(driver());
         footer = new FooterSteps(driver());
         addDevice = new AddDeviceSteps(driver());
+        deviceList = new DeviceListSteps(driver());
     }
 
     @Test
@@ -51,7 +54,7 @@ public class CreateNewHouseTest extends BaseTest {
         house.clickOkBtnError();
         house.clickEnterByInviteBtn();
         baseAction.pressBack();
-        house.insertNameNewHouse(Strings.HOUSE_NAME_WIFI);
+        house.inputNewHouseName(Strings.HOUSE_NAME_WIFI);
         baseAction.hideKeyBoard();
         house.clickCreateHouseBtn();
         house.checkCreateNewHouseTitle();
@@ -64,7 +67,7 @@ public class CreateNewHouseTest extends BaseTest {
         baseAction.pressBack();
         house.clickContinueBtn();
         spinner.checkCurrentHouseWiFi();
-        house.checkNotAvailableDevicesText();
+        deviceList.checkNotAvailableDevicesText();
         footer.clickDeviceList();
         footer.clickEvents();
         footer.clickScenarios();
@@ -72,12 +75,10 @@ public class CreateNewHouseTest extends BaseTest {
         footer.clickDeviceList();
         spinner.checkCurrentHouseWiFi();
         addDevice.clickAddDeviceBtn();
-        addDevice.checkAddDeviceTitleText();
-        addDevice.checkControlTitleExpandableList();
-        addDevice.checkCameraTitleExpandableList();
-        addDevice.checkPowerSupplyTitleExpandableList();
-        addDevice.checkLightingTitleExpandableList();
-        addDevice.checkClimateTitleExpandableList();
+        addDevice.checkAddDeviceGroupEmptyHouse();
+        baseAction.pressBack();
+        spinner.clickSpinner();
+        spinner.checkHouseListWiFi();
         baseAction.pressBack();
 
         System.out.println("Create new house for CC");
@@ -97,7 +98,7 @@ public class CreateNewHouseTest extends BaseTest {
         house.clickOkBtnError();
         house.clickEnterByInviteBtn();
         baseAction.pressBack();
-        house.insertNameNewHouse(Strings.HOUSE_NAME_CC);
+        house.inputNewHouseName(Strings.HOUSE_NAME_CC);
         baseAction.hideKeyBoard();
         house.clickCreateHouseBtn();
         house.checkCreateNewHouseTitle();
@@ -109,15 +110,10 @@ public class CreateNewHouseTest extends BaseTest {
         Thread.sleep(2000);
         baseAction.pressBack();
         house.clickGoToAddDevicesBtn();
-        addDevice.checkAddDeviceTitleText();
-        addDevice.checkControlTitleExpandableList();
-        addDevice.checkCameraTitleExpandableList();
-        addDevice.checkPowerSupplyTitleExpandableList();
-        addDevice.checkLightingTitleExpandableList();
-        addDevice.checkClimateTitleExpandableList();
+        addDevice.checkAddDeviceGroupEmptyHouse();
         baseAction.pressBack();
         spinner.checkCurrentHouseCC();
-        house.checkNotAvailableDevicesText();
+        deviceList.checkNotAvailableDevicesText();
         spinner.clickSpinner();
         spinner.checkHouseListWiFi();
         spinner.checkHouseListCC();
