@@ -1,22 +1,13 @@
 package javaTests.tests;
 
+import javaTests.pageObjects.FooterPage;
+import javaTests.steps.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
-import javaTests.pageObjects.FooterPage;
-import javaTests.steps.AddDeviceSteps;
-import javaTests.steps.DeviceListSteps;
-import javaTests.steps.HouseSteps;
-import javaTests.steps.MenuSteps;
-import javaTests.steps.RoomSteps;
-import javaTests.steps.SmartConfigScreenSteps;
-import javaTests.steps.SmartConfigWifiSocketSteps;
-import javaTests.steps.SpinnerSteps;
 import utils.BaseAction;
 import utils.BaseTest;
 import utils.Listener.Listener;
-import utils.RetryAnalyzerCount;
 import utils.data.Strings;
 
 @Listeners(Listener.class)
@@ -47,7 +38,7 @@ public class AddSocketTest extends BaseTest {
         footer = new FooterPage(driver());
     }
 
-    @Test(retryAnalyzer = RetryAnalyzerCount.class)
+    @Test()
     public void addSocketTest() throws InterruptedException {
 
         System.out.println("Start test add socket");
