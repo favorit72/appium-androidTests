@@ -26,34 +26,32 @@ public class ForgotThePasswordTest extends BaseTest {
 
     @Test
     public void ForgotThePassword() throws InterruptedException {
+
         System.out.println("Start forgot the password Test");
-        login.checkDemoBtnText();
-        login.startUsingBtnIsEnable();
+        login.checkStartScreen();
         login.clickStartUsingBtn();
-        login.checkPhonePrefixText();
-        login.checkLoginTitleText();
-        login.checkSubLoginText();
+        login.checkInputLoginScreen();
         login.authorizeBtnIsNotEnable();
-        login.insertCorrectPhone(Strings.CORRECT_LOGIN);
+        login.inputCorrectPhone(Strings.CORRECT_LOGIN);
         login.clickNextBtn();
-        login.checkForgotThePasswordBtnText();
+        login.checkInputPasswordScreen();
         login.clickForgotThePasswordBtn();
-        login.checkSubSmsCodeText();
+        login.checkForgotThePasswordScreen();
+        //wait for sms
         Thread.sleep(8000);
         baseAction.openNotification();
         String smsCode = login.getSmsCode();
         baseAction.pressBack();
-        login.checkSmsCodeTitleText();
-        login.insertSmsCode(Strings.NOT_FULL_SMSCODE);
+        login.inputSmsCode(Strings.NOT_FULL_SMSCODE);
         login.authorizeBtnIsNotEnable();
-        login.insertSmsCode(Strings.INCORRECT_SMSCODE);
+        login.inputSmsCode(Strings.INCORRECT_SMSCODE);
         login.checkWrongSmsCodeSnackBarText();
-        login.clearSmsCodeField();
-        login.insertSmsCode(smsCode);
-        login.checkNewPasswordTitleText();
+        login.inputSmsCode(smsCode);
+        login.checkCreateNewPasswordScreen();
         login.authorizeBtnIsNotEnable();
-        login.insertNewPassword(Strings.CORRECT_PASSWORD);
+        login.inputNewPassword(Strings.CORRECT_PASSWORD);
         login.clickNextBtn();
         menu.waitForElementIsDisplayed(menu.optionsBtn);
+
     }
 }

@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.MenuOptionsPage;
 
-//Окно опций
 public class MenuSteps {
     private final MenuOptionsPage menu;
 
@@ -14,31 +13,35 @@ public class MenuSteps {
         menu = new MenuOptionsPage(androidDriver);
     }
 
-    //КЛИКИ:
+    @Step("Проверяем пункты меню")
+    public void checkMenuElements() {
+        checkHouseSettingsInMenu();
+        checkAppSettingsInMenu();
+    }
+
+    //Click:
     @Step("Нажимаем опции")
     public void clickOptionsBtn() {
         menu.waitForElementToClick(menu.optionsBtn).click();
     }
-
     @Step("Нажимаем настройки приложения")
     public void clickAppSettingsBtn() {
         menu.waitForElementToClick(menu.appSettingsBtn).click();
     }
-
     @Step("Нажимаем настройки дома")
     public void clickHouseSettingsBtn() {
         menu.waitForElementToClick(menu.houseSettingsBtn).click();
     }
 
-    //ПРОВЕРКИ ТЕКСТОВ:
-    @Step("Текст 'настройки приложения' присутствует в меню")
-    public void checkAppSettingsText() {
+    //Check text:
+    @Step("'настройки приложения' присутствует в меню")
+    private void checkAppSettingsInMenu() {
         String appSettingsText = menu.waitForElementIsDisplayed(menu.appSettingsBtn).getText();
         Assert.assertEquals(appSettingsText, "Настройки приложения");
     }
 
-    @Step("Текст 'настройки дома' присутствует в меню")
-    public void checkHouseSettingsText() {
+    @Step("'настройки дома' присутствует в меню")
+    private void checkHouseSettingsInMenu() {
         String houseSettingsText = menu.waitForElementIsDisplayed(menu.houseSettingsBtn).getText();
         Assert.assertEquals(houseSettingsText, "Настройки дома");
     }

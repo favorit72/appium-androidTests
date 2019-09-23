@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.UserAccountPage;
 
-//учетная запись
 public class UserAccountSteps {
     private final UserAccountPage accountPage;
 
@@ -14,7 +13,23 @@ public class UserAccountSteps {
         accountPage = new UserAccountPage(androidDriver);
     }
 
-    //КЛИКИ:
+    @Step("Проверяем экран настроек учетной записи")
+    public void checkUserAccountScreen() {
+        checkUserAccountTitle();
+        checkResetPasswordBtnText();
+        checkLogoutBtnText();
+        checkBackBtn();
+    }
+
+    @Step("Проверяем диалоговое окно выхода из учетной записи")
+    public void checkLogoutAlert() {
+        checkAlertLogoutTitleText();
+        checkMessageAlertText();
+        checkConfirmLogoutBtnText();
+        checkCancelLogoutBtnText();
+    }
+
+    //Click:
     @Step("Нажимаем кнопку выйти")
     public void clickLogOutBtn() {
         accountPage.waitForElementToClick(accountPage.logOutBtn).click();
@@ -35,46 +50,52 @@ public class UserAccountSteps {
         accountPage.waitForElementToClick(accountPage.resetPasswordBth).click();
     }
 
-    //ПРОВЕРКИ ТЕКСТОВ:
+    //Check text:
     @Step("Текст 'учетная запись' в заголовке присутствует")
-    public void checkAppSettingsTitleText() {
+    private void checkUserAccountTitle() {
         String textTitle = accountPage.waitForElementIsDisplayed(accountPage.userAccountTitle).getText();
         Assert.assertEquals(textTitle, "Учетная запись");
     }
 
     @Step("Текст кнопки 'сменить пароль' присутствует")
-    public void checkResetPasswordBtnText() {
+    private void checkResetPasswordBtnText() {
         String resetPasswordBtnText = accountPage.waitForElementIsDisplayed(accountPage.resetPasswordBth).getText();
         Assert.assertEquals(resetPasswordBtnText, "Сменить пароль");
     }
 
     @Step("Текст кнопки 'выйти' присутствует")
-    public void checkLogoutBtnText() {
+    private void checkLogoutBtnText() {
         String logoutBtnText = accountPage.waitForElementIsDisplayed(accountPage.logOutBtn).getText();
         Assert.assertEquals(logoutBtnText, "Выйти");
     }
 
     @Step("Текст кнопки 'да' присутствует при потдверждении выхода")
-    public void checkConfirmLogoutBtnText() {
+    private void checkConfirmLogoutBtnText() {
         String confirmBtnText = accountPage.waitForElementIsDisplayed(accountPage.confirmLogoutBth).getText();
         Assert.assertEquals(confirmBtnText, "Да");
     }
 
     @Step("Текст кнопки 'нет' присутствует при отмене выхода")
-    public void checkCancelLogoutBtnText() {
+    private void checkCancelLogoutBtnText() {
         String cancelBtnText = accountPage.waitForElementIsDisplayed(accountPage.cancelLogoutBtn).getText();
         Assert.assertEquals(cancelBtnText, "Нет");
     }
 
     @Step("Текст заголовка 'Выйти' присутствует в аллерте выхода с учетки")
-    public void checkAlertLogoutTitleText() {
+    private void checkAlertLogoutTitleText() {
         String alertLogoutTextTitle = accountPage.waitForElementIsDisplayed(accountPage.alertLogoutTitle).getText();
         Assert.assertEquals(alertLogoutTextTitle, "Выйти");
     }
 
     @Step("Текст сообщения присутствует в аллерте выхода с учетки")
-    public void checkMessageAlertText() {
+    private void checkMessageAlertText() {
         String alertLogoutTextTitle = accountPage.waitForElementIsDisplayed(accountPage.messageAlertLogout).getText();
         Assert.assertEquals(alertLogoutTextTitle, "После выхода из учетной записи все ваши дома станут недоступны. ");
+    }
+
+    @Step("Кнопка назад присутствует")
+    private void checkBackBtn() {
+        accountPage.waitForElementIsDisplayed(accountPage.backBtn).isEnabled();
+        accountPage.backBtn.isDisplayed();
     }
 }

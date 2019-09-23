@@ -1,6 +1,5 @@
 package javaTests.pageObjects;
 
-
 import helpers.DriverWait;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -18,6 +17,8 @@ public class LoginPage extends DriverWait {
     public MobileElement nextButton;
     @AndroidFindBy(id = "com.rubetek.client:id/tvForgottenPassword")
     public MobileElement forgotThePasswordBtn;
+    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Перейти вверх\"]")
+    public MobileElement backBtn;
 
     //Field:
     @AndroidFindBy(id = "com.rubetek.client:id/etPhone")
@@ -29,22 +30,24 @@ public class LoginPage extends DriverWait {
 
     //Text:
     @AndroidFindBy(id = "com.rubetek.client:id/tvPhoneTitle")
-    public MobileElement loginTitle;
+    public MobileElement subTitle;
     @AndroidFindBy(id = "com.rubetek.client:id/phoneSubtext")
-    public MobileElement subTextLogin;
+    public MobileElement loginDescription;
     @AndroidFindBy(id = "android:id/text")
     public MobileElement smsTextCode;
     @AndroidFindBy(id = "com.rubetek.client:id/snackbar_text")
     public MobileElement snackbar;
     @AndroidFindBy(id = "com.rubetek.client:id/checkCodeDesc")
-    public MobileElement smsCodeTitle;
+    public MobileElement smsCodeSubTitle;
     @AndroidFindBy(id = "com.rubetek.client:id/codeSubtext")
     public MobileElement subTextSmsCode;
     @AndroidFindBy(id = "com.rubetek.client:id/tvPasswordTitle")
-    public MobileElement insertPasswordTitle;
+    public MobileElement createNewPasswordSubTitle;
     @AndroidFindBy(id = "com.rubetek.client:id/countryCode")
     public MobileElement phonePrefix;
     @AndroidFindBy(id = "com.rubetek.client:id/btn_demo")
     public MobileElement demoMode;
-}
+    @AndroidFindBy(id = "com.rubetek.client:id/privacyPolicy")
+    public MobileElement privacyPolicy;
 
+}

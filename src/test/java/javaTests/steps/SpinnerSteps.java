@@ -5,6 +5,7 @@ import org.testng.Assert;
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.SpinnerPage;
+import utils.data.Strings;
 
 public class SpinnerSteps {
 
@@ -23,6 +24,11 @@ public class SpinnerSteps {
     @Step("Нажимаем создать дом")
     public void clickCreateNewHouseBtn() {
         spinnerPage.waitForElementToClick(spinnerPage.createHouseBtn).click();
+    }
+
+    @Step("Ищем WIFI дом в списке домов")
+    void clickWifiHouseSpinner() {
+        spinnerPage.waitForElementToClick(spinnerPage.houseNameWIFI).click();
     }
 
     @Step("Нажимаем войти по приглашению")
@@ -46,24 +52,24 @@ public class SpinnerSteps {
     @Step("Текущий дом - WIFI")
     public void checkCurrentHouseWiFi() {
         String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.currentHouseName).getText();
-        Assert.assertEquals(text, "Wi-fi Test_Name");
+        Assert.assertEquals(text, Strings.HOUSE_NAME_WIFI);
     }
 
     @Step("Текущий дом - ЦУ")
     public void checkCurrentHouseCC() {
         String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.currentHouseName).getText();
-        Assert.assertEquals(text, "CC Test_Name");
+        Assert.assertEquals(text, Strings.HOUSE_NAME_CC);
     }
 
     @Step("Дом ЦУ присутствует в списке")
     public void checkHouseListCC() {
         String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.houseNameCC).getText();
-        Assert.assertEquals(text, "CC Test_Name");
+        Assert.assertEquals(text, Strings.HOUSE_NAME_CC);
     }
 
     @Step("Дом Wi-Fi присутствует в списке")
     public void checkHouseListWiFi() {
         String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.houseNameWIFI).getText();
-        Assert.assertEquals(text, "Wi-fi Test_Name");
+        Assert.assertEquals(text, Strings.HOUSE_NAME_WIFI);
     }
 }
