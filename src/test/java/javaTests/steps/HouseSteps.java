@@ -1,11 +1,10 @@
 package javaTests.steps;
 
-import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.HousePage;
 import javaTests.pageObjects.SpinnerPage;
+import org.testng.Assert;
 import utils.data.Strings;
 
 public class HouseSteps {
@@ -20,6 +19,31 @@ public class HouseSteps {
         spinnerPage = new SpinnerPage(androidDriver);
         spinner = new SpinnerSteps(androidDriver);
         footer = new FooterSteps(androidDriver);
+    }
+
+    @Step("Проверяем экран создания дома")
+    public void checkCreateNewHouseScreen() {
+        checkCreateNewHouseTitle();
+        checkBackBtn();
+        checkNewHouseNameDescriptionText();
+        checkCreateHouseBtnText();
+        checkEnterByInviteBtnText();
+    }
+
+    @Step("Проверяем аллерт при создании нового дома с пустым названием")
+    public void checkCreateNewHouseWithEmptyNameAlert() {
+        checkErrorEmptyNameNewHouseText();
+        checkErrorEmptyNameNewHouseBtnText();
+    }
+
+    @Step("Проверяем экран успешного завершения создания дома")
+    public void checkCompleteCreateNewHouseScreen() {
+        checkCreateNewHouseTitle();
+        checkBackBtn();
+        checkGotoAddDevicesBtnText();
+        checkContinueBtnText();
+        checkCongratulationMessageText();
+        checkDescriptionText();
     }
 
     //Click:
@@ -53,6 +77,7 @@ public class HouseSteps {
         housePage.waitForElementToClick(housePage.enterByInviteBtn2).click();
     }
 
+
     //Actions with field:
     @Step("Вводим название дома")
     public void inputNewHouseName(String houseName) {
@@ -61,61 +86,61 @@ public class HouseSteps {
 
     //Check text:
     @Step("Текст заголовка 'создание дома' присутствует")
-    public void checkCreateNewHouseTitle() {
+    private void checkCreateNewHouseTitle() {
         String text = housePage.waitForElementIsDisplayed(housePage.createNewHouseTitle).getText();
         Assert.assertEquals(text, "Создание дома");
     }
 
     @Step("Текст описания имени нового дома присутствует")
-    public void checkNewHouseNameDescriptionText() {
+    private void checkNewHouseNameDescriptionText() {
         String text = housePage.waitForElementIsDisplayed(housePage.newHouseNameDescription).getText();
         Assert.assertEquals(text, "Выбранное название будет отображаться у всех пользователей, которым вы предоставите доступ к вашему дому");
     }
 
     @Step("Текст кнопки 'создать новый дом' присутствует")
-    public void checkCreateHouseBtnText() {
+    private void checkCreateHouseBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.createHouseBtn).getText();
         Assert.assertEquals(text, "Создать новый дом");
     }
 
     @Step("Текст кнопки 'войти по приглашению' присутствует")
-    public void checkEnterByInviteBtnText() {
+    private void checkEnterByInviteBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.enterByInviteBtn2).getText();
         Assert.assertEquals(text, "Войти по приглашению");
     }
 
     @Step("Текст описания ошибки при создании пустого дома присутствует")
-    public void checkErrorEmptyNameNewHouseText() {
+    private void checkErrorEmptyNameNewHouseText() {
         String text = housePage.waitForElementIsDisplayed(housePage.messageEmptyNameNewHouse).getText();
         Assert.assertEquals(text, "Название дома не может быть пустым");
     }
 
     @Step("Текст кнопки ОК присутствует в ошибке при создании пустого дома")
-    public void checkErrorEmptyNameNewHouseBtnText() {
+    private void checkErrorEmptyNameNewHouseBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.okButton).getText();
         Assert.assertEquals(text, "ОК");
     }
 
     @Step("Текст кнопки 'Перейти к добавлению устройств' присутствует")
-    public void checkGotoAddDevicesBtnText() {
+    private void checkGotoAddDevicesBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.goToAddDevicesBtn).getText();
         Assert.assertEquals(text, "Перейти к добавлению устройств");
     }
 
     @Step("Текст кнопки 'продолжить' присутствует")
-    public void checkContinueBtnText() {
+    private void checkContinueBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.continueBtn).getText();
         Assert.assertEquals(text, "Продолжить");
     }
 
     @Step("Текст поздравления о создании дома присутствует")
-    public void checkCongratulationMessageText() {
+    private void checkCongratulationMessageText() {
         String text = housePage.waitForElementIsDisplayed(housePage.congratulationMessage).getText();
         Assert.assertEquals(text, "Поздравляем, вы успешно создали дом!");
     }
 
     @Step("Текст описания  после создании дома присутствует")
-    public void checkDescriptionText() {
+    private void checkDescriptionText() {
         String text = housePage.waitForElementIsDisplayed(housePage.completeCreateHouseDescription).getText();
         Assert.assertEquals(text, "Дом - это место в котором будут храниться все ваши устройства: Центр управления, датчики, камеры, домофоны и многое другое");
     }
@@ -133,5 +158,11 @@ public class HouseSteps {
             spinner.clickWifiHouseSpinner();
             System.out.println("Сменили дом");
         }
+    }
+
+    @Step("Кнопка назад присутствует")
+    private void checkBackBtn() {
+        housePage.waitForElementToClick(housePage.backBtn).isDisplayed();
+        housePage.backBtn.isEnabled();
     }
 }

@@ -33,32 +33,23 @@ public class CreateNewHouseWifiTest extends BaseTest {
 
         System.out.println("Create new house for WIFI");
         spinner.clickSpinner();
-        //spinner.checkCreateNewHouseText();
         spinner.checkEnterByInviteText();
         spinner.clickCreateNewHouseBtn();
-        house.checkCreateNewHouseTitle();
-        house.checkNewHouseNameDescriptionText();
-        house.checkCreateHouseBtnText();
-        house.checkEnterByInviteBtnText();
+        house.checkCreateNewHouseScreen();
         house.clickHelpBtn();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         baseAction.pressBack();
         house.clickCreateHouseBtn();
-        house.checkErrorEmptyNameNewHouseText();
-        house.checkErrorEmptyNameNewHouseBtnText();
+        house.checkCreateNewHouseWithEmptyNameAlert();
         house.clickOkBtnError();
         house.clickEnterByInviteBtn();
         baseAction.pressBack();
         house.inputNewHouseName(Strings.HOUSE_NAME_WIFI);
         baseAction.hideKeyBoard();
         house.clickCreateHouseBtn();
-        house.checkCreateNewHouseTitle();
-        house.checkGotoAddDevicesBtnText();
-        house.checkContinueBtnText();
-        house.checkCongratulationMessageText();
-        house.checkDescriptionText();
+        house.checkCompleteCreateNewHouseScreen();
         house.clickHelpBtn();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         baseAction.pressBack();
         house.clickContinueBtn();
         spinner.checkCurrentHouseWiFi();
@@ -75,6 +66,7 @@ public class CreateNewHouseWifiTest extends BaseTest {
         spinner.clickSpinner();
         spinner.checkHouseListWiFi();
         baseAction.pressBack();
+
 
     }
 }
