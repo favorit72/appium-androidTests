@@ -5,8 +5,6 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-import java.lang.reflect.MalformedParameterizedTypeException;
-
 public class HousePage extends DriverWait {
     public HousePage(AndroidDriver androidDriver) {
         super(androidDriver);
@@ -25,6 +23,8 @@ public class HousePage extends DriverWait {
     public MobileElement goToAddDevicesBtn;
     @AndroidFindBy(id = "com.rubetek.client:id/continueBtn")
     public MobileElement continueBtn;
+    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Перейти вверх']")
+    public MobileElement backBtn;
 
     //Field:
     @AndroidFindBy(id = "com.rubetek.client:id/houseName")
