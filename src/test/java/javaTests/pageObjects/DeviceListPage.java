@@ -12,4 +12,8 @@ public class DeviceListPage extends DriverWait {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Устройств пока нет']")
     public MobileElement notAvailableDevices;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Wi-Fi розетка']")
+    public MobileElement wifiSocketName;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Wi-fi room']")
+    public MobileElement roomWifiRoom;
 }
