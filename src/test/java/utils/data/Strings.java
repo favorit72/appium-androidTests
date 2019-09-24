@@ -15,5 +15,5 @@ public class Strings {
 
     //Default device_name
     public final static String DEFAULT_DEVICE_NAME_SOCKET = "Wi-Fi розетка";
-    public final static String NAME_ROOM_WIFI = "Wi-fi";
+    public final static String NAME_ROOM_WIFI = "Wi-fi room";
 }

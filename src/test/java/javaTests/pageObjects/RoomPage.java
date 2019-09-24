@@ -18,7 +18,7 @@ public class RoomPage extends DriverWait {
     public MobileElement currentRoom;
     @AndroidFindBy(id = "com.rubetek.client:id/alertTitle")
     public MobileElement createNewRoomTitle;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Wi-fi']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Wi-fi room']")
     public MobileElement roomWifi;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Без комнаты']")
     public MobileElement roomWithoutRoom;
