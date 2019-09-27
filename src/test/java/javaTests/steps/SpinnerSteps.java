@@ -1,10 +1,9 @@
 package javaTests.steps;
 
-import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.SpinnerPage;
+import org.testng.Assert;
 import utils.data.Strings;
 
 public class SpinnerSteps {
@@ -34,6 +33,11 @@ public class SpinnerSteps {
     @Step("Нажимаем войти по приглашению")
     public void clickEnterByInviteBtn() {
         spinnerPage.waitForElementToClick(spinnerPage.enterByInviteBtn).click();
+    }
+
+    @Step("Удаляем дом")
+    public void clickDeleteHouseDemo() {
+        spinnerPage.waitForElementIsDisplayed(spinnerPage.deleteDemoHouse).click();
     }
 
     //Check text:

@@ -1,14 +1,13 @@
 package javaTests.tests;
 
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
-
 import javaTests.steps.DemoSteps;
 import javaTests.steps.FooterSteps;
 import javaTests.steps.LoginSteps;
 import javaTests.steps.SecuritySteps;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import utils.BaseTest;
 import utils.Listener.Listener;
 
@@ -32,7 +31,7 @@ public class DemoHouseTest extends BaseTest {
     }
 
     @Test
-    public void demoHouse() {
+    public void demoHouse() throws InterruptedException {
         System.out.println("Start Demo Test");
         login.checkDemoBtnText();
         login.startUsingBtnIsEnable();
