@@ -14,6 +14,7 @@
             <class name="javaTests.tests.CreateNewHouseCCTest"/>
             <class name="javaTests.tests.AddSocketTest"/>
             <class name="javaTests.tests.DeleteHouseDemoTest"/>
+            <class name="javaTests.tests.EnterByInviteTest" />
 
 
             <!--<methods>-->

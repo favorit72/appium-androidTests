@@ -1,10 +1,11 @@
 package javaTests.steps;
 
+import org.testng.Assert;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.HousePage;
 import javaTests.pageObjects.SpinnerPage;
-import org.testng.Assert;
 import utils.data.Strings;
 
 public class HouseSteps {
@@ -54,10 +55,17 @@ public class HouseSteps {
         checkDeleteHouseAlertOkBtn();
     }
 
-    @Step("Проверяем экран вовремя входа по гостевой ссылке")
-    public void checkScreenDuringEnterByInvite() {
-        checkProgressBarDuringEnterByInvite();
-        checkMessageDuringEnterByInvite();
+    @Step("Проверяем алерт при выходе из гостевого дома")
+    public void checkExitGuestHouseAlert() {
+        checkDeleteHouseAlertTitle();
+        checkExitGuestHouseAlertDescription();
+        checkDeleteHouseAlertCancelBtn();
+        checkDeleteHouseAlertOkBtn();
+    }
+
+    @Step("Проверяем экран успешного входа по гостевой ссылке")
+    public void checkSuccessfulEnterByInviteScreen() {
+        checkGoToUseHouseAfterInviteBtn();
         checkBackBtn();
     }
 
@@ -100,6 +108,11 @@ public class HouseSteps {
     @Step("Нажимаем на кнопку ОК на алерте удаления дома")
     public void clickDeleteHouseAlertOkBtn() {
         housePage.waitForElementToClick(housePage.deleteHouseOkBtn).click();
+    }
+
+    @Step("Переходим к управлению домом после входа по приглашению")
+    public void clickGoToUseHouseAfterInvite() {
+        housePage.waitForElementToClick(housePage.goToUseHouseAfterInvite).click();
     }
 
 
@@ -182,6 +195,12 @@ public class HouseSteps {
         Assert.assertEquals(text, "Вы уверены, что хотите удалить текущий дом? После удаления дом станет недоступен вам и другим пользователям");
     }
 
+    @Step("Проверяем описания алерта входа из гостевого дома")
+    private void checkExitGuestHouseAlertDescription() {
+        String text = housePage.waitForElementIsDisplayed(housePage.deleteHouseDescription).getText();
+        Assert.assertEquals(text, "Вы уверены, что хотите выйти из дома? После выхода дом станет недоступным. Чтобы снова начать использовать его, необходимо запросить доступ у владельца дома");
+    }
+
     @Step("Текст кнопки отмена присутствует на алерте удаления дома")
     private void checkDeleteHouseAlertCancelBtn() {
         String text = housePage.waitForElementIsDisplayed(housePage.deleteHouseCancelBtn).getText();
@@ -198,6 +217,12 @@ public class HouseSteps {
     private void checkMessageDuringEnterByInvite() {
         String text = housePage.longWaitForElementIsDisplayed(housePage.messageDuringEnterByInvite).getText();
         Assert.assertEquals(text, "Пожалуйста, подождите");
+    }
+
+    @Step("Проверяем текст кнопки 'Перейти к управлению домом'")
+    private void checkGoToUseHouseAfterInviteBtn() {
+        String text = housePage.longWaitForElementToClick(housePage.goToUseHouseAfterInvite).getText();
+        Assert.assertEquals(text, "Перейти к управлению домом");
     }
 
     //Other action:
