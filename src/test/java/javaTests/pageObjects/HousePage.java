@@ -25,6 +25,10 @@ public class HousePage extends DriverWait {
     public MobileElement continueBtn;
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
+    @AndroidFindBy(id = "android:id/button2")
+    public MobileElement deleteHouseCancelBtn;
+    @AndroidFindBy(id = "android:id/button1")
+    public MobileElement deleteHouseOkBtn;
 
     //Field:
     @AndroidFindBy(id = "com.rubetek.client:id/houseName")
@@ -43,4 +47,9 @@ public class HousePage extends DriverWait {
     public MobileElement completeCreateHouseDescription;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Устройств пока нет']")
     public MobileElement notAvailableDevices;
+    @AndroidFindBy(id = "com.rubetek.client:id/alertTitle")
+    public MobileElement deleteHouseTitle;
+    @AndroidFindBy(id = "android:id/message")
+    public MobileElement deleteHouseDescription;
+
 }

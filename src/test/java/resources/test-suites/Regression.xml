@@ -13,6 +13,7 @@
             <class name="javaTests.tests.CreateNewHouseWifiTest"/>
             <class name="javaTests.tests.CreateNewHouseCCTest"/>
             <class name="javaTests.tests.AddSocketTest"/>
+            <class name="javaTests.tests.DeleteHouseDemoTest"/>
 
 
             <!--<methods>-->
