@@ -51,5 +51,9 @@ public class HousePage extends DriverWait {
     public MobileElement deleteHouseTitle;
     @AndroidFindBy(id = "android:id/message")
     public MobileElement deleteHouseDescription;
+    @AndroidFindBy(id = "com.rubetek.client:id/progressBar2")
+    public MobileElement progressBarDuringEnterByInvite;
+    @AndroidFindBy(id = "com.rubetek.client:id/textView5")
+    public MobileElement messageDuringEnterByInvite;
 
 }

@@ -54,6 +54,13 @@ public class HouseSteps {
         checkDeleteHouseAlertOkBtn();
     }
 
+    @Step("Проверяем экран вовремя входа по гостевой ссылке")
+    public void checkScreenDuringEnterByInvite() {
+        checkProgressBarDuringEnterByInvite();
+        checkMessageDuringEnterByInvite();
+        checkBackBtn();
+    }
+
     //Click:
     @Step("Нажимаем на справку")
     public void clickHelpBtn() {
@@ -187,6 +194,12 @@ public class HouseSteps {
         Assert.assertEquals(text, "ОК");
     }
 
+    @Step("Описение в течении входа по гостевой ссылке присутствует")
+    private void checkMessageDuringEnterByInvite() {
+        String text = housePage.longWaitForElementIsDisplayed(housePage.messageDuringEnterByInvite).getText();
+        Assert.assertEquals(text, "Пожалуйста, подождите");
+    }
+
     //Other action:
     @Step("Выбираем дом WIFI")
     public void chooseWifiHouse() throws InterruptedException {
@@ -206,5 +219,10 @@ public class HouseSteps {
     private void checkBackBtn() {
         housePage.waitForElementToClick(housePage.backBtn).isDisplayed();
         housePage.backBtn.isEnabled();
+    }
+
+    @Step("Прогрессбар присутствует во время входа по приглашению")
+    private void checkProgressBarDuringEnterByInvite() {
+        housePage.longWaitForElementIsDisplayed(housePage.progressBarDuringEnterByInvite).isDisplayed();
     }
 }
