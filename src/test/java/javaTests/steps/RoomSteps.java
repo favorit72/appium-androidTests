@@ -1,10 +1,9 @@
 package javaTests.steps;
 
-import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.RoomPage;
+import org.testng.Assert;
 
 public class RoomSteps {
 
@@ -16,7 +15,6 @@ public class RoomSteps {
 
     @Step("Проверяем окно ввода имени новой комнаты")
     public void checkCreateNewRoomWindow() {
-        checkBackBtn();
         checkConfirmCreateNewRoomText();
         checkCancelCreateNewRoomText();
         checkCreateNewRoomTitle();
@@ -53,7 +51,7 @@ public class RoomSteps {
     }
 
     //Action with field:
-    @Step("Вводить имя новой комнаты 'wifi'")
+    @Step("Вводим имя новой комнаты 'wifi'")
     public void inputNewRoomNameField(String newRoomName) {
         roomPage.waitForElementIsDisplayed(roomPage.newRoomNameField).sendKeys(newRoomName);
     }

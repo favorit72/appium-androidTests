@@ -1,22 +1,13 @@
 package javaTests.tests;
 
+import javaTests.pageObjects.FooterPage;
+import javaTests.steps.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
-import javaTests.pageObjects.FooterPage;
-import javaTests.steps.AddDeviceSteps;
-import javaTests.steps.DeviceListSteps;
-import javaTests.steps.HouseSteps;
-import javaTests.steps.MenuSteps;
-import javaTests.steps.RoomSteps;
-import javaTests.steps.SmartConfigScreenSteps;
-import javaTests.steps.SmartConfigWifiSocketSteps;
-import javaTests.steps.SpinnerSteps;
 import utils.BaseAction;
 import utils.BaseTest;
 import utils.Listener.Listener;
-import utils.RetryAnalyzerCount;
 import utils.data.Strings;
 
 @Listeners(Listener.class)
@@ -28,8 +19,8 @@ public class AddSocketTest extends BaseTest {
     private DeviceListSteps deviceList;
     private MenuSteps menu;
     private BaseAction baseAction;
-    private SmartConfigWifiSocketSteps smartConfigSocket;
-    private SmartConfigScreenSteps smartConfigScreen;
+    private AddDeviceSmartConfigSteps smartConfig;
+    private SmartConfigCommonScreenSteps smartConfigCommonScreen;
     private RoomSteps room;
     private FooterPage footer;
 
@@ -41,14 +32,14 @@ public class AddSocketTest extends BaseTest {
         deviceList = new DeviceListSteps(driver());
         menu = new MenuSteps(driver());
         baseAction = new BaseAction(driver());
-        smartConfigScreen = new SmartConfigScreenSteps(driver());
-        smartConfigSocket = new SmartConfigWifiSocketSteps(driver());
+        smartConfigCommonScreen = new SmartConfigCommonScreenSteps(driver());
+        smartConfig = new AddDeviceSmartConfigSteps(driver());
         room = new RoomSteps(driver());
         footer = new FooterPage(driver());
     }
 
-    @Test(retryAnalyzer = RetryAnalyzerCount.class)
-    public void addSocketTest() throws InterruptedException {
+    @Test()
+    public void addWifiSocket() throws InterruptedException {
 
         System.out.println("Start test add socket");
         house.chooseWifiHouse();
@@ -60,20 +51,19 @@ public class AddSocketTest extends BaseTest {
         addDevice.clickAddDeviceBtn();
         addDevice.checkAddDeviceGroupEmptyHouse();
         addDevice.clickAddWifiSocket();
-        smartConfigScreen.checkSmartConfigScreen();
-        smartConfigScreen.inputPasswordSmartConfig(Strings.WIFI_PASSWORD);
-        addDevice.clickNextBtn();
-        addDevice.checkViewBtnIsNotEnable();
-        addDevice.clickHelpBtn();
+        smartConfigCommonScreen.checkSmartConfigScreen();
+        smartConfigCommonScreen.inputPasswordSmartConfig(Strings.WIFI_PASSWORD);
+        smartConfigCommonScreen.clickNextBtn();
+        smartConfig.checkViewBtnIsNotEnable();
+        smartConfig.clickHelpBtn();
         baseAction.pressBack();
-        smartConfigSocket.checkPrepareSocketSmartConfigScreen();
+        smartConfig.checkPrepareSocketSmartConfigScreen();
         //long wait for user click view button
-        addDevice.smartConfigIsStarted();
-        smartConfigSocket.checkScreenDuringSmartConfigSocket();
+        smartConfig.smartConfigIsStarted();
+        smartConfig.checkScreenDuringSmartConfigSocket();
         //long wait for complete of smartConfig
-        smartConfigSocket.checkDefaultNameSocketAfterSmartConfig();
-        smartConfigScreen.checkScreenAfterSmartConfig();
-        smartConfigScreen.clickNextBtnAfterSmartConfig();
+        smartConfig.checkScreenAfterSmartConfig();
+        smartConfig.clickNextBtnAfterSmartConfig();
         room.checkChooseRoomScreen();
         room.clickCreateNewRoomBtn();
         room.checkCreateNewRoomWindow();
@@ -84,6 +74,7 @@ public class AddSocketTest extends BaseTest {
         room.inputNewRoomNameField(Strings.NAME_ROOM_WIFI);
         room.clickConfirmCreateNewRoom();
         room.chooseRoomWifi();
+        deviceList.checkWifiSocketInDeviceList();
         footer.waitForElementIsDisplayed(footer.deviceList);
 
     }

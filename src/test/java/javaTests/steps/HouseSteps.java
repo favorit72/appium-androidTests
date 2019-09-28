@@ -46,6 +46,14 @@ public class HouseSteps {
         checkDescriptionText();
     }
 
+    @Step("Проверяем алерт при удалении дома")
+    public void checkDeleteHouseAlert() {
+        checkDeleteHouseAlertTitle();
+        checkDeleteHouseAlertDescription();
+        checkDeleteHouseAlertCancelBtn();
+        checkDeleteHouseAlertOkBtn();
+    }
+
     //Click:
     @Step("Нажимаем на справку")
     public void clickHelpBtn() {
@@ -75,6 +83,16 @@ public class HouseSteps {
     @Step("Нажимаем 'войти по приглашению'")
     public void clickEnterByInviteBtn() {
         housePage.waitForElementToClick(housePage.enterByInviteBtn2).click();
+    }
+
+    @Step("Нажимаем на кнопку отмены на алерте удаления дома")
+    public void clickDeleteHouseAlertCancelBtn() {
+        housePage.waitForElementToClick(housePage.deleteHouseCancelBtn).click();
+    }
+
+    @Step("Нажимаем на кнопку ОК на алерте удаления дома")
+    public void clickDeleteHouseAlertOkBtn() {
+        housePage.waitForElementToClick(housePage.deleteHouseOkBtn).click();
     }
 
 
@@ -145,9 +163,33 @@ public class HouseSteps {
         Assert.assertEquals(text, "Дом - это место в котором будут храниться все ваши устройства: Центр управления, датчики, камеры, домофоны и многое другое");
     }
 
+    @Step("Проверяем заголовок алерта удаления дома")
+    private void checkDeleteHouseAlertTitle() {
+        String text = housePage.waitForElementIsDisplayed(housePage.deleteHouseTitle).getText();
+        Assert.assertEquals(text, "Удалить дом");
+    }
+
+    @Step("Проверяем описания алерта удаления дома")
+    private void checkDeleteHouseAlertDescription() {
+        String text = housePage.waitForElementIsDisplayed(housePage.deleteHouseDescription).getText();
+        Assert.assertEquals(text, "Вы уверены, что хотите удалить текущий дом? После удаления дом станет недоступен вам и другим пользователям");
+    }
+
+    @Step("Текст кнопки отмена присутствует на алерте удаления дома")
+    private void checkDeleteHouseAlertCancelBtn() {
+        String text = housePage.waitForElementIsDisplayed(housePage.deleteHouseCancelBtn).getText();
+        Assert.assertEquals(text, "Отмена");
+    }
+
+    @Step("Текст кнопки ОК присутствует на алерте удаления дома")
+    private void checkDeleteHouseAlertOkBtn() {
+        String text = housePage.waitForElementIsDisplayed(housePage.deleteHouseOkBtn).getText();
+        Assert.assertEquals(text, "ОК");
+    }
+
     //Other action:
     @Step("Выбираем дом WIFI")
-    public void chooseWifiHouse() {
+    public void chooseWifiHouse() throws InterruptedException {
         footer.clickDeviceList();
         String currentHouse = spinnerPage.waitForElementToClick(spinnerPage.currentHouseName).getText();
         if (currentHouse.equals(Strings.HOUSE_NAME_WIFI)) {
