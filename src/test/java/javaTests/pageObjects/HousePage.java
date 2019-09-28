@@ -29,6 +29,8 @@ public class HousePage extends DriverWait {
     public MobileElement deleteHouseCancelBtn;
     @AndroidFindBy(id = "android:id/button1")
     public MobileElement deleteHouseOkBtn;
+    @AndroidFindBy(id = "com.rubetek.client:id/open_house")
+    public MobileElement goToUseHouseAfterInvite;
 
     //Field:
     @AndroidFindBy(id = "com.rubetek.client:id/houseName")
@@ -51,5 +53,9 @@ public class HousePage extends DriverWait {
     public MobileElement deleteHouseTitle;
     @AndroidFindBy(id = "android:id/message")
     public MobileElement deleteHouseDescription;
+    @AndroidFindBy(id = "com.rubetek.client:id/progressBar2")
+    public MobileElement progressBarDuringEnterByInvite;
+    @AndroidFindBy(id = "com.rubetek.client:id/textView5")
+    public MobileElement messageDuringEnterByInvite;
 
 }
