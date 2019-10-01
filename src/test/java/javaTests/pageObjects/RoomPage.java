@@ -18,9 +18,9 @@ public class RoomPage extends DriverWait {
     public MobileElement currentRoom;
     @AndroidFindBy(id = "com.rubetek.client:id/alertTitle")
     public MobileElement createNewRoomTitle;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Wi-fi room']")
+    @AndroidFindBy(xpath = "//*[resource-id='com.rubetek.client:id/tv_header' and @text='Wi-fi room']")
     public MobileElement roomWifi;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Без комнаты']")
+    @AndroidFindBy(xpath = "//*[resource-id='com.rubetek.client:id/tv_header' and @text='Без комнаты']")
     public MobileElement roomWithoutRoom;
 
     //Button:
@@ -32,7 +32,7 @@ public class RoomPage extends DriverWait {
     public MobileElement confirmCreateNewRoomBtn;
     @AndroidFindBy(id = "android:id/button2")
     public MobileElement cancelCreateNewRoomBtn;
-    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Перейти вверх']")
+    @AndroidFindBy(xpath = "//*[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
 
     //Field:

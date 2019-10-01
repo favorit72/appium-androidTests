@@ -12,15 +12,15 @@ public class SpinnerPage extends DriverWait {
 
     @AndroidFindBy(id = "com.rubetek.client:id/spinner")
     public MobileElement spinner;
-    @AndroidFindBy(xpath = "//android.widget.LinearLayout")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/tvProjectName' and @text='Создать новый дом']")
     public MobileElement createHouseBtn;
     @AndroidFindBy(id = "com.rubetek.client:id/tvProjectName")
     public MobileElement currentHouseName;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Войти по приглашению']")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/tvProjectName' and @text='Войти по приглашению']")
     public MobileElement enterByInviteBtn;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='CC test']")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/tvProjectName' and @text='CC test']")
     public MobileElement houseNameCC;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Wi-fi test']")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/tvProjectName' and @text='Wi-fi test']")
     public MobileElement houseNameWIFI;
     @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/tvProjectName' and @text='Мой умный дом']/parent::*/android.widget.ImageView[2]")
     public MobileElement deleteDemoHouse;

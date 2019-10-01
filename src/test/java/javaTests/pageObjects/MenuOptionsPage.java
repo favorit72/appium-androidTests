@@ -10,10 +10,10 @@ public class MenuOptionsPage extends DriverWait {
         super(androidDriver);
     }
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='Ещё']")
+    @AndroidFindBy(xpath = "//*[@content-desc='Ещё']")
     public MobileElement optionsBtn;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Настройки дома']")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/title' and @text='Настройки дома']")
     public MobileElement houseSettingsBtn;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Настройки приложения']")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/title' and @text='Настройки приложения']")
     public MobileElement appSettingsBtn;
 }

@@ -17,7 +17,7 @@ public class LoginPage extends DriverWait {
     public MobileElement nextButton;
     @AndroidFindBy(id = "com.rubetek.client:id/tvForgottenPassword")
     public MobileElement forgotThePasswordBtn;
-    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Перейти вверх\"]")
+    @AndroidFindBy(xpath = "//*[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
 
     //Field:

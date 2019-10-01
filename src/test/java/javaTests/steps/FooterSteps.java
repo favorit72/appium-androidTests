@@ -13,7 +13,7 @@ public class FooterSteps {
     }
 
     //Click:
-    @Step("Нажимаем на вкладку список устройств")
+    @Step("Нажимаем на вкладку список устройств и проверяем текст вкладки")
     public void clickDeviceList() throws InterruptedException {
         footerPage.waitForElementToClick(footerPage.deviceList).click();
         Thread.sleep(1000);
@@ -29,7 +29,7 @@ public class FooterSteps {
         Assert.assertEquals(text, "Сценарии");
     }
 
-    @Step("Нажимаем на вкладку событий")
+    @Step("Нажимаем на вкладку событий и проверяем текст вкладки")
     public void clickEvents() throws InterruptedException {
         footerPage.waitForElementToClick(footerPage.eventsList).click();
         Thread.sleep(1000);
@@ -37,7 +37,7 @@ public class FooterSteps {
         Assert.assertEquals(text, "События");
     }
 
-    @Step("Нажимаем на вкладку статистики")
+    @Step("Нажимаем на вкладку статистики и проверяем текст вкладки")
     public void clickStatistics() throws InterruptedException {
         footerPage.waitForElementToClick(footerPage.statisticList).click();
         Thread.sleep(1000);
@@ -45,7 +45,7 @@ public class FooterSteps {
         Assert.assertEquals(text, "Статистика");
     }
 
-    @Step("Нажимаем на вкладку камер")
+    @Step("Нажимаем на вкладку камер и проверяем текст вкладки")
     public void clickCameras() throws InterruptedException {
         footerPage.waitForElementToClick(footerPage.cameraList).click();
         Thread.sleep(1000);

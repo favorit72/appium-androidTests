@@ -14,7 +14,7 @@ public class SmartConfigScreenPage extends DriverWait {
     //Button:
     @AndroidFindBy(id = "com.rubetek.client:id/completeBtn")
     public MobileElement completeAddDeviceBySmartConfig;
-    @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Перейти вверх']")
+    @AndroidFindBy(xpath = "//*[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
     @AndroidFindBy(id = "com.rubetek.client:id/btn")
     public MobileElement viewBtn;
