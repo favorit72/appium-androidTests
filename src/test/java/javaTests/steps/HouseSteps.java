@@ -1,11 +1,10 @@
 package javaTests.steps;
 
-import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.HousePage;
 import javaTests.pageObjects.SpinnerPage;
+import org.testng.Assert;
 import utils.data.Strings;
 
 public class HouseSteps {
@@ -138,13 +137,15 @@ public class HouseSteps {
     @Step("Текст кнопки 'создать новый дом' присутствует")
     private void checkCreateHouseBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.createHouseBtn).getText();
-        Assert.assertEquals(text, "Создать новый дом");
+        boolean s = text.equalsIgnoreCase("Создать новый дом");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст кнопки 'войти по приглашению' присутствует")
     private void checkEnterByInviteBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.enterByInviteBtn2).getText();
-        Assert.assertEquals(text, "Войти по приглашению");
+        boolean s = text.equalsIgnoreCase("Войти по приглашению");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст описания ошибки при создании пустого дома присутствует")
@@ -162,13 +163,15 @@ public class HouseSteps {
     @Step("Текст кнопки 'Перейти к добавлению устройств' присутствует")
     private void checkGotoAddDevicesBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.goToAddDevicesBtn).getText();
-        Assert.assertEquals(text, "Перейти к добавлению устройств");
+        boolean s = text.equalsIgnoreCase("Перейти к добавлению устройств");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст кнопки 'продолжить' присутствует")
     private void checkContinueBtnText() {
         String text = housePage.waitForElementIsDisplayed(housePage.continueBtn).getText();
-        Assert.assertEquals(text, "Продолжить");
+        boolean s = text.equalsIgnoreCase("Продолжить");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст поздравления о создании дома присутствует")

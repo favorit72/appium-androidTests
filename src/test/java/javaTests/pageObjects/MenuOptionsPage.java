@@ -10,7 +10,7 @@ public class MenuOptionsPage extends DriverWait {
         super(androidDriver);
     }
 
-    @AndroidFindBy(xpath = "//*[@content-desc='Ещё']")
+    @AndroidFindBy(xpath = "//*[@content-desc='Ещё' or @content-desc='Другие параметры']")
     public MobileElement optionsBtn;
     @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/title' and @text='Настройки дома']")
     public MobileElement houseSettingsBtn;

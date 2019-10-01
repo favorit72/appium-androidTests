@@ -1,10 +1,9 @@
 package javaTests.steps;
 
-import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.LoginPage;
+import org.testng.Assert;
 import utils.BaseAction;
 
 public class LoginSteps {
@@ -155,13 +154,15 @@ public class LoginSteps {
     @Step("Текст кнопки 'далее' присутствует")
     private void checkNextBtnText() {
         String text = loginPage.waitForElementIsDisplayed(loginPage.nextButton).getText();
-        Assert.assertEquals(text, "Далее");
+        boolean s = text.equalsIgnoreCase("Далее");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст кнопки 'Войти' присутствует")
     private void checkAuthoriseBtnText() {
         String text = loginPage.waitForElementIsDisplayed(loginPage.nextButton).getText();
-        Assert.assertEquals(text, "Войти");
+        boolean s = text.equalsIgnoreCase("Войти");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст 'Введите номер телефона' в заголовке присутствует")

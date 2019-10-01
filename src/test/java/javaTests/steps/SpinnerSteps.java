@@ -1,10 +1,9 @@
 package javaTests.steps;
 
-import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.SpinnerPage;
+import org.testng.Assert;
 import utils.data.Strings;
 
 public class SpinnerSteps {
@@ -50,13 +49,15 @@ public class SpinnerSteps {
     @Step("Текст кнопки 'создать новый дом'присутствует")
     public void checkCreateNewHouseText() {
         String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.createHouseBtn).getText();
-        Assert.assertEquals(text, "Создать новый дом");
+        boolean s = text.equalsIgnoreCase("Создать новый дом");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст кнопки 'войти по приглашению'присутствует")
     public void checkEnterByInviteText() {
         String text = spinnerPage.waitForElementIsDisplayed(spinnerPage.enterByInviteBtn).getText();
-        Assert.assertEquals(text, "Войти по приглашению");
+        boolean s = text.equalsIgnoreCase("Войти по приглашению");
+        Assert.assertTrue(s);
     }
 
     @Step("Текущий дом - WIFI")

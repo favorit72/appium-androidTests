@@ -1,10 +1,9 @@
 package javaTests.steps;
 
-import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.UserAccountPage;
+import org.testng.Assert;
 
 public class UserAccountSteps {
     private final UserAccountPage accountPage;
@@ -59,14 +58,16 @@ public class UserAccountSteps {
 
     @Step("Текст кнопки 'сменить пароль' присутствует")
     private void checkResetPasswordBtnText() {
-        String resetPasswordBtnText = accountPage.waitForElementIsDisplayed(accountPage.resetPasswordBth).getText();
-        Assert.assertEquals(resetPasswordBtnText, "Сменить пароль");
+        String text = accountPage.waitForElementIsDisplayed(accountPage.resetPasswordBth).getText();
+        boolean s = text.equalsIgnoreCase("Сменить пароль");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст кнопки 'выйти' присутствует")
     private void checkLogoutBtnText() {
-        String logoutBtnText = accountPage.waitForElementIsDisplayed(accountPage.logOutBtn).getText();
-        Assert.assertEquals(logoutBtnText, "Выйти");
+        String text = accountPage.waitForElementIsDisplayed(accountPage.logOutBtn).getText();
+        boolean s = text.equalsIgnoreCase("Выйти");
+        Assert.assertTrue(s);
     }
 
     @Step("Текст кнопки 'да' присутствует при потдверждении выхода")
