@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -52,6 +53,19 @@ public class BaseTest {
 
     public AndroidDriver driver() {
         return androidDriver;
+    }
+
+    public void startActivity(String appPackage, String activity) {
+        driver().startActivity(new Activity(appPackage, activity));
+    }
+
+    public String currentActivity() {
+        String currentActivity = null;
+        while (currentActivity == null) {
+            currentActivity = driver().currentActivity();
+            Thread.yield();
+        }
+        return currentActivity;
     }
 
     @AfterClass
