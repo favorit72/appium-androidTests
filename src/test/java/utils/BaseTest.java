@@ -28,6 +28,7 @@ public class BaseTest {
     private final static int IMPLICITLY_WAIT = 20;
     private final static int COMMAND_TIMEOUT = 10;
     private final static String PHONE = "Phone";
+    protected BaseAction baseAction;
 
     @Parameters({"ID"})
     @BeforeClass
@@ -48,8 +49,8 @@ public class BaseTest {
         androidDriver.rotate(ScreenOrientation.PORTRAIT);
         androidDriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT, TimeUnit.SECONDS);
         logger.info("rotation to 'portrait' for ");
+        setUpBaseActions();
     }
-
 
     public AndroidDriver driver() {
         return androidDriver;
@@ -66,6 +67,10 @@ public class BaseTest {
             Thread.yield();
         }
         return currentActivity;
+    }
+
+    private void setUpBaseActions() {
+        baseAction = new BaseAction(androidDriver);
     }
 
     @AfterClass

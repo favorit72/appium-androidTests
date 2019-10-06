@@ -1,10 +1,14 @@
 package javaTests.tests;
 
-import javaTests.steps.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import utils.BaseAction;
+
+import javaTests.steps.AddDeviceSteps;
+import javaTests.steps.DeviceListSteps;
+import javaTests.steps.FooterSteps;
+import javaTests.steps.HouseSteps;
+import javaTests.steps.SpinnerSteps;
 import utils.BaseTest;
 import utils.Listener.Listener;
 import utils.data.Strings;
@@ -13,7 +17,6 @@ import utils.data.Strings;
 public class CreateNewHouseWifiTest extends BaseTest {
     private SpinnerSteps spinner;
     private HouseSteps house;
-    private BaseAction baseAction;
     private FooterSteps footer;
     private AddDeviceSteps addDevice;
     private DeviceListSteps deviceList;
@@ -22,7 +25,6 @@ public class CreateNewHouseWifiTest extends BaseTest {
     public void beforeClass() {
         spinner = new SpinnerSteps(driver());
         house = new HouseSteps(driver());
-        baseAction = new BaseAction(driver());
         footer = new FooterSteps(driver());
         addDevice = new AddDeviceSteps(driver());
         deviceList = new DeviceListSteps(driver());
@@ -38,19 +40,19 @@ public class CreateNewHouseWifiTest extends BaseTest {
         house.checkCreateNewHouseScreen();
         house.clickHelpBtn();
         Thread.sleep(1000);
-        baseAction.pressBack();
+        baseAction.pressBackBtn();
         house.clickCreateHouseBtn();
         house.checkCreateNewHouseWithEmptyNameAlert();
         house.clickOkBtnError();
         house.clickEnterByInviteBtn();
-        baseAction.pressBack();
+        baseAction.pressBackHW();
         house.inputNewHouseName(Strings.HOUSE_NAME_WIFI);
         baseAction.hideKeyBoard();
         house.clickCreateHouseBtn();
         house.checkCompleteCreateNewHouseScreen();
         house.clickHelpBtn();
         Thread.sleep(1000);
-        baseAction.pressBack();
+        baseAction.pressBackBtn();
         house.clickContinueBtn();
         spinner.checkCurrentHouseWiFi();
         deviceList.checkNotAvailableDevicesText();
@@ -62,10 +64,10 @@ public class CreateNewHouseWifiTest extends BaseTest {
         spinner.checkCurrentHouseWiFi();
         addDevice.clickAddDeviceBtn();
         addDevice.checkAddDeviceGroupEmptyHouse();
-        baseAction.pressBack();
+        baseAction.pressBackBtn();
         spinner.clickSpinner();
         spinner.checkHouseListWiFi();
-        baseAction.pressBack();
+        baseAction.pressBackHW();
 
 
     }

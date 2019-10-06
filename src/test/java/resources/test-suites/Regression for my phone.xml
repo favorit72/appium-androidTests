@@ -2,6 +2,7 @@
 
 <suite name="Regression Test Suite for my phone">
     <test name="Regression Tests">
+        <parameter name="ID" value="8e659299" />
 
         <classes>
             <class name="javaTests.tests.IncorrectPasswordLoginTest" />

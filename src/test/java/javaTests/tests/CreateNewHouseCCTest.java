@@ -1,13 +1,13 @@
 package javaTests.tests;
 
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
 import javaTests.steps.AddDeviceSteps;
 import javaTests.steps.DeviceListSteps;
 import javaTests.steps.HouseSteps;
 import javaTests.steps.SpinnerSteps;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
-import utils.BaseAction;
 import utils.BaseTest;
 import utils.Listener.Listener;
 import utils.data.Strings;
@@ -17,7 +17,6 @@ import utils.data.Strings;
 public class CreateNewHouseCCTest extends BaseTest {
     private SpinnerSteps spinner;
     private HouseSteps house;
-    private BaseAction baseAction;
     private AddDeviceSteps addDevice;
     private DeviceListSteps deviceList;
 
@@ -25,7 +24,6 @@ public class CreateNewHouseCCTest extends BaseTest {
     public void beforeClass() {
         spinner = new SpinnerSteps(driver());
         house = new HouseSteps(driver());
-        baseAction = new BaseAction(driver());
         addDevice = new AddDeviceSteps(driver());
         deviceList = new DeviceListSteps(driver());
     }
@@ -40,22 +38,22 @@ public class CreateNewHouseCCTest extends BaseTest {
         house.checkCreateNewHouseScreen();
         house.clickHelpBtn();
         Thread.sleep(1000);
-        baseAction.pressBack();
+        baseAction.pressBackBtn();
         house.clickCreateHouseBtn();
         house.checkCreateNewHouseWithEmptyNameAlert();
         house.clickOkBtnError();
         house.clickEnterByInviteBtn();
-        baseAction.pressBack();
+        baseAction.pressBackHW();
         house.inputNewHouseName(Strings.HOUSE_NAME_CC);
         baseAction.hideKeyBoard();
         house.clickCreateHouseBtn();
         house.checkCompleteCreateNewHouseScreen();
         house.clickHelpBtn();
         Thread.sleep(1000);
-        baseAction.pressBack();
+        baseAction.pressBackBtn();
         house.clickGoToAddDevicesBtn();
         addDevice.checkAddDeviceGroupEmptyHouse();
-        baseAction.pressBack();
+        baseAction.pressBackBtn();
         spinner.checkCurrentHouseCC();
         deviceList.checkNotAvailableDevicesText();
         spinner.clickSpinner();

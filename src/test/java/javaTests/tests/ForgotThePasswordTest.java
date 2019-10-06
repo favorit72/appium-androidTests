@@ -1,11 +1,11 @@
 package javaTests.tests;
 
-import javaTests.pageObjects.MenuOptionsPage;
-import javaTests.steps.LoginSteps;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import utils.BaseAction;
+
+import javaTests.pageObjects.MenuOptionsPage;
+import javaTests.steps.LoginSteps;
 import utils.BaseTest;
 import utils.Listener.Listener;
 import utils.data.Strings;
@@ -14,13 +14,11 @@ import utils.data.Strings;
 public class ForgotThePasswordTest extends BaseTest {
     private LoginSteps login;
     private MenuOptionsPage menu;
-    private BaseAction baseAction;
 
     @BeforeClass
     public void beforeClass() {
         login = new LoginSteps(driver());
         menu = new MenuOptionsPage(driver());
-        baseAction = new BaseAction(driver());
     }
 
     @Test
@@ -40,7 +38,7 @@ public class ForgotThePasswordTest extends BaseTest {
         Thread.sleep(8000);
         baseAction.openNotification();
         String smsCode = login.getSmsCode();
-        baseAction.pressBack();
+        baseAction.pressBackHW();
         login.inputSmsCode(Strings.NOT_FULL_SMSCODE);
         login.authorizeBtnIsNotEnable();
         login.inputSmsCode(Strings.INCORRECT_SMSCODE);
