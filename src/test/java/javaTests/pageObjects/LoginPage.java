@@ -50,4 +50,7 @@ public class LoginPage extends DriverWait {
     @AndroidFindBy(id = "com.rubetek.client:id/privacyPolicy")
     public MobileElement privacyPolicy;
 
+    //other elements:
+    @AndroidFindBy(id = "com.rubetek.client:id/progress")
+    public MobileElement progressLoader;
 }

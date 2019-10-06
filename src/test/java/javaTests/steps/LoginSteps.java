@@ -1,9 +1,10 @@
 package javaTests.steps;
 
+import org.testng.Assert;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.LoginPage;
-import org.testng.Assert;
 import utils.BaseAction;
 
 public class LoginSteps {
@@ -143,7 +144,6 @@ public class LoginSteps {
         Assert.assertTrue(enable);
     }
 
-
     //Check text:
     @Step("Текст кнопки 'Начать пользоваться' присутствует")
     private void checkStartUsingBtnText() {
@@ -249,5 +249,10 @@ public class LoginSteps {
         smsCodeText = loginPage.waitForElementIsDisplayed(loginPage.smsTextCode).getText();
         smsCode = smsCodeText.substring(smsCodeText.length() - 4);
         return smsCode;
+    }
+
+    @Step("Лодер присутствует")
+    public void progressLoaderIsPresent() {
+        loginPage.waitForElementIsDisplayed(loginPage.progressLoader).isDisplayed();
     }
 }

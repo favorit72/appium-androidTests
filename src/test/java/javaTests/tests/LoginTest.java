@@ -39,6 +39,7 @@ public class LoginTest extends BaseTest {
         login.inputCorrectPassword(Strings.CORRECT_PASSWORD);
         login.authorizeBtnIsEnable();
         login.clickNextBtn();
+        login.progressLoaderIsPresent();
         menu.waitForElementIsDisplayed(menu.optionsBtn);
 
     }

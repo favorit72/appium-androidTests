@@ -49,6 +49,7 @@ public class ForgotThePasswordTest extends BaseTest {
         login.authorizeBtnIsNotEnable();
         login.inputNewPassword(Strings.CORRECT_PASSWORD);
         login.clickNextBtn();
+        login.progressLoaderIsPresent();
         menu.waitForElementIsDisplayed(menu.optionsBtn);
 
     }
