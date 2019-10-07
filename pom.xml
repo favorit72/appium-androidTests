@@ -112,7 +112,7 @@
                         <properties>
                             <property>
                                 <name>listener</name>
-                                <value>utils.listener.Listener</value>
+                                <value>utils.Listener.Listener</value>
                             </property>
                         </properties>
                         <suiteXmlFiles>
