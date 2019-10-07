@@ -4,7 +4,7 @@ import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
 import io.appium.java_client.android.AndroidDriver;
-import utils.Listener.Screenshot;
+import utils.listener.Screenshot;
 
 import static io.appium.java_client.remote.MobileCapabilityType.DEVICE_NAME;
 

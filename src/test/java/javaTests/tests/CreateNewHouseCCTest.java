@@ -9,8 +9,8 @@ import javaTests.steps.DeviceListSteps;
 import javaTests.steps.HouseSteps;
 import javaTests.steps.SpinnerSteps;
 import utils.BaseTest;
-import utils.Listener.Listener;
 import utils.data.Strings;
+import utils.listener.Listener;
 
 
 @Listeners(Listener.class)

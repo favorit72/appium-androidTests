@@ -14,8 +14,8 @@ import javaTests.steps.RoomSteps;
 import javaTests.steps.SmartConfigCommonScreenSteps;
 import javaTests.steps.SpinnerSteps;
 import utils.BaseTest;
-import utils.Listener.Listener;
 import utils.data.Strings;
+import utils.listener.Listener;
 
 @Listeners(Listener.class)
 public class AddSocketTest extends BaseTest {

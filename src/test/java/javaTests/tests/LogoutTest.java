@@ -9,7 +9,7 @@ import javaTests.steps.AppSettingsSteps;
 import javaTests.steps.MenuSteps;
 import javaTests.steps.UserAccountSteps;
 import utils.BaseTest;
-import utils.Listener.Listener;
+import utils.listener.Listener;
 
 
 @Listeners(Listener.class)

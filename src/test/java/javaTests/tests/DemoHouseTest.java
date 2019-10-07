@@ -1,15 +1,16 @@
 package javaTests.tests;
 
 
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
 import javaTests.steps.DemoSteps;
 import javaTests.steps.FooterSteps;
 import javaTests.steps.LoginSteps;
 import javaTests.steps.SecuritySteps;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
 import utils.BaseTest;
-import utils.Listener.Listener;
+import utils.listener.Listener;
 
 @Listeners(Listener.class)
 public class DemoHouseTest extends BaseTest {
