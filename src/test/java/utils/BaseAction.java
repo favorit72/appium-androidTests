@@ -1,11 +1,6 @@
 package utils;
 
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
-
-import java.time.Duration;
-
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -13,9 +8,11 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.offset.ElementOption;
-import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
-import javafx.geometry.HorizontalDirection;
+import org.openqa.selenium.By;
+
+import java.time.Duration;
+//import javafx.geometry.HorizontalDirection;
 
 public class BaseAction {
 
@@ -90,26 +87,26 @@ public class BaseAction {
         t.perform();
     }
 
-    @Step("Нажимаем на элемент и свайпаем в {direction} сторону {element}")
-    public void swipeFromElement(MobileElement element, HorizontalDirection direction) {
-        PointOption targetPointOption;
-        Point targetPoint;
-
-        if (direction == HorizontalDirection.LEFT) {
-            targetPointOption = new PointOption().withCoordinates(element.getRect().getWidth() - 1, element.getCenter().y);
-            targetPoint = new Point(1, element.getCenter().y);
-        } else {
-            targetPointOption = new PointOption().withCoordinates(1, element.getCenter().y);
-            targetPoint = new Point(element.getRect().width - 1, element.getCenter().y);
-        }
-        TouchAction t = new TouchAction(driver);
-        t.longPress(LongPressOptions
-                .longPressOptions()
-                //.withDuration(Duration.ofSeconds(4))
-                .withPosition(targetPointOption))
-                .moveTo(PointOption.point(targetPoint))
-                .release()
-                .perform();
-    }
+//    @Step("Нажимаем на элемент и свайпаем в {direction} сторону {element}")
+//    public void swipeFromElement(MobileElement element, HorizontalDirection direction) {
+//        PointOption targetPointOption;
+//        Point targetPoint;
+//
+//        if (direction == HorizontalDirection.LEFT) {
+//            targetPointOption = new PointOption().withCoordinates(element.getRect().getWidth() - 1, element.getCenter().y);
+//            targetPoint = new Point(1, element.getCenter().y);
+//        } else {
+//            targetPointOption = new PointOption().withCoordinates(1, element.getCenter().y);
+//            targetPoint = new Point(element.getRect().width - 1, element.getCenter().y);
+//        }
+//        TouchAction t = new TouchAction(driver);
+//        t.longPress(LongPressOptions
+//                .longPressOptions()
+//                //.withDuration(Duration.ofSeconds(4))
+//                .withPosition(targetPointOption))
+//                .moveTo(PointOption.point(targetPoint))
+//                .release()
+//                .perform();
+//    }
 
 }
