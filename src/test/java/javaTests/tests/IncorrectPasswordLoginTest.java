@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import javaTests.steps.LoginSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.data.Strings;
 import utils.listener.Listener;
 
@@ -19,7 +20,7 @@ public class IncorrectPasswordLoginTest extends BaseTest {
         login = new LoginSteps(driver());
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void IncorrectPasswordLogin() {
 
         System.out.println("Start Incorrect login/password Test");

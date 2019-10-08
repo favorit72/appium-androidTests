@@ -56,11 +56,13 @@ public class BaseTest {
         return androidDriver;
     }
 
-    public void startActivity(String appPackage, String activity) {
-        driver().startActivity(new Activity(appPackage, activity));
+    //как костыль для андроид 7+
+    public void reStartActivity() {
+        String activity = currentActivity();
+        driver().startActivity(new Activity(APP_PACKAGE, activity));
     }
 
-    public String currentActivity() {
+    private String currentActivity() {
         String currentActivity = null;
         while (currentActivity == null) {
             currentActivity = driver().currentActivity();

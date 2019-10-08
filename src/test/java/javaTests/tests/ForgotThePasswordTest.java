@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import javaTests.pageObjects.MenuOptionsPage;
 import javaTests.steps.LoginSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.data.Strings;
 import utils.listener.Listener;
 
@@ -21,10 +22,11 @@ public class ForgotThePasswordTest extends BaseTest {
         menu = new MenuOptionsPage(driver());
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void ForgotThePassword() throws InterruptedException {
 
         System.out.println("Start forgot the password Test");
+        baseAction.restartApp();
         login.checkStartScreen();
         login.clickStartUsingBtn();
         login.checkInputLoginScreen();

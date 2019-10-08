@@ -9,6 +9,7 @@ import javaTests.steps.AppSettingsSteps;
 import javaTests.steps.MenuSteps;
 import javaTests.steps.UserAccountSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.listener.Listener;
 
 
@@ -27,10 +28,11 @@ public class LogoutTest extends BaseTest {
         userAccount = new UserAccountSteps(driver());
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void Logout() {
 
         System.out.println("Start Logout Test");
+        baseAction.restartApp();
         menu.clickOptionsBtn();
         menu.checkMenuElements();
         menu.clickAppSettingsBtn();
@@ -40,7 +42,8 @@ public class LogoutTest extends BaseTest {
         userAccount.clickLogOutBtn();
         userAccount.checkLogoutAlert();
         userAccount.clickCancelLogout();
-        userAccount.checkUserAccountScreen();
+        baseAction.restartApp();
+        appSettings.clickUserAccount();
         userAccount.clickLogOutBtn();
         userAccount.checkLogoutAlert();
         userAccount.clickConfirmLogout();

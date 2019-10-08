@@ -9,6 +9,7 @@ import javaTests.steps.DeviceListSteps;
 import javaTests.steps.HouseSteps;
 import javaTests.steps.SpinnerSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.data.Strings;
 import utils.listener.Listener;
 
@@ -28,10 +29,11 @@ public class CreateNewHouseCCTest extends BaseTest {
         deviceList = new DeviceListSteps(driver());
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void createNewHouseTest() throws InterruptedException {
 
         System.out.println("Create new house for CC");
+        baseAction.restartApp();
         spinner.clickSpinner();
         spinner.checkEnterByInviteText();
         spinner.clickCreateNewHouseBtn();

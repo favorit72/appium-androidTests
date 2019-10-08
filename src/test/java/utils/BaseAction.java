@@ -125,4 +125,10 @@ public class BaseAction {
                 .perform();
     }
 
+    @Step("Перезапускаем приложение")
+    //также костыль для андроид 7+ и для ретрай
+    public void restartApp() {
+        driver.runAppInBackground(Duration.ofMillis(500));
+    }
+
 }

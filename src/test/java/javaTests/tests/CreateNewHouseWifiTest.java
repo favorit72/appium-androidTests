@@ -10,6 +10,7 @@ import javaTests.steps.FooterSteps;
 import javaTests.steps.HouseSteps;
 import javaTests.steps.SpinnerSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.data.Strings;
 import utils.listener.Listener;
 
@@ -30,10 +31,11 @@ public class CreateNewHouseWifiTest extends BaseTest {
         deviceList = new DeviceListSteps(driver());
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void createNewHouseWifi() throws InterruptedException {
 
         System.out.println("Create new house for WIFI");
+        baseAction.restartApp();
         spinner.clickSpinner();
         spinner.checkEnterByInviteText();
         spinner.clickCreateNewHouseBtn();
