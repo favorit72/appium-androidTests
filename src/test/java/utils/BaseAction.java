@@ -16,6 +16,10 @@ import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
 
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.PointOption.point;
+import static java.time.Duration.ofMillis;
+
 public class BaseAction {
 
     private AndroidDriver driver;
@@ -123,6 +127,14 @@ public class BaseAction {
                 .moveTo(PointOption.point(targetPoint))
                 .release()
                 .perform();
+    }
+
+    @Step
+    public void swipeByCoordinates(int from_X, int from_Y, int to_X, int to_Y) {
+        TouchAction touchAction;
+
+        touchAction = new TouchAction(driver);
+        touchAction.press(point(from_X, from_Y)).waitAction(waitOptions(ofMillis(1000))).moveTo(point(to_X, to_Y)).release().perform();
     }
 
     @Step("Перезапускаем приложение")

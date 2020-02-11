@@ -1,9 +1,10 @@
 package javaTests.steps;
 
+import org.testng.Assert;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 import javaTests.pageObjects.SmartConfigScreenPage;
-import org.testng.Assert;
 import utils.data.Strings;
 
 public class AddDeviceSmartConfigSteps {
@@ -14,6 +15,7 @@ public class AddDeviceSmartConfigSteps {
         smartConfigScreenPage = new SmartConfigScreenPage(androidDriver);
     }
 
+    //Check Screen:
     @Step("Проверяем элементы экрана подготовки розетки к смартконфигу")
     public void checkPrepareSocketSmartConfigScreen() throws InterruptedException {
         checkViewBtnIsNotEnable();
@@ -43,17 +45,17 @@ public class AddDeviceSmartConfigSteps {
     }
 
     //Click:
-    @Step("Нажимаем кнопку 'Вижу'")
+    @Step("Нажимаем кнопку \"Вижу\"")
     public void clickViewBtn() {
         smartConfigScreenPage.waitForElementToClick(smartConfigScreenPage.viewBtn).click();
     }
 
-    @Step("Нажимаем на кнопку далее после успешного смартконфига")
+    @Step("Нажимаем на кнопку \"далее\" после успешного смартконфига")
     public void clickNextBtnAfterSmartConfig() {
         smartConfigScreenPage.waitForElementToClick(smartConfigScreenPage.completeAddDeviceBySmartConfig).click();
     }
 
-    @Step("Нажимаем на справку")
+    @Step("Нажимаем на кнопку справки \"справку\"")
     public void clickHelpBtn() throws InterruptedException {
         smartConfigScreenPage.waitForElementToClick(smartConfigScreenPage.helpBtn).click();
         Thread.sleep(2000);
@@ -90,19 +92,19 @@ public class AddDeviceSmartConfigSteps {
         Assert.assertEquals(defaultName, Strings.DEFAULT_DEVICE_NAME_SOCKET);
     }
 
-    @Step("Текст кнопки 'вижу' присуствует на кнопке")
+    @Step("Текст кнопки \"вижу\" присуствует на кнопке")
     private void checkViewBtnText() {
         String textBtn = smartConfigScreenPage.waitForElementIsDisplayed(smartConfigScreenPage.viewBtn).getText();
         Assert.assertEquals(textBtn, "Вижу");
     }
 
-    @Step("Заголовок 'Подключение' присуствует на экране смартконфига устройств")
+    @Step("Заголовок \"Подключение\" присуствует на экране смартконфига устройств")
     private void checkPrepareDeviceSmartConfigTitle() {
         String title = smartConfigScreenPage.waitForElementIsDisplayed(smartConfigScreenPage.smartConfigTitle).getText();
         Assert.assertEquals(title, "Подключение");
     }
 
-    @Step("Заголовок 'Подключено устройство' присутствует при успешносм смартконфиге")
+    @Step("Заголовок \"Подключено устройство\" присутствует при успешносм смартконфиге")
     private void checkCompleteOfSmartConfigTitle() {
         String title = smartConfigScreenPage.waitForElementIsDisplayed(smartConfigScreenPage.smartConfigTitle).getText();
         Assert.assertEquals(title, "Подключено устройство");
@@ -114,27 +116,27 @@ public class AddDeviceSmartConfigSteps {
         Assert.assertEquals(description, "Придумайте название для устройства");
     }
 
-    @Step("Текст присутствует на кнопке 'далее'")
+    @Step("Текст присутствует на кнопке \"далее\"")
     private void checkNextBtnText() {
         String textBtn = smartConfigScreenPage.waitForElementIsDisplayed(smartConfigScreenPage.completeAddDeviceBySmartConfig).getText();
         Assert.assertEquals(textBtn, "Далее");
     }
 
     //Other checks:
-    @Step("Кнопка 'Вижу' не доступна")
+    @Step("Кнопка \"Вижу\" не доступна")
     public void checkViewBtnIsNotEnable() {
         boolean enable = smartConfigScreenPage.waitForElementIsDisplayed(smartConfigScreenPage.viewBtn).isEnabled();
         Assert.assertFalse(enable);
     }
 
-    @Step("Кнопка 'Вижу' доступна")
+    @Step("Кнопка \"Вижу\" доступна")
     private void checkViewBtnIsEnable() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         boolean enable = smartConfigScreenPage.waitForElementIsDisplayed(smartConfigScreenPage.viewBtn).isEnabled();
         Assert.assertTrue(enable);
     }
 
-    @Step("Кнопка назад присутствует")
+    @Step("Кнопка \"назад\" присутствует")
     private void checkBackBtn() {
         smartConfigScreenPage.waitForElementToClick(smartConfigScreenPage.backBtn).isDisplayed();
         smartConfigScreenPage.backBtn.isEnabled();

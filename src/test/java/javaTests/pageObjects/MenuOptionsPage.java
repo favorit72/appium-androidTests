@@ -12,8 +12,8 @@ public class MenuOptionsPage extends DriverWait {
 
     @AndroidFindBy(xpath = "//*[@content-desc='Ещё' or @content-desc='Другие параметры']")
     public MobileElement optionsBtn;
-    @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/title' and @text='Настройки дома']")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.XXX.client:id/title' and @text='Настройки дома']")
     public MobileElement houseSettingsBtn;
-    @AndroidFindBy(xpath = "//*[@resource-id='com.rubetek.client:id/title' and @text='Настройки приложения']")
+    @AndroidFindBy(xpath = "//*[@resource-id='com.XXX.client:id/title' and @text='Настройки приложения']")
     public MobileElement appSettingsBtn;
 }

@@ -22,8 +22,8 @@ public class BaseTest {
     private static final String APPIUM_SERVER_URL = "http://localhost:4723/wd/hub";
     private final Logger logger = LoggerFactory.getLogger(BaseTest.class);
     private AndroidDriver androidDriver;
-    private final static String APP_PACKAGE = "com.rubetek.client";
-    private final static String APP_ACTIVITY = "com.rubetek.client.ui.splash.SplashActivity";
+    private final static String APP_PACKAGE = "com.XXX.client";
+    private final static String APP_ACTIVITY = "com.XXX.client.ui.splash.SplashActivity";
     private final static String PLATFORM = "ANDROID";
     private final static int IMPLICITLY_WAIT = 20;
     private final static int COMMAND_TIMEOUT = 10;

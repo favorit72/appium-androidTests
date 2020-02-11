@@ -3,21 +3,21 @@
 <suite name="Smoke Test Suite" parallel="true">
     <test name="Smoke Tests">
         <classes>
-            <class name="com.rubetek.tests.FeatureATest">
-                <methods>
-                    <include name="testA1"/>
-                </methods>
-            </class>
-            <!-- <class name="com.rubetek.tests.StartTestt">
-                <methods>
-                    <include name="Login"/>
-                </methods>
-            </class> -->
-            <class name="com.rubetek.tests.FeatureBTest">
-                <methods>
-                    <include name="testB1"/>
-                </methods>
-            </class>
+            <!--            <class name="com.XXX.tests.FeatureATest">-->
+            <!--                <methods>-->
+            <!--                    <include name="testA1"/>-->
+            <!--                </methods>-->
+            <!--            </class>-->
+            <!--            &lt;!&ndash; <class name="com.XXX.tests.StartTestt">-->
+            <!--                <methods>-->
+            <!--                    <include name="Login"/>-->
+            <!--                </methods>-->
+            <!--            </class> &ndash;&gt;-->
+            <!--            <class name="com.XXX.tests.FeatureBTest">-->
+            <!--                <methods>-->
+            <!--                    <include name="testB1"/>-->
+            <!--                </methods>-->
+            <!--            </class>-->
         </classes>
     </test>
 </suite>

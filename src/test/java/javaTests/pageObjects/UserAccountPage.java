@@ -12,20 +12,20 @@ public class UserAccountPage extends DriverWait {
     }
 
     //Click:
-    @AndroidFindBy(id = "com.rubetek.client:id/logOut")
+    @AndroidFindBy(id = "com.XXX.client:id/logOut")
     public MobileElement logOutBtn;
     @AndroidFindBy(id = "android:id/button1")
     public MobileElement confirmLogoutBth;
     @AndroidFindBy(id = "android:id/button2")
     public MobileElement cancelLogoutBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/resetPassword")
+    @AndroidFindBy(id = "com.XXX.client:id/resetPassword")
     public MobileElement resetPasswordBth;
     @AndroidFindBy(xpath = "//*[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
     //Text:
-    @AndroidFindBy(id = "com.rubetek.client:id/toolbar_title")
+    @AndroidFindBy(id = "com.XXX.client:id/toolbar_title")
     public MobileElement userAccountTitle;
-    @AndroidFindBy(id = "com.rubetek.client:id/alertTitle")
+    @AndroidFindBy(id = "com.XXX.client:id/alertTitle")
     public MobileElement alertLogoutTitle;
     @AndroidFindBy(id = "android:id/message")
     public MobileElement messageAlertLogout;
