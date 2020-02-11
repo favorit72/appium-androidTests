@@ -14,6 +14,7 @@ import javaTests.steps.RoomSteps;
 import javaTests.steps.SmartConfigCommonScreenSteps;
 import javaTests.steps.SpinnerSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.data.Strings;
 import utils.listener.Listener;
 
@@ -43,10 +44,11 @@ public class AddSocketTest extends BaseTest {
         footer = new FooterPage(driver());
     }
 
-    @Test()
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void addWifiSocket() throws InterruptedException {
 
         System.out.println("Start test add socket");
+        baseAction.restartApp();
         house.chooseWifiHouse();
         spinner.checkCurrentHouseWiFi();
         deviceList.checkNotAvailableDevicesText();
@@ -69,10 +71,6 @@ public class AddSocketTest extends BaseTest {
         //long wait for complete of smartConfig
         smartConfig.checkScreenAfterSmartConfig();
         smartConfig.clickNextBtnAfterSmartConfig();
-        room.checkChooseRoomScreen();
-        room.clickCreateNewRoomBtn();
-        room.checkCreateNewRoomWindow();
-        room.clickCancelCreateNewRoom();
         room.checkChooseRoomScreen();
         room.clickCreateNewRoomBtn();
         room.checkCreateNewRoomWindow();

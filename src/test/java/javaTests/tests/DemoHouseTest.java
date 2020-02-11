@@ -10,13 +10,11 @@ import javaTests.steps.FooterSteps;
 import javaTests.steps.LoginSteps;
 import javaTests.steps.SecuritySteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.listener.Listener;
 
 @Listeners(Listener.class)
 public class DemoHouseTest extends BaseTest {
-    /**
-     * Аппиум не видит измения текста элемента статуса охраны
-     */
 
     private SecuritySteps security;
     private LoginSteps login;
@@ -31,14 +29,17 @@ public class DemoHouseTest extends BaseTest {
         security = new SecuritySteps(driver());
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void demoHouse() throws InterruptedException {
+
         System.out.println("Start Demo Test");
+        baseAction.restartApp();
         login.checkDemoBtnText();
         login.startUsingBtnIsEnable();
         demo.clickDemoButton();
         demo.checkDemoHouseNameText();
         demo.checkCloseDemoBtnText();
+        //Аппиум не видит измения текста статуса охраны
         security.checkSecurityStatusOff();
         security.securityModeOn();
         footer.clickScenarios();
@@ -48,5 +49,6 @@ public class DemoHouseTest extends BaseTest {
         footer.clickDeviceList();
         footer.clickDeviceList();
         //TODO зачаток демо теста
+
     }
 }

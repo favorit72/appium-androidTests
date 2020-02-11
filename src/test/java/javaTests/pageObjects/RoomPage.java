@@ -12,21 +12,21 @@ public class RoomPage extends DriverWait {
     }
 
     //Text:
-    @AndroidFindBy(id = "com.rubetek.client:id/toolbar_title")
+    @AndroidFindBy(id = "com.XXX.client:id/toolbar_title")
     public MobileElement chooseRoomTitle;
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.rubetek.client:id/checkImg']/parent::android.widget.LinearLayout/android.widget.TextView")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.XXX.client:id/checkImg']/parent::android.widget.LinearLayout/android.widget.TextView")
     public MobileElement currentRoom;
-    @AndroidFindBy(id = "com.rubetek.client:id/alertTitle")
+    @AndroidFindBy(id = "com.XXX.client:id/alertTitle")
     public MobileElement createNewRoomTitle;
-    @AndroidFindBy(xpath = "//*[resource-id='com.rubetek.client:id/tv_header' and @text='Wi-fi room']")
+    @AndroidFindBy(xpath = "//*[resource-id='com.XXX.client:id/tv_header' and @text='Wi-fi room']")
     public MobileElement roomWifi;
-    @AndroidFindBy(xpath = "//*[resource-id='com.rubetek.client:id/tv_header' and @text='Без комнаты']")
+    @AndroidFindBy(xpath = "//*[resource-id='com.XXX.client:id/tv_header' and @text='Без комнаты']")
     public MobileElement roomWithoutRoom;
 
     //Button:
-    @AndroidFindBy(id = "com.rubetek.client:id/fab")
+    @AndroidFindBy(id = "com.XXX.client:id/fab")
     public MobileElement createNewRoomBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/checkImg")
+    @AndroidFindBy(id = "com.XXX.client:id/checkImg")
     public MobileElement selectorRoom;
     @AndroidFindBy(id = "android:id/button1")
     public MobileElement confirmCreateNewRoomBtn;
@@ -36,7 +36,7 @@ public class RoomPage extends DriverWait {
     public MobileElement backBtn;
 
     //Field:
-    @AndroidFindBy(id = "com.rubetek.client:id/dialog_editText")
+    @AndroidFindBy(id = "com.XXX.client:id/dialog_editText")
     public MobileElement newRoomNameField;
 
 }

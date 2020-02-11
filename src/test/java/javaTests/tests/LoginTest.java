@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import javaTests.pageObjects.MenuOptionsPage;
 import javaTests.steps.LoginSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.data.Strings;
 import utils.listener.Listener;
 
@@ -22,10 +23,11 @@ public class LoginTest extends BaseTest {
         menu = new MenuOptionsPage(driver());
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void Login() {
 
         System.out.println("Start Login Test");
+        baseAction.restartApp();
         login.checkStartScreen();
         login.clickStartUsingBtn();
         login.checkInputLoginScreen();

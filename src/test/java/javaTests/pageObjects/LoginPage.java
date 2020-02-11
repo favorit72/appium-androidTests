@@ -11,46 +11,46 @@ public class LoginPage extends DriverWait {
     }
 
     //Button:
-    @AndroidFindBy(id = "com.rubetek.client:id/signIn")
+    @AndroidFindBy(id = "com.XXX.client:id/signIn")
     public MobileElement startUsingBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/authorizeButton")
+    @AndroidFindBy(id = "com.XXX.client:id/authorizeButton")
     public MobileElement nextButton;
-    @AndroidFindBy(id = "com.rubetek.client:id/tvForgottenPassword")
+    @AndroidFindBy(id = "com.XXX.client:id/tvForgottenPassword")
     public MobileElement forgotThePasswordBtn;
     @AndroidFindBy(xpath = "//*[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
 
     //Field:
-    @AndroidFindBy(id = "com.rubetek.client:id/etPhone")
+    @AndroidFindBy(id = "com.XXX.client:id/etPhone")
     public MobileElement phoneField;
-    @AndroidFindBy(id = "com.rubetek.client:id/etPassword")
+    @AndroidFindBy(id = "com.XXX.client:id/etPassword")
     public MobileElement passwordField;
-    @AndroidFindBy(id = "com.rubetek.client:id/etCode")
+    @AndroidFindBy(id = "com.XXX.client:id/etCode")
     public MobileElement smsCodeField;
 
     //Text:
-    @AndroidFindBy(id = "com.rubetek.client:id/tvPhoneTitle")
+    @AndroidFindBy(id = "com.XXX.client:id/tvPhoneTitle")
     public MobileElement subTitle;
-    @AndroidFindBy(id = "com.rubetek.client:id/phoneSubtext")
+    @AndroidFindBy(id = "com.XXX.client:id/phoneSubtext")
     public MobileElement loginDescription;
     @AndroidFindBy(id = "android:id/text")
     public MobileElement smsTextCode;
-    @AndroidFindBy(id = "com.rubetek.client:id/snackbar_text")
+    @AndroidFindBy(id = "com.XXX.client:id/snackbar_text")
     public MobileElement snackbar;
-    @AndroidFindBy(id = "com.rubetek.client:id/checkCodeDesc")
+    @AndroidFindBy(id = "com.XXX.client:id/checkCodeDesc")
     public MobileElement smsCodeSubTitle;
-    @AndroidFindBy(id = "com.rubetek.client:id/codeSubtext")
+    @AndroidFindBy(id = "com.XXX.client:id/codeSubtext")
     public MobileElement subTextSmsCode;
-    @AndroidFindBy(id = "com.rubetek.client:id/tvPasswordTitle")
+    @AndroidFindBy(id = "com.XXX.client:id/tvPasswordTitle")
     public MobileElement createNewPasswordSubTitle;
-    @AndroidFindBy(id = "com.rubetek.client:id/countryCode")
+    @AndroidFindBy(id = "com.XXX.client:id/countryCode")
     public MobileElement phonePrefix;
-    @AndroidFindBy(id = "com.rubetek.client:id/btn_demo")
+    @AndroidFindBy(id = "com.XXX.client:id/btn_demo")
     public MobileElement demoMode;
-    @AndroidFindBy(id = "com.rubetek.client:id/privacyPolicy")
+    @AndroidFindBy(id = "com.XXX.client:id/privacyPolicy")
     public MobileElement privacyPolicy;
 
     //other elements:
-    @AndroidFindBy(id = "com.rubetek.client:id/progress")
+    @AndroidFindBy(id = "com.XXX.client:id/progress")
     public MobileElement progressLoader;
 }

@@ -12,15 +12,15 @@ public class AddDevicePage extends DriverWait {
     }
 
     //Button:
-    @AndroidFindBy(id = "com.rubetek.client:id/fab")
+    @AndroidFindBy(id = "com.XXX.client:id/fab")
     public MobileElement addDeviceBtn;
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/btn_check")
+    @AndroidFindBy(id = "com.XXX.client:id/btn_check")
     public MobileElement nextBtn;
 
     //Text:
-    @AndroidFindBy(id = "com.rubetek.client:id/toolbar_title")
+    @AndroidFindBy(id = "com.XXX.client:id/toolbar_title")
     public MobileElement addDeviceScreenTitle;
 
     //Expandable list:

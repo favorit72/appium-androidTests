@@ -8,6 +8,7 @@ import javaTests.steps.FooterSteps;
 import javaTests.steps.HouseSteps;
 import javaTests.steps.SpinnerSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.listener.Listener;
 
 @Listeners(Listener.class)
@@ -23,9 +24,11 @@ public class EnterByInviteTest extends BaseTest {
         footer = new FooterSteps(driver());
     }
 
-    @Test()
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void EnterByInvite() throws InterruptedException {
 
+        System.out.println("Start test Enter by invite");
+        baseAction.restartApp();
         spinner.clickSpinner();
         spinner.clickEnterByInviteBtn();
         System.out.println("::: WAIT FOR USER SCAN QR :::");

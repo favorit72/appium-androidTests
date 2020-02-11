@@ -11,17 +11,17 @@ public class HousePage extends DriverWait {
     }
 
     //Button:
-    @AndroidFindBy(id = "com.rubetek.client:id/action_help")
+    @AndroidFindBy(id = "com.XXX.client:id/action_help")
     public MobileElement helpBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/createHouse")
+    @AndroidFindBy(id = "com.XXX.client:id/createHouse")
     public MobileElement createHouseBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/inviteHouse")
+    @AndroidFindBy(id = "com.XXX.client:id/inviteHouse")
     public MobileElement enterByInviteBtn2;
     @AndroidFindBy(id = "android:id/button1")
     public MobileElement okButton;
-    @AndroidFindBy(id = "com.rubetek.client:id/addDevices")
+    @AndroidFindBy(id = "com.XXX.client:id/addDevices")
     public MobileElement goToAddDevicesBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/continueBtn")
+    @AndroidFindBy(id = "com.XXX.client:id/continueBtn")
     public MobileElement continueBtn;
     @AndroidFindBy(xpath = "//*[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
@@ -29,15 +29,15 @@ public class HousePage extends DriverWait {
     public MobileElement deleteHouseCancelBtn;
     @AndroidFindBy(id = "android:id/button1")
     public MobileElement deleteHouseOkBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/open_house")
+    @AndroidFindBy(id = "com.XXX.client:id/open_house")
     public MobileElement goToUseHouseAfterInvite;
 
     //Field:
-    @AndroidFindBy(id = "com.rubetek.client:id/houseName")
+    @AndroidFindBy(id = "com.XXX.client:id/houseName")
     public MobileElement newHouseNameField;
 
     //Text:
-    @AndroidFindBy(id = "com.rubetek.client:id/toolbar_title")
+    @AndroidFindBy(id = "com.XXX.client:id/toolbar_title")
     public MobileElement createNewHouseTitle;
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Выбранное название')]")
     public MobileElement newHouseNameDescription;
@@ -49,13 +49,13 @@ public class HousePage extends DriverWait {
     public MobileElement completeCreateHouseDescription;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Устройств пока нет']")
     public MobileElement notAvailableDevices;
-    @AndroidFindBy(id = "com.rubetek.client:id/alertTitle")
+    @AndroidFindBy(id = "com.XXX.client:id/alertTitle")
     public MobileElement deleteHouseTitle;
     @AndroidFindBy(id = "android:id/message")
     public MobileElement deleteHouseDescription;
-    @AndroidFindBy(id = "com.rubetek.client:id/progressBar2")
+    @AndroidFindBy(id = "com.XXX.client:id/progressBar2")
     public MobileElement progressBarDuringEnterByInvite;
-    @AndroidFindBy(id = "com.rubetek.client:id/textView5")
+    @AndroidFindBy(id = "com.XXX.client:id/textView5")
     public MobileElement messageDuringEnterByInvite;
 
 }

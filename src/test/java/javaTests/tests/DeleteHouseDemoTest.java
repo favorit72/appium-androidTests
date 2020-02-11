@@ -8,6 +8,7 @@ import javaTests.steps.FooterSteps;
 import javaTests.steps.HouseSteps;
 import javaTests.steps.SpinnerSteps;
 import utils.BaseTest;
+import utils.RetryAnalyzerCount;
 import utils.listener.Listener;
 
 @Listeners(Listener.class)
@@ -23,15 +24,18 @@ public class DeleteHouseDemoTest extends BaseTest {
         house = new HouseSteps(driver());
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzerCount.class)
     public void DeleteHouse() throws InterruptedException {
 
         System.out.println("Start test delete house");
+        baseAction.restartApp();
         footer.clickDeviceList();
         spinner.clickSpinner();
         spinner.clickDeleteHouseDemo();
         house.checkDeleteHouseAlert();
         house.clickDeleteHouseAlertCancelBtn();
+        baseAction.restartApp();
+        spinner.clickSpinner();
         spinner.clickDeleteHouseDemo();
         house.checkDeleteHouseAlert();
         house.clickDeleteHouseAlertOkBtn();

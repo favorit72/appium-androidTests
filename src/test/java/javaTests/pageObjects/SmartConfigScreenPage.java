@@ -12,41 +12,41 @@ public class SmartConfigScreenPage extends DriverWait {
     }
 
     //Button:
-    @AndroidFindBy(id = "com.rubetek.client:id/completeBtn")
+    @AndroidFindBy(id = "com.XXX.client:id/completeBtn")
     public MobileElement completeAddDeviceBySmartConfig;
     @AndroidFindBy(xpath = "//*[@content-desc='Перейти вверх']")
     public MobileElement backBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/btn")
+    @AndroidFindBy(id = "com.XXX.client:id/btn")
     public MobileElement viewBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/btn_check")
+    @AndroidFindBy(id = "com.XXX.client:id/btn_check")
     public MobileElement nextBtn;
-    @AndroidFindBy(id = "com.rubetek.client:id/menu_help")
+    @AndroidFindBy(id = "com.XXX.client:id/menu_help")
     public MobileElement helpBtn;
 
     //Element:
-    @AndroidFindBy(id = "com.rubetek.client:id/progress")
+    @AndroidFindBy(id = "com.XXX.client:id/progress")
     public MobileElement progressLoader;
 
     //Field:
-    @AndroidFindBy(id = "com.rubetek.client:id/password")
+    @AndroidFindBy(id = "com.XXX.client:id/password")
     public MobileElement smartConfigPasswordField;
-    @AndroidFindBy(id = "com.rubetek.client:id/ssid")
+    @AndroidFindBy(id = "com.XXX.client:id/ssid")
     public MobileElement smartConfigSSID;
-    @AndroidFindBy(id = "com.rubetek.client:id/deviceName")
+    @AndroidFindBy(id = "com.XXX.client:id/deviceName")
     public MobileElement defaultDeviceNameAfterSmartConfigField;
 
     //Text:
-    @AndroidFindBy(id = "com.rubetek.client:id/tv1")
+    @AndroidFindBy(id = "com.XXX.client:id/tv1")
     public MobileElement smartConfigSubTitle;
-    @AndroidFindBy(id = "com.rubetek.client:id/tv2")
+    @AndroidFindBy(id = "com.XXX.client:id/tv2")
     public MobileElement smartConfigDescriptionText;
-    @AndroidFindBy(id = "com.rubetek.client:id/toolbar_title")
+    @AndroidFindBy(id = "com.XXX.client:id/toolbar_title")
     public MobileElement smartConfigTitle;
-    @AndroidFindBy(id = "com.rubetek.client:id/helpInfo")
+    @AndroidFindBy(id = "com.XXX.client:id/helpInfo")
     public MobileElement deviceNameAfterSmartConfigDescription;
-    @AndroidFindBy(id = "com.rubetek.client:id/tv_title")
+    @AndroidFindBy(id = "com.XXX.client:id/tv_title")
     public MobileElement prepareDeviceSmartConfigTitle;
-    @AndroidFindBy(id = "com.rubetek.client:id/tv_note")
+    @AndroidFindBy(id = "com.XXX.client:id/tv_note")
     public MobileElement prepareDeviceSmartConfigDescription;
 
 }

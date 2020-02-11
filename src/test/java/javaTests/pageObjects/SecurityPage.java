@@ -12,9 +12,9 @@ public class SecurityPage extends DriverWait {
     }
 
     //BUTTONS:
-    @AndroidFindBy(id = "com.rubetek.client:id/security")
+    @AndroidFindBy(id = "com.XXX.client:id/security")
     public MobileElement securityModeBtn;
     //TEXTS:
-    @AndroidFindBy(id = "com.rubetek.client:id/name")
+    @AndroidFindBy(id = "com.XXX.client:id/name")
     public MobileElement securityStatus;
 }
